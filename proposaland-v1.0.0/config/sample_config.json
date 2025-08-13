@@ -1,0 +1,103 @@
+{
+  "email": {
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "your-email@gmail.com",
+    "sender_password": "your-app-specific-password",
+    "recipient_email": "majalemaja@pm.me"
+  },
+  "scheduler": {
+    "daily_time": "09:00",
+    "timezone": "UTC",
+    "max_retries": 3,
+    "retry_delay_minutes": 30
+  },
+  "keywords": {
+    "primary": [
+      "video", "photo", "film", "multimedia", "design", "visual",
+      "campaign", "podcasts", "virtual event", "media", "animation",
+      "promotion", "communication", "audiovisual"
+    ],
+    "secondary": [
+      "creative", "content", "digital", "marketing", "branding",
+      "graphics", "illustration", "documentary", "photography"
+    ],
+    "weights": {
+      "primary": 1.0,
+      "secondary": 0.7
+    },
+    "minimum_matches": 1
+  },
+  "geographic_filters": {
+    "excluded_countries": [
+      "India", "Pakistan", "China", "Bangladesh", "Sri Lanka", "Myanmar"
+    ],
+    "excluded_keywords": [
+      "local company", "national only", "domestic only"
+    ],
+    "preferred_regions": [
+      "Africa", "Latin America", "Eastern Europe", "Central Asia", "Nepal"
+    ]
+  },
+  "budget_filters": {
+    "min_budget": 5000,
+    "max_budget": 500000,
+    "currency": "USD"
+  },
+  "scoring": {
+    "weights": {
+      "keyword_relevance": 0.40,
+      "budget_range": 0.25,
+      "deadline_urgency": 0.20,
+      "geographic_preference": 0.15
+    },
+    "thresholds": {
+      "critical": 0.80,
+      "high": 0.65,
+      "medium": 0.45,
+      "low": 0.25
+    }
+  },
+  "target_websites": {
+    "high_priority": [
+      {
+        "name": "Devex",
+        "url": "https://www.devex.com/funding-search",
+        "scraper_type": "devex",
+        "update_frequency": "daily"
+      },
+      {
+        "name": "UNDP",
+        "url": "https://procurement-notices.undp.org/search.cfm",
+        "scraper_type": "undp",
+        "update_frequency": "daily"
+      },
+      {
+        "name": "World Bank",
+        "url": "https://projects.worldbank.org/en/projects-operations/procurement",
+        "scraper_type": "worldbank",
+        "update_frequency": "daily"
+      }
+    ],
+    "medium_priority": [
+      {
+        "name": "UNGM",
+        "url": "https://www.ungm.org/Account/Inbox",
+        "scraper_type": "ungm",
+        "update_frequency": "daily"
+      },
+      {
+        "name": "Global Fund",
+        "url": "https://www.theglobalfund.org/en/business-opportunities/",
+        "scraper_type": "globalfund",
+        "update_frequency": "daily"
+      }
+    ]
+  },
+  "performance": {
+    "max_concurrent_scrapers": 5,
+    "request_timeout": 30,
+    "retry_attempts": 3,
+    "delay_between_requests": 1.0
+  }
+}

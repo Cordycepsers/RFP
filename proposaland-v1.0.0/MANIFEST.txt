@@ -1,0 +1,78 @@
+Proposaland Opportunity Monitoring System v1.0.0
+Package created: Wed Aug 13 16:10:35 EDT 2025
+Package ID: proposaland-v1.0.0-20250813-161035
+
+CONTENTS:
+========
+
+Core System:
+- scheduler.py                    # Main scheduling system
+- proposaland_monitor.py         # Core monitoring logic  
+- reference_number_extractor.py  # Reference number extraction
+- test_system.py                 # System testing suite
+- requirements.txt               # Python dependencies
+- install.sh                     # Installation script
+
+Configuration:
+- config/proposaland_config.json # Main configuration
+- config/sample_config.json      # Sample configuration
+
+Source Code:
+- src/scrapers/                  # Website scrapers
+- src/filters/                   # Filtering and scoring
+- src/outputs/                   # Excel and JSON generation
+- src/notifications/             # Email notifications
+
+Management Scripts:
+- scripts/start_proposaland.sh   # Start system
+- scripts/stop_proposaland.sh    # Stop system
+- scripts/proposaland_status.sh  # Status and maintenance
+
+Documentation:
+- README.md                      # Main documentation
+- DEPLOYMENT.md                  # Quick deployment guide
+- docs/INSTALLATION.md           # Detailed installation
+- docs/TROUBLESHOOTING.md        # Troubleshooting guide
+- docs/ARCHITECTURE.md           # System architecture
+
+Directories:
+- logs/                          # Log files (empty)
+- output/                        # Generated files (empty)
+- data/                          # Analysis data
+
+FEATURES:
+=========
+- Automated daily monitoring of 23 development organizations
+- Reference number extraction with pattern recognition
+- Intelligent filtering and scoring (keywords, geography, budget)
+- Excel tracker and JSON output generation
+- Email notifications with attachments
+- Comprehensive logging and monitoring
+- Automated scheduling and maintenance
+
+REQUIREMENTS:
+=============
+- Python 3.11+
+- 4GB RAM minimum (8GB recommended)
+- 10GB disk space
+- Internet connection
+- Email account for notifications
+
+INSTALLATION:
+=============
+1. Extract package: tar -xzf proposaland-v1.0.0-20250813-161035.tar.gz
+2. Run installer: ./install.sh
+3. Configure email: edit config/proposaland_config.json
+4. Test system: python3 test_system.py
+5. Start monitoring: ./scripts/start_proposaland.sh
+
+For detailed instructions, see DEPLOYMENT.md and docs/INSTALLATION.md
+
+SUPPORT:
+========
+- System logs: logs/ directory
+- Status check: ./scripts/proposaland_status.sh
+- Test system: python3 test_system.py
+- Documentation: README.md and docs/ directory
+
+Package integrity: 40 files included
