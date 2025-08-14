@@ -429,19 +429,46 @@ class EmailNotifier:
             return False
     
     def _generate_subject(self, summary: Dict) -> str:
-        """Generate email subject line."""
+        """Generate email subject line with actual data details."""
         total = summary.get('total_opportunities', 0)
         critical = summary.get('priority_breakdown', {}).get('Critical', 0)
         high = summary.get('priority_breakdown', {}).get('High', 0)
+        medium = summary.get('priority_breakdown', {}).get('Medium', 0)
+        low = summary.get('priority_breakdown', {}).get('Low', 0)
         
         date_str = datetime.now().strftime('%Y-%m-%d')
         
-        if critical > 0:
-            return f"🚨 Proposaland Report ({date_str}): {total} opportunities, {critical} CRITICAL"
-        elif high > 0:
-            return f"⚡ Proposaland Report ({date_str}): {total} opportunities, {high} high priority"
+        # Get top sources for subject line
+        sources = summary.get('sources', [])
+        if len(sources) > 3:
+            source_text = f"{', '.join(sources[:2])} + {len(sources)-2} more"
+        elif len(sources) > 1:
+            source_text = ', '.join(sources)
+        elif len(sources) == 1:
+            source_text = sources[0]
         else:
-            return f"📊 Proposaland Report ({date_str}): {total} opportunities found"
+            source_text = "various sources"
+        
+        # Create priority summary
+        priority_counts = []
+        if critical > 0:
+            priority_counts.append(f"{critical}🚨")
+        if high > 0:
+            priority_counts.append(f"{high}H")
+        if medium > 0:
+            priority_counts.append(f"{medium}M")
+        if low > 0:
+            priority_counts.append(f"{low}L")
+        
+        priority_text = "/".join(priority_counts) if priority_counts else "0"
+        
+        # Generate subject based on priority urgency
+        if critical > 0:
+            return f"🚨 URGENT: {total} opportunities ({critical} CRITICAL) from {source_text}"
+        elif high > 0:
+            return f"⚡ {total} opportunities ({high} high priority) from {source_text} - {date_str}"
+        else:
+            return f"📊 {total} opportunities from {source_text} ({priority_text}) - {date_str}"
     
     def _generate_html_content(self, opportunities: List[Dict], summary: Dict) -> str:
         """Generate HTML email content."""

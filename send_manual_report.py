@@ -33,11 +33,20 @@ def send_manual_report():
         excel_path = 'output/proposaland_tracker_2025-08-14.xlsx'
         json_path = 'output/proposaland_opportunities_2025-08-14.json'
         
-        # Create summary from the data
+        # Create summary from the data with source information
+        sources = list(set([opp['organization'] for opp in opportunities_list]))
+        priority_breakdown = {'Critical': 0, 'High': 0, 'Medium': 0, 'Low': 0}
+        
+        # Count priorities from actual data
+        for opp in opportunities_list:
+            priority = opp.get('scoring', {}).get('priority', 'Low')
+            if priority in priority_breakdown:
+                priority_breakdown[priority] += 1
+        
         summary = data.get('summary', {
             'total_opportunities': len(opportunities_list),
-            'priority_breakdown': {'Critical': 0, 'High': 0, 'Medium': 0, 'Low': len(opportunities_list)},
-            'sources': list(set([opp['organization'] for opp in opportunities_list[:10]])),
+            'priority_breakdown': priority_breakdown,
+            'sources': sources,
             'report_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         })
         
