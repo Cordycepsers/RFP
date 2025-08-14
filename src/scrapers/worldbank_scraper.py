@@ -11,6 +11,7 @@ import re
 from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse, parse_qs
 import logging
+from typing import Dict, Any
 from .base_scraper import OpportunityData, BaseScraper
 
 class WorldBankScraper(BaseScraper):

@@ -83,39 +83,42 @@ class ProposalandScheduler:
             # Step 1: Run monitoring
             logger.info("Step 1: Running opportunity monitoring")
             opportunities = self.monitor.run_monitoring()
-            
+
             if not opportunities:
                 logger.warning("No opportunities found - sending empty report")
                 self._send_empty_report()
                 return
-            
+
             # Step 2: Filter and score opportunities
             logger.info("Step 2: Filtering and scoring opportunities")
             filtered_opportunities = self.monitor.filter_opportunities(opportunities)
             scored_opportunities = self.monitor.score_opportunities(filtered_opportunities)
             classified_opportunities = self.monitor.classify_priorities(scored_opportunities)
-            
+
+            # Convert OpportunityData objects to dicts for output and notification modules
+            classified_opportunities_dicts = [opp.__dict__ for opp in classified_opportunities]
+
             # Step 3: Generate outputs
             logger.info("Step 3: Generating Excel and JSON outputs")
-            excel_path = self.excel_generator.generate_tracker(classified_opportunities)
-            json_path = self.json_generator.generate_json_output(classified_opportunities)
-            
+            excel_path = self.excel_generator.generate_tracker(classified_opportunities_dicts)
+            json_path = self.json_generator.generate_json_output(classified_opportunities_dicts)
+
             # Step 4: Generate summary
             logger.info("Step 4: Generating summary report")
             summary = self.monitor.generate_summary_report(classified_opportunities)
-            
+
             # Step 5: Send email notifications
             logger.info("Step 5: Sending email notifications")
             email_success = self.email_notifier.send_daily_report(
-                classified_opportunities, summary, excel_path, json_path
+                classified_opportunities_dicts, summary, excel_path, json_path
             )
-            
+
             # Step 6: Send urgent alerts if needed
-            critical_opportunities = [opp for opp in classified_opportunities if opp.get('priority') == 'Critical']
+            critical_opportunities = [opp for opp in classified_opportunities_dicts if opp.get('priority') == 'Critical']
             if critical_opportunities:
                 logger.info(f"Step 6: Sending urgent alert for {len(critical_opportunities)} critical opportunities")
                 self.email_notifier.send_urgent_alert(critical_opportunities)
-            
+
             # Log completion
             duration = datetime.now() - start_time
             logger.info(f"Daily monitoring completed successfully in {duration}")
