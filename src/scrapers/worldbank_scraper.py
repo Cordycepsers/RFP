@@ -11,7 +11,7 @@ import re
 from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse, parse_qs
 import logging
-from .base_scraper import BaseScraper
+from .base_scraper import OpportunityData, BaseScraper
 
 class WorldBankScraper(BaseScraper):
     def __init__(self, config, website_config=None):
@@ -567,6 +567,66 @@ class WorldBankScraper(BaseScraper):
                     timeline[keyword.lower()] = parsed_date
                     
         return timeline if timeline else None
+
+
+    def _convert_dict_to_opportunity_data(self, opp_dict: Dict[str, Any]) -> OpportunityData:
+        """Convert dictionary to OpportunityData object"""
+        opp = OpportunityData()
+        
+        # Map dictionary fields to object attributes
+        opp.title = opp_dict.get('title', '')
+        opp.description = opp_dict.get('description', '')
+        opp.organization = opp_dict.get('organization', '')
+        opp.source_url = opp_dict.get('source_url', opp_dict.get('url', ''))
+        opp.location = opp_dict.get('location', '')
+        opp.reference_number = opp_dict.get('reference_number', '')
+        opp.reference_confidence = opp_dict.get('reference_confidence', 0.0)
+        opp.keywords_found = opp_dict.get('keywords_found', [])
+        opp.currency = opp_dict.get('currency', 'USD')
+        
+        # Handle deadline conversion
+        deadline = opp_dict.get('deadline')
+        if deadline:
+            if isinstance(deadline, str):
+                try:
+                    opp.deadline = datetime.fromisoformat(deadline.replace('Z', '+00:00'))
+                except:
+                    opp.deadline = None
+            elif isinstance(deadline, datetime):
+                opp.deadline = deadline
+        
+        # Handle budget conversion
+        budget = opp_dict.get('budget')
+        if budget:
+            if isinstance(budget, (int, float)):
+                opp.budget = float(budget)
+            elif isinstance(budget, str):
+                try:
+                    # Extract numeric value from budget string
+                    import re
+                    numbers = re.findall(r'[\d,]+\.?\d*', budget.replace(',', ''))
+                    if numbers:
+                        opp.budget = float(numbers[0])
+                except:
+                    opp.budget = None
+        
+        # Handle extracted date
+        extracted_date = opp_dict.get('extracted_date')
+        if extracted_date:
+            if isinstance(extracted_date, str):
+                try:
+                    opp.extracted_date = datetime.fromisoformat(extracted_date.replace('Z', '+00:00'))
+                except:
+                    opp.extracted_date = datetime.now()
+            elif isinstance(extracted_date, datetime):
+                opp.extracted_date = extracted_date
+        else:
+            opp.extracted_date = datetime.now()
+        
+        # Store all additional data in raw_data
+        opp.raw_data = opp_dict.copy()
+        
+        return opp
 
     def _extract_project_info(self, soup):
         """Extract project information from World Bank opportunity detail page"""

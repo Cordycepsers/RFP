@@ -42,8 +42,8 @@
       },
       {
         "name": "Development Aid",
-        "url": "https://www.developmentaid.org/tenders",
-        "type": "development_aid",
+        "url": "https://www.developmentaid.org/tenders/search",
+        "type": "developmentaid",
         "priority": 1.0
       },
       {
@@ -77,6 +77,12 @@
         "priority": 1.0
       },
       {
+        "name": "IUCN",
+        "url": "https://iucn.org/procurement/currently-running-tenders",
+        "type": "iucn",
+        "priority": 1.0
+      },
+      {
         "name": "World Bank",
         "url": "https://projects.worldbank.org/en/projects-operations/procurement?srce=both",
         "type": "worldbank",
@@ -84,12 +90,6 @@
       }
     ],
     "medium_priority": [
-      {
-        "name": "IUCN",
-        "url": "https://www.iucn.org/procurement/currently-running-tenders",
-        "type": "iucn",
-        "priority": 0.7
-      },
       {
         "name": "NRC",
         "url": "https://www.nrc.no/procurement/",
@@ -292,6 +292,45 @@
         "WB-\\d{4}-\\d{3}",
         "IBRD-\\d{5}",
         "IDA-\\d{5}"
+      ]
+    },
+    "developmentaid": {
+      "max_pages": 5,
+      "max_opportunities": 100,
+      "results_per_page": 20,
+      "request_delay": 2.0,
+      "reference_patterns": [
+        "[A-Z]{2,4}[-/]\\d{4}[-/][A-Z0-9]{2,6}[-/]\\d{2,6}",
+        "[A-Z]{3,5}[-/][A-Z]{2,3}[-/]\\d{4,6}",
+        "RFP[/-]\\d{4}[/-][A-Z0-9]{2,8}[/-]\\d{2,6}",
+        "RFQ[/-][A-Z]{2,6}[/-]\\d{4}[/-]\\d{2,6}",
+        "[A-Z]{2,6}[-/]\\d{4}[-/]\\d{6,8}",
+        "[A-Z]{2,4}[-/]\\d{2}[-/]\\d{2,4}"
+      ]
+    },
+    "iucn": {
+      "max_opportunities": 50,
+      "request_delay": 2.0,
+      "reference_patterns": [
+        "IUCN[-/]\\d{2}[-/]\\d{2}[-/]P\\d{5}[-/]\\d{1,2}",
+        "IUCN[-/]\\d{2}[-/]\\d{2}[-/]P\\d{4,6}",
+        "PACO\\s+IUCN\\s+\\d{2}[-/]\\d{2}[-/]P\\d{4,6}[-/]\\d{2}",
+        "RfP\\s+Reference:\\s*([A-Z0-9-]+)",
+        "[A-Z]{2,6}[-/]\\d{2,4}[-/]\\d{2}[-/]P\\d{4,6}[-/]\\d{2}"
+      ]
+    },
+    "adb": {
+      "max_pages": 3,
+      "max_opportunities": 50,
+      "request_delay": 3.0,
+      "use_browser_automation": true,
+      "reference_patterns": [
+        "ADB[-/]\\d{4}[-/]\\d{3,6}",
+        "ADB[-/][A-Z]{2,4}[-/]\\d{4}[-/]\\d{2,6}",
+        "[A-Z]{2,4}[-/]ADB[-/]\\d{4}[-/]\\d{2,6}",
+        "TA[-/]\\d{4}[-/][A-Z]{2,4}",
+        "LOAN[-/]\\d{4}[-/][A-Z]{2,4}",
+        "GRANT[-/]\\d{4}[-/][A-Z]{2,4}"
       ]
     }
   },

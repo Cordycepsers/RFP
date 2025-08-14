@@ -10,9 +10,17 @@ import re
 from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse
 import logging
-from .base_scraper import BaseScraper
+from typing import Dict, Any
+from .base_scraper import OpportunityData, BaseScraper
 
 class UNGMScraper(BaseScraper):
+    def _extract_reference_from_text(self, text: str) -> str:
+        """Extract reference number from text using known patterns."""
+        for pattern in self.reference_patterns:
+            match = re.search(pattern, text)
+            if match:
+                return match.group(0)
+        return ''
     def __init__(self, config, website_config=None):
         # Create default website config if not provided
         if website_config is None:
@@ -65,7 +73,12 @@ class UNGMScraper(BaseScraper):
                 return opportunities
             
             # Extract total number of opportunities
-            total_text = soup.find('label', string=lambda text: text and 'of' in text)
+            total_text = None
+            for label in soup.find_all('label'):
+                label_text = label.get_text()
+                if 'of' in label_text:
+                    total_text = label
+                    break
             total_opportunities = 0
             if total_text:
                 # Extract number from text like "Displaying results 1 to 15 of 1746"
@@ -176,7 +189,13 @@ class UNGMScraper(BaseScraper):
             url = urljoin(self.base_url, link.get('href', ''))
             
             # Find parent container to extract additional data
-            parent = link.find_parent('tr') or link.find_parent('div', class_=lambda x: x and 'row' in x.lower())
+            parent = link.find_parent('tr')
+            if not parent:
+                # Try to find a div with class containing 'row'
+                for ancestor in link.parents:
+                    if ancestor.name == 'div' and ancestor.has_attr('class') and any('row' in c.lower() for c in ancestor['class']):
+                        parent = ancestor
+                        break
             
             # Extract data from parent container
             deadline = self._extract_deadline_from_context(parent) if parent else None
@@ -223,7 +242,7 @@ class UNGMScraper(BaseScraper):
             
             # Extract URL from title cell
             title_link = title_cell.find('a') if title_cell else None
-            url = urljoin(self.base_url, title_link.get('href', '')) if title_link else ''
+            url = urljoin(self.base_url, title_link.get('href', '')) if title_link and title_link.has_attr('href') else ''
             
             # Extract other fields based on position
             deadline = cells[1].get_text(strip=True) if len(cells) > 1 else None
@@ -468,6 +487,66 @@ class UNGMScraper(BaseScraper):
                 contacts[pattern.split('[')[0]] = matches[0]
                 
         return contacts if contacts else None
+
+
+    def _convert_dict_to_opportunity_data(self, opp_dict: Dict[str, Any]) -> OpportunityData:
+        """Convert dictionary to OpportunityData object"""
+        opp = OpportunityData()
+        
+        # Map dictionary fields to object attributes
+        opp.title = opp_dict.get('title', '')
+        opp.description = opp_dict.get('description', '')
+        opp.organization = opp_dict.get('organization', '')
+        opp.source_url = opp_dict.get('source_url', opp_dict.get('url', ''))
+        opp.location = opp_dict.get('location', '')
+        opp.reference_number = opp_dict.get('reference_number', '')
+        opp.reference_confidence = opp_dict.get('reference_confidence', 0.0)
+        opp.keywords_found = opp_dict.get('keywords_found', [])
+        opp.currency = opp_dict.get('currency', 'USD')
+        
+        # Handle deadline conversion
+        deadline = opp_dict.get('deadline')
+        if deadline:
+            if isinstance(deadline, str):
+                try:
+                    opp.deadline = datetime.fromisoformat(deadline.replace('Z', '+00:00'))
+                except:
+                    opp.deadline = None
+            elif isinstance(deadline, datetime):
+                opp.deadline = deadline
+        
+        # Handle budget conversion
+        budget = opp_dict.get('budget')
+        if budget:
+            if isinstance(budget, (int, float)):
+                opp.budget = float(budget)
+            elif isinstance(budget, str):
+                try:
+                    # Extract numeric value from budget string
+                    import re
+                    numbers = re.findall(r'[\d,]+\.?\d*', budget.replace(',', ''))
+                    if numbers:
+                        opp.budget = float(numbers[0])
+                except:
+                    opp.budget = None
+        
+        # Handle extracted date
+        extracted_date = opp_dict.get('extracted_date')
+        if extracted_date:
+            if isinstance(extracted_date, str):
+                try:
+                    opp.extracted_date = datetime.fromisoformat(extracted_date.replace('Z', '+00:00'))
+                except:
+                    opp.extracted_date = datetime.now()
+            elif isinstance(extracted_date, datetime):
+                opp.extracted_date = extracted_date
+        else:
+            opp.extracted_date = datetime.now()
+        
+        # Store all additional data in raw_data
+        opp.raw_data = opp_dict.copy()
+        
+        return opp
 
     def _extract_documents(self, soup):
         """Extract document links from opportunity detail page"""

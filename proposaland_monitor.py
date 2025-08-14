@@ -21,6 +21,9 @@ from scrapers.undp_scraper import UNDPScraper
 from scrapers.ungm_scraper import UNGMScraper
 from scrapers.globalfund_scraper import GlobalFundScraper
 from scrapers.worldbank_scraper import WorldBankScraper
+from scrapers.developmentaid_scraper import DevelopmentAidScraper
+from scrapers.iucn_scraper import IUCNScraper
+from scrapers.adb_scraper import ADBScraper
 
 
 class ProposalandMonitor:
@@ -88,6 +91,12 @@ class ProposalandMonitor:
                     scraper = GlobalFundScraper(self.config)
                 elif website_type == 'worldbank':
                     scraper = WorldBankScraper(self.config)
+                elif website_type == 'developmentaid':
+                    scraper = DevelopmentAidScraper(self.config, website)
+                elif website_type == 'iucn':
+                    scraper = IUCNScraper(self.config, website)
+                elif website_type == 'adb':
+                    scraper = ADBScraper(self.config, website)
                 else:
                     # For now, use generic scraper for other types
                     scraper = self._create_generic_scraper(website)
@@ -157,7 +166,8 @@ class ProposalandMonitor:
         for opp in opportunities:
             # Check geographic exclusions
             excluded_countries = self.config.get('geographic_filters', {}).get('excluded_countries', [])
-            if any(country.lower() in opp.location.lower() for country in excluded_countries):
+            location = opp.location if hasattr(opp, 'location') else opp.get('location', '') if isinstance(opp, dict) else ''
+            if any(country.lower() in location.lower() for country in excluded_countries):
                 continue
             
             # Check for exclusion keywords

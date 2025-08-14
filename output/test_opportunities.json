@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_timestamp": "2025-08-14T01:52:30.662248",
+    "generated_timestamp": "2025-08-14T03:48:11.605617",
     "generated_date": "2025-08-14",
-    "generated_time": "01:52:30",
+    "generated_time": "03:48:11",
     "system_version": "1.0.0",
     "total_opportunities": 5,
     "data_format_version": "1.0",
@@ -138,8 +138,8 @@
         "formatted": "USD 150,000.00"
       },
       "deadline": {
-        "raw": "2025-09-28T01:52:30.620776",
-        "formatted": "2025-09-28 01:52:30",
+        "raw": "2025-09-28T03:48:11.564208",
+        "formatted": "2025-09-28 03:48:11",
         "days_until": 44
       },
       "reference_number": {
@@ -183,7 +183,7 @@
         "rank": 1
       },
       "extraction": {
-        "extracted_date": "2025-08-14T01:52:30.620777",
+        "extracted_date": "2025-08-14T03:48:11.564209",
         "extraction_method": "automated_scraping",
         "data_quality": 1.0
       },
@@ -202,8 +202,8 @@
         "formatted": "USD 75,000.00"
       },
       "deadline": {
-        "raw": "2025-09-04T01:52:30.620767",
-        "formatted": "2025-09-04 01:52:30",
+        "raw": "2025-09-04T03:48:11.564197",
+        "formatted": "2025-09-04 03:48:11",
         "days_until": 20
       },
       "reference_number": {
@@ -247,7 +247,7 @@
         "rank": 2
       },
       "extraction": {
-        "extracted_date": "2025-08-14T01:52:30.620774",
+        "extracted_date": "2025-08-14T03:48:11.564206",
         "extraction_method": "automated_scraping",
         "data_quality": 1.0
       },
@@ -266,8 +266,8 @@
         "formatted": "USD 25,000.00"
       },
       "deadline": {
-        "raw": "2025-08-28T01:52:30.620775",
-        "formatted": "2025-08-28 01:52:30",
+        "raw": "2025-08-28T03:48:11.564207",
+        "formatted": "2025-08-28 03:48:11",
         "days_until": 13
       },
       "reference_number": {
@@ -311,7 +311,7 @@
         "rank": 3
       },
       "extraction": {
-        "extracted_date": "2025-08-14T01:52:30.620776",
+        "extracted_date": "2025-08-14T03:48:11.564208",
         "extraction_method": "automated_scraping",
         "data_quality": 1.0
       },
@@ -330,8 +330,8 @@
         "formatted": "USD 40,000.00"
       },
       "deadline": {
-        "raw": "2025-09-13T01:52:30.620777",
-        "formatted": "2025-09-13 01:52:30",
+        "raw": "2025-09-13T03:48:11.564209",
+        "formatted": "2025-09-13 03:48:11",
         "days_until": 29
       },
       "reference_number": {
@@ -375,7 +375,7 @@
         "rank": 4
       },
       "extraction": {
-        "extracted_date": "2025-08-14T01:52:30.620778",
+        "extracted_date": "2025-08-14T03:48:11.564210",
         "extraction_method": "automated_scraping",
         "data_quality": 1.0
       },
@@ -394,8 +394,8 @@
         "formatted": "USD 500,000.00"
       },
       "deadline": {
-        "raw": "2025-10-13T01:52:30.620779",
-        "formatted": "2025-10-13 01:52:30",
+        "raw": "2025-10-13T03:48:11.564211",
+        "formatted": "2025-10-13 03:48:11",
         "days_until": 59
       },
       "reference_number": {
@@ -435,7 +435,7 @@
         "rank": 5
       },
       "extraction": {
-        "extracted_date": "2025-08-14T01:52:30.620779",
+        "extracted_date": "2025-08-14T03:48:11.564211",
         "extraction_method": "automated_scraping",
         "data_quality": 1.0
       },
@@ -496,7 +496,7 @@
       }
     },
     "temporal_analysis": {
-      "extraction_date": "2025-08-14T01:52:30.662355",
+      "extraction_date": "2025-08-14T03:48:11.605721",
       "opportunities_by_urgency": {
         "immediate": 0,
         "urgent": 0,
