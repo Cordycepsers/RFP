@@ -6,7 +6,12 @@
     "timezone": "UTC"
   },
   "email": {
-    "recipient": "majalemaja@pm.me",
+    "recipient": "majakis@gmail.com",
+    "recipient_email": [
+      "majakis@gmail.com",
+      "siphe@whattookyousolong.org",
+      "chris@whattookyousolong.org"
+    ],
     "subject_template": "Daily Proposaland Opportunity Report - {date}",
     "smtp_server": "smtp.gmail.com",
     "smtp_port": 587,

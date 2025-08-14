@@ -26,7 +26,15 @@ class EmailNotifier:
         self.smtp_port = self.email_config.get('smtp_port', 587)
         self.sender_email = self.email_config.get('sender_email', '')
         self.sender_password = self.email_config.get('sender_password', '')
-        self.recipient_email = self.email_config.get('recipient_email', 'majalemaja@pm.me')
+        
+        # Handle both single recipient (string) and multiple recipients (list)
+        recipient_config = self.email_config.get('recipient_email', 'majalemaja@pm.me')
+        if isinstance(recipient_config, list):
+            self.recipient_emails = recipient_config
+            self.recipient_email = ', '.join(recipient_config)  # For display purposes
+        else:
+            self.recipient_emails = [recipient_config]
+            self.recipient_email = recipient_config
         
         # Email templates
         self.templates_dir = Path(__file__).parent / 'templates'
@@ -356,7 +364,7 @@ class EmailNotifier:
             message = MIMEMultipart('alternative')
             message['Subject'] = subject
             message['From'] = self.sender_email
-            message['To'] = self.recipient_email
+            message['To'] = ', '.join(self.recipient_emails)
             
             # Add text and HTML parts
             text_part = MIMEText(text_content, 'plain')
@@ -399,7 +407,7 @@ class EmailNotifier:
             message = MIMEMultipart('alternative')
             message['Subject'] = subject
             message['From'] = self.sender_email
-            message['To'] = self.recipient_email
+            message['To'] = ', '.join(self.recipient_emails)
             
             # Add content
             text_part = MIMEText(text_content, 'plain')
@@ -670,7 +678,7 @@ class EmailNotifier:
                 server.login(self.sender_email, self.sender_password)
                 
                 text = message.as_string()
-                server.sendmail(self.sender_email, self.recipient_email, text)
+                server.sendmail(self.sender_email, self.recipient_emails, text)
             
             return True
             
@@ -708,7 +716,7 @@ class EmailNotifier:
             message = MIMEMultipart()
             message['Subject'] = "Proposaland Email Configuration Test"
             message['From'] = self.sender_email
-            message['To'] = self.recipient_email
+            message['To'] = ', '.join(self.recipient_emails)
             
             test_content = f"""
             This is a test email from the Proposaland Opportunity Monitor.
