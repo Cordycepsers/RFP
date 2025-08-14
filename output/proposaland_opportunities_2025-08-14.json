@@ -1,6 +1,6 @@
 {
-  "generated_date": "2025-08-14T02:03:57.207018",
-  "total_opportunities": 105,
+  "generated_date": "2025-08-14T04:53:01.054140",
+  "total_opportunities": 104,
   "opportunities": [
     {
       "title": "Opportunity from AfDB",
@@ -22,7 +22,7 @@
         "media",
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:40.110514",
+      "extracted_date": "2025-08-14T04:52:48.143919",
       "raw_data": {
         "relevance_score": 0.22166666666666668,
         "priority": "Low"
@@ -45,34 +45,9 @@
         "media",
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:37.169390",
+      "extracted_date": "2025-08-14T04:52:44.100579",
       "raw_data": {
         "relevance_score": 0.21666666666666667,
-        "priority": "Low"
-      }
-    },
-    {
-      "title": "Opportunity from IUCN",
-      "description": "Generic opportunity detected",
-      "organization": "IUCN",
-      "source_url": "https://www.iucn.org/procurement/currently-running-tenders",
-      "deadline": null,
-      "budget": null,
-      "currency": "USD",
-      "location": "",
-      "reference_number": "",
-      "reference_confidence": 0.0,
-      "keywords_found": [
-        "video",
-        "photo",
-        "design",
-        "visual",
-        "media",
-        "communication"
-      ],
-      "extracted_date": "2025-08-14T02:03:38.136291",
-      "raw_data": {
-        "relevance_score": 0.20500000000000002,
         "priority": "Low"
       }
     },
@@ -91,7 +66,7 @@
         "campaign",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:36.172928",
+      "extracted_date": "2025-08-14T04:52:40.617444",
       "raw_data": {
         "relevance_score": 0.18333333333333332,
         "priority": "Low"
@@ -112,7 +87,7 @@
         "campaign",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:36.801915",
+      "extracted_date": "2025-08-14T04:52:42.609359",
       "raw_data": {
         "relevance_score": 0.18333333333333332,
         "priority": "Low"
@@ -134,7 +109,7 @@
         "design",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.081879",
+      "extracted_date": "2025-08-14T04:52:10.693582",
       "raw_data": {
         "relevance_score": 0.175,
         "priority": "Low"
@@ -156,7 +131,7 @@
         "design",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.096566",
+      "extracted_date": "2025-08-14T04:52:10.708218",
       "raw_data": {
         "relevance_score": 0.175,
         "priority": "Low"
@@ -176,7 +151,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:36.493314",
+      "extracted_date": "2025-08-14T04:52:41.957286",
       "raw_data": {
         "relevance_score": 0.16666666666666666,
         "priority": "Low"
@@ -197,7 +172,7 @@
         "multimedia",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.080859",
+      "extracted_date": "2025-08-14T04:52:10.692531",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -218,7 +193,7 @@
         "video",
         "photo"
       ],
-      "extracted_date": "2025-08-14T02:03:19.083175",
+      "extracted_date": "2025-08-14T04:52:10.694854",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -239,7 +214,7 @@
         "design",
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.085024",
+      "extracted_date": "2025-08-14T04:52:10.696782",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -260,7 +235,7 @@
         "campaign",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.087019",
+      "extracted_date": "2025-08-14T04:52:10.698777",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -281,7 +256,7 @@
         "video",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.089535",
+      "extracted_date": "2025-08-14T04:52:10.701184",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -302,7 +277,7 @@
         "video",
         "photo"
       ],
-      "extracted_date": "2025-08-14T02:03:19.095053",
+      "extracted_date": "2025-08-14T04:52:10.706760",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -323,7 +298,7 @@
         "video",
         "photo"
       ],
-      "extracted_date": "2025-08-14T02:03:19.096911",
+      "extracted_date": "2025-08-14T04:52:10.708558",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -344,7 +319,7 @@
         "visual",
         "audiovisual"
       ],
-      "extracted_date": "2025-08-14T02:03:19.097087",
+      "extracted_date": "2025-08-14T04:52:10.708732",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -365,7 +340,7 @@
         "video",
         "photo"
       ],
-      "extracted_date": "2025-08-14T02:03:19.097377",
+      "extracted_date": "2025-08-14T04:52:10.709018",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -386,7 +361,7 @@
         "video",
         "promotion"
       ],
-      "extracted_date": "2025-08-14T02:03:19.097545",
+      "extracted_date": "2025-08-14T04:52:10.709178",
       "raw_data": {
         "relevance_score": 0.15833333333333333,
         "priority": "Low"
@@ -408,7 +383,7 @@
         "media",
         "promotion"
       ],
-      "extracted_date": "2025-08-14T02:03:38.690964",
+      "extracted_date": "2025-08-14T04:52:46.084583",
       "raw_data": {
         "relevance_score": 0.155,
         "priority": "Low"
@@ -432,7 +407,7 @@
         "media",
         "promotion"
       ],
-      "extracted_date": "2025-08-14T02:03:55.641142",
+      "extracted_date": "2025-08-14T04:52:59.100278",
       "raw_data": {
         "relevance_score": 0.1433333333333333,
         "priority": "Low"
@@ -456,7 +431,7 @@
         "media",
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:57.205891",
+      "extracted_date": "2025-08-14T04:53:01.053066",
       "raw_data": {
         "relevance_score": 0.1433333333333333,
         "priority": "Low"
@@ -476,7 +451,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.080377",
+      "extracted_date": "2025-08-14T04:52:10.692092",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -496,7 +471,7 @@
       "keywords_found": [
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.080538",
+      "extracted_date": "2025-08-14T04:52:10.692225",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -516,7 +491,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.080962",
+      "extracted_date": "2025-08-14T04:52:10.692633",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -536,7 +511,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.081296",
+      "extracted_date": "2025-08-14T04:52:10.692962",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -556,7 +531,7 @@
       "keywords_found": [
         "photo"
       ],
-      "extracted_date": "2025-08-14T02:03:19.081333",
+      "extracted_date": "2025-08-14T04:52:10.692999",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -576,7 +551,7 @@
       "keywords_found": [
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.081428",
+      "extracted_date": "2025-08-14T04:52:10.693120",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -596,7 +571,7 @@
       "keywords_found": [
         "visual"
       ],
-      "extracted_date": "2025-08-14T02:03:19.081537",
+      "extracted_date": "2025-08-14T04:52:10.693226",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -616,7 +591,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.081643",
+      "extracted_date": "2025-08-14T04:52:10.693332",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -636,7 +611,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.081729",
+      "extracted_date": "2025-08-14T04:52:10.693417",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -656,7 +631,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.082040",
+      "extracted_date": "2025-08-14T04:52:10.693745",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -676,7 +651,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.082945",
+      "extracted_date": "2025-08-14T04:52:10.694626",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -696,7 +671,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.082980",
+      "extracted_date": "2025-08-14T04:52:10.694661",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -716,7 +691,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.083104",
+      "extracted_date": "2025-08-14T04:52:10.694783",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -736,7 +711,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.083418",
+      "extracted_date": "2025-08-14T04:52:10.695100",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -756,7 +731,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.083632",
+      "extracted_date": "2025-08-14T04:52:10.695306",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -776,7 +751,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.083682",
+      "extracted_date": "2025-08-14T04:52:10.695357",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -796,7 +771,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.083752",
+      "extracted_date": "2025-08-14T04:52:10.695471",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -816,7 +791,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.083994",
+      "extracted_date": "2025-08-14T04:52:10.695715",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -836,7 +811,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.084137",
+      "extracted_date": "2025-08-14T04:52:10.695857",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -856,7 +831,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.084330",
+      "extracted_date": "2025-08-14T04:52:10.696041",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -876,7 +851,7 @@
       "keywords_found": [
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.084402",
+      "extracted_date": "2025-08-14T04:52:10.696116",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -896,7 +871,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.085042",
+      "extracted_date": "2025-08-14T04:52:10.696799",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -916,7 +891,7 @@
       "keywords_found": [
         "visual"
       ],
-      "extracted_date": "2025-08-14T02:03:19.085238",
+      "extracted_date": "2025-08-14T04:52:10.696996",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -936,7 +911,7 @@
       "keywords_found": [
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.085293",
+      "extracted_date": "2025-08-14T04:52:10.697051",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -956,7 +931,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.085329",
+      "extracted_date": "2025-08-14T04:52:10.697086",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -976,7 +951,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.086964",
+      "extracted_date": "2025-08-14T04:52:10.698723",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -996,7 +971,7 @@
       "keywords_found": [
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.087036",
+      "extracted_date": "2025-08-14T04:52:10.698795",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1016,7 +991,7 @@
       "keywords_found": [
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.087054",
+      "extracted_date": "2025-08-14T04:52:10.698813",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1036,7 +1011,7 @@
       "keywords_found": [
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.087072",
+      "extracted_date": "2025-08-14T04:52:10.698832",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1056,7 +1031,7 @@
       "keywords_found": [
         "visual"
       ],
-      "extracted_date": "2025-08-14T02:03:19.087106",
+      "extracted_date": "2025-08-14T04:52:10.698866",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1076,7 +1051,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.087316",
+      "extracted_date": "2025-08-14T04:52:10.699079",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1096,7 +1071,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.087623",
+      "extracted_date": "2025-08-14T04:52:10.699386",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1116,7 +1091,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.088641",
+      "extracted_date": "2025-08-14T04:52:10.700303",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1136,7 +1111,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.088676",
+      "extracted_date": "2025-08-14T04:52:10.700337",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1156,7 +1131,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.088728",
+      "extracted_date": "2025-08-14T04:52:10.700389",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1176,7 +1151,7 @@
       "keywords_found": [
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.088908",
+      "extracted_date": "2025-08-14T04:52:10.700568",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1196,7 +1171,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.088947",
+      "extracted_date": "2025-08-14T04:52:10.700607",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1216,7 +1191,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.089021",
+      "extracted_date": "2025-08-14T04:52:10.700682",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1236,7 +1211,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.089165",
+      "extracted_date": "2025-08-14T04:52:10.700825",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1256,7 +1231,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.089572",
+      "extracted_date": "2025-08-14T04:52:10.701219",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1276,7 +1251,7 @@
       "keywords_found": [
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.090341",
+      "extracted_date": "2025-08-14T04:52:10.701976",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1296,7 +1271,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.090485",
+      "extracted_date": "2025-08-14T04:52:10.702138",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1316,7 +1291,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.090502",
+      "extracted_date": "2025-08-14T04:52:10.702155",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1336,7 +1311,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.090976",
+      "extracted_date": "2025-08-14T04:52:10.702633",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1356,7 +1331,7 @@
       "keywords_found": [
         "promotion"
       ],
-      "extracted_date": "2025-08-14T02:03:19.091350",
+      "extracted_date": "2025-08-14T04:52:10.702991",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1376,7 +1351,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.091570",
+      "extracted_date": "2025-08-14T04:52:10.703209",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1396,7 +1371,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.091861",
+      "extracted_date": "2025-08-14T04:52:10.703494",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1416,7 +1391,7 @@
       "keywords_found": [
         "visual"
       ],
-      "extracted_date": "2025-08-14T02:03:19.091896",
+      "extracted_date": "2025-08-14T04:52:10.703529",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1436,7 +1411,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.092867",
+      "extracted_date": "2025-08-14T04:52:10.704497",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1456,7 +1431,7 @@
       "keywords_found": [
         "animation"
       ],
-      "extracted_date": "2025-08-14T02:03:19.093912",
+      "extracted_date": "2025-08-14T04:52:10.705604",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1476,7 +1451,7 @@
       "keywords_found": [
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.094038",
+      "extracted_date": "2025-08-14T04:52:10.705733",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1496,7 +1471,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.094055",
+      "extracted_date": "2025-08-14T04:52:10.705750",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1516,7 +1491,7 @@
       "keywords_found": [
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:19.094235",
+      "extracted_date": "2025-08-14T04:52:10.705927",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1536,7 +1511,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.094524",
+      "extracted_date": "2025-08-14T04:52:10.706226",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1556,7 +1531,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.095018",
+      "extracted_date": "2025-08-14T04:52:10.706724",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1576,7 +1551,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.095035",
+      "extracted_date": "2025-08-14T04:52:10.706742",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1596,7 +1571,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.095071",
+      "extracted_date": "2025-08-14T04:52:10.706776",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1616,7 +1591,7 @@
       "keywords_found": [
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.095370",
+      "extracted_date": "2025-08-14T04:52:10.707080",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1636,7 +1611,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.095674",
+      "extracted_date": "2025-08-14T04:52:10.707379",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1656,7 +1631,7 @@
       "keywords_found": [
         "video"
       ],
-      "extracted_date": "2025-08-14T02:03:19.096087",
+      "extracted_date": "2025-08-14T04:52:10.707797",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1676,7 +1651,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.096475",
+      "extracted_date": "2025-08-14T04:52:10.708128",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1696,7 +1671,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.096545",
+      "extracted_date": "2025-08-14T04:52:10.708197",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1716,7 +1691,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.096746",
+      "extracted_date": "2025-08-14T04:52:10.708397",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1736,7 +1711,7 @@
       "keywords_found": [
         "video"
       ],
-      "extracted_date": "2025-08-14T02:03:19.096929",
+      "extracted_date": "2025-08-14T04:52:10.708574",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1756,7 +1731,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.097744",
+      "extracted_date": "2025-08-14T04:52:10.709378",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1776,7 +1751,7 @@
       "keywords_found": [
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.097969",
+      "extracted_date": "2025-08-14T04:52:10.709600",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1796,7 +1771,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.097987",
+      "extracted_date": "2025-08-14T04:52:10.709619",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1816,7 +1791,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098060",
+      "extracted_date": "2025-08-14T04:52:10.709691",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1836,7 +1811,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098078",
+      "extracted_date": "2025-08-14T04:52:10.709708",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1856,7 +1831,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098131",
+      "extracted_date": "2025-08-14T04:52:10.709762",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1876,7 +1851,7 @@
       "keywords_found": [
         "campaign"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098168",
+      "extracted_date": "2025-08-14T04:52:10.709799",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1896,7 +1871,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098239",
+      "extracted_date": "2025-08-14T04:52:10.709877",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1916,7 +1891,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098257",
+      "extracted_date": "2025-08-14T04:52:10.709895",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1936,7 +1911,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098275",
+      "extracted_date": "2025-08-14T04:52:10.709913",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1956,7 +1931,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098565",
+      "extracted_date": "2025-08-14T04:52:10.710203",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1976,7 +1951,7 @@
       "keywords_found": [
         "film"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098586",
+      "extracted_date": "2025-08-14T04:52:10.710224",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -1996,7 +1971,7 @@
       "keywords_found": [
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:19.098606",
+      "extracted_date": "2025-08-14T04:52:10.710244",
       "raw_data": {
         "relevance_score": 0.14166666666666666,
         "priority": "Low"
@@ -2017,7 +1992,7 @@
         "design",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:42.478443",
+      "extracted_date": "2025-08-14T04:52:51.087372",
       "raw_data": {
         "relevance_score": 0.13833333333333334,
         "priority": "Low"
@@ -2040,7 +2015,7 @@
         "podcasts",
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:55.155525",
+      "extracted_date": "2025-08-14T04:52:58.316655",
       "raw_data": {
         "relevance_score": 0.12666666666666665,
         "priority": "Low"
@@ -2062,7 +2037,7 @@
         "design",
         "animation"
       ],
-      "extracted_date": "2025-08-14T02:03:19.091606",
+      "extracted_date": "2025-08-14T04:52:10.703226",
       "raw_data": {
         "relevance_score": 0.125,
         "priority": "Low"
@@ -2082,7 +2057,7 @@
       "keywords_found": [
         "media"
       ],
-      "extracted_date": "2025-08-14T02:03:39.583578",
+      "extracted_date": "2025-08-14T04:52:47.608726",
       "raw_data": {
         "relevance_score": 0.12166666666666666,
         "priority": "Low"
@@ -2104,7 +2079,7 @@
         "media",
         "communication"
       ],
-      "extracted_date": "2025-08-14T02:03:53.130809",
+      "extracted_date": "2025-08-14T04:52:55.339018",
       "raw_data": {
         "relevance_score": 0.11,
         "priority": "Low"
@@ -2124,7 +2099,7 @@
       "keywords_found": [
         "visual"
       ],
-      "extracted_date": "2025-08-14T02:03:19.095711",
+      "extracted_date": "2025-08-14T04:52:10.707416",
       "raw_data": {
         "relevance_score": 0.09166666666666666,
         "priority": "Low"
@@ -2144,7 +2119,7 @@
       "keywords_found": [
         "design"
       ],
-      "extracted_date": "2025-08-14T02:03:50.545025",
+      "extracted_date": "2025-08-14T04:52:51.991370",
       "raw_data": {
         "relevance_score": 0.07666666666666666,
         "priority": "Low"

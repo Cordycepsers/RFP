@@ -97,11 +97,18 @@ class DevelopmentAidScraper(BaseScraper):
             # Filter and enhance opportunities
             filtered_opportunities = []
             for opp in opportunities:
-                if self.is_relevant_opportunity(opp):
+                # Convert dict to OpportunityData object for filtering
+                if isinstance(opp, dict):
+                    opp_obj = self._convert_dict_to_opportunity_data(opp)
+                else:
+                    opp_obj = opp
+                    
+                if self.is_relevant_opportunity(opp_obj):
                     enhanced_opp = self._enhance_opportunity(opp)
                     filtered_opportunities.append(enhanced_opp)
             
             self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
+            
             # Convert dictionaries to OpportunityData objects
             opportunity_objects = []
             for opp in filtered_opportunities:
@@ -109,6 +116,7 @@ class DevelopmentAidScraper(BaseScraper):
                     opportunity_objects.append(self._convert_dict_to_opportunity_data(opp))
                 else:
                     opportunity_objects.append(opp)
+            
             return opportunity_objects
             
         except Exception as e:
