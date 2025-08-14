@@ -471,7 +471,7 @@ class EmailNotifier:
             return f"📊 {total} opportunities from {source_text} ({priority_text}) - {date_str}"
     
     def _generate_html_content(self, opportunities: List[Dict], summary: Dict) -> str:
-        """Generate HTML email content."""
+        """Generate HTML email content with improved data analysis."""
         # Load template
         template_path = self.templates_dir / 'main_notification.html'
         with open(template_path, 'r', encoding='utf-8') as f:
@@ -482,28 +482,72 @@ class EmailNotifier:
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         
         priority_breakdown = summary.get('priority_breakdown', {})
-        top_keywords = summary.get('top_keywords', [])
-        top_sources = summary.get('top_organizations', [])
         
-        # Get priority-specific opportunities
-        critical_opps = [opp for opp in opportunities if opp.get('priority') == 'Critical'][:5]
-        high_opps = [opp for opp in opportunities if opp.get('priority') == 'High'][:5]
+        # Analyze real data for better insights
+        organizations = {}
+        all_keywords = {}
+        total_with_budget = 0
+        total_with_deadline = 0
+        
+        for opp in opportunities:
+            # Count organizations
+            org = opp.get('organization', 'Unknown')
+            organizations[org] = organizations.get(org, 0) + 1
+            
+            # Count keywords
+            keywords = opp.get('keywords', {}).get('found', [])
+            for kw in keywords:
+                all_keywords[kw] = all_keywords.get(kw, 0) + 1
+            
+            # Count opportunities with budget/deadline info
+            budget_amount = opp.get('budget', {}).get('amount')
+            if budget_amount:
+                total_with_budget += 1
+                
+            deadline_raw = opp.get('deadline', {}).get('raw')
+            if deadline_raw:
+                total_with_deadline += 1
+        
+        # Get top organizations and keywords from real data
+        top_orgs = sorted(organizations.items(), key=lambda x: x[1], reverse=True)[:5]
+        top_keywords = sorted(all_keywords.items(), key=lambda x: x[1], reverse=True)[:8]
+        
+        # Get priority-specific opportunities (check actual priority field)
+        critical_opps = []
+        high_opps = []
+        for opp in opportunities:
+            priority = opp.get('scoring', {}).get('priority', 'Low')
+            if priority == 'Critical':
+                critical_opps.append(opp)
+            elif priority == 'High':
+                high_opps.append(opp)
+        
+        # Format statistics
+        avg_keywords_per_opp = len(all_keywords) / len(opportunities) if opportunities else 0
         
         # Format data for template
         template_vars = {
             'date': datetime.now().strftime('%B %d, %Y'),
             'date_str': date_str,
             'timestamp': timestamp,
-            'total_opportunities': summary.get('total_opportunities', 0),
-            'critical_count': priority_breakdown.get('Critical', 0),
-            'high_count': priority_breakdown.get('High', 0),
-            'avg_score': f"{summary.get('average_score', 0):.2f}",
-            'top_keywords': ', '.join([kw['keyword'] for kw in top_keywords[:5]]),
-            'top_sources': ', '.join([org['name'] for org in top_sources[:3]]),
+            'total_opportunities': summary.get('total_opportunities', len(opportunities)),
+            'critical_count': len(critical_opps),
+            'high_count': len(high_opps),
+            'medium_count': priority_breakdown.get('Medium', 0),
+            'low_count': priority_breakdown.get('Low', 0),
+            'total_organizations': len(organizations),
+            'total_with_budget': total_with_budget,
+            'total_with_deadline': total_with_deadline,
+            'avg_keywords': f"{avg_keywords_per_opp:.1f}",
+            'top_keywords': ', '.join([f"{kw} ({count})" for kw, count in top_keywords]),
+            'top_sources': ', '.join([f"{org} ({count})" for org, count in top_orgs]),
+            'dominant_source': top_orgs[0][0] if top_orgs else 'N/A',
+            'dominant_source_count': top_orgs[0][1] if top_orgs else 0,
+            'dominant_source_percentage': f"{(top_orgs[0][1] / len(opportunities) * 100):.1f}" if top_orgs and opportunities else "0",
             'has_critical_opportunities': len(critical_opps) > 0,
-            'critical_opportunities': self._format_opportunities_for_template(critical_opps),
+            'critical_opportunities': self._format_opportunities_for_template(critical_opps[:5]),
             'has_high_opportunities': len(high_opps) > 0,
-            'high_opportunities': self._format_opportunities_for_template(high_opps)
+            'high_opportunities': self._format_opportunities_for_template(high_opps[:5])
         }
         
         # Simple template replacement (for a full implementation, consider using Jinja2)
@@ -526,48 +570,129 @@ class EmailNotifier:
         return html_content
     
     def _generate_text_content(self, opportunities: List[Dict], summary: Dict) -> str:
-        """Generate plain text email content."""
+        """Generate plain text email content with enhanced analytics."""
         lines = []
         lines.append("PROPOSALAND DAILY OPPORTUNITIES REPORT")
         lines.append("=" * 50)
-        lines.append(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        lines.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
         lines.append("")
         
-        # Summary
-        lines.append("SUMMARY:")
-        lines.append(f"Total Opportunities: {summary.get('total_opportunities', 0)}")
+        # Enhanced Summary
+        lines.append("📊 EXECUTIVE SUMMARY:")
+        lines.append(f"   Total Opportunities Found: {summary.get('total_opportunities', len(opportunities))}")
         
         priority_breakdown = summary.get('priority_breakdown', {})
-        lines.append(f"Critical Priority: {priority_breakdown.get('Critical', 0)}")
-        lines.append(f"High Priority: {priority_breakdown.get('High', 0)}")
-        lines.append(f"Medium Priority: {priority_breakdown.get('Medium', 0)}")
-        lines.append(f"Low Priority: {priority_breakdown.get('Low', 0)}")
-        lines.append(f"Average Score: {summary.get('average_score', 0):.2f}")
+        lines.append(f"   🚨 Critical Priority: {priority_breakdown.get('Critical', 0)}")
+        lines.append(f"   ⚡ High Priority: {priority_breakdown.get('High', 0)}")
+        lines.append(f"   📊 Medium Priority: {priority_breakdown.get('Medium', 0)}")
+        lines.append(f"   📋 Low Priority: {priority_breakdown.get('Low', 0)}")
         lines.append("")
         
-        # Top keywords
-        top_keywords = summary.get('top_keywords', [])
-        if top_keywords:
-            lines.append("TOP KEYWORDS:")
-            for kw in top_keywords[:5]:
-                lines.append(f"  - {kw['keyword']} ({kw['count']} opportunities)")
-            lines.append("")
+        # Analyze real data for insights
+        organizations = {}
+        all_keywords = {}
+        total_with_budget = 0
+        total_with_deadline = 0
+        
+        for opp in opportunities:
+            # Count organizations
+            org = opp.get('organization', 'Unknown')
+            organizations[org] = organizations.get(org, 0) + 1
+            
+            # Count keywords
+            keywords = opp.get('keywords', {}).get('found', [])
+            for kw in keywords:
+                all_keywords[kw] = all_keywords.get(kw, 0) + 1
+            
+            # Count opportunities with budget/deadline info
+            budget_amount = opp.get('budget', {}).get('amount')
+            if budget_amount:
+                total_with_budget += 1
+                
+            deadline_raw = opp.get('deadline', {}).get('raw')
+            if deadline_raw:
+                total_with_deadline += 1
+        
+        # Source Analysis
+        top_orgs = sorted(organizations.items(), key=lambda x: x[1], reverse=True)
+        lines.append("🏢 SOURCE ORGANIZATIONS:")
+        for i, (org, count) in enumerate(top_orgs[:8], 1):
+            percentage = (count / len(opportunities) * 100) if opportunities else 0
+            lines.append(f"   {i:2}. {org}: {count} opportunities ({percentage:.1f}%)")
+        if len(top_orgs) > 8:
+            lines.append(f"   ... and {len(top_orgs) - 8} more organizations")
+        lines.append("")
+        
+        # Keyword Analysis
+        top_keywords = sorted(all_keywords.items(), key=lambda x: x[1], reverse=True)
+        lines.append("🔑 TOP KEYWORDS & THEMES:")
+        for i, (kw, count) in enumerate(top_keywords[:10], 1):
+            lines.append(f"   {i:2}. {kw}: {count} occurrences")
+        lines.append("")
+        
+        # Data Quality Insights
+        lines.append("📈 DATA INSIGHTS:")
+        lines.append(f"   • {len(organizations)} unique source organizations")
+        lines.append(f"   • {len(all_keywords)} unique keywords identified")
+        lines.append(f"   • {total_with_budget} opportunities include budget information")
+        lines.append(f"   • {total_with_deadline} opportunities have deadline details")
+        if opportunities:
+            avg_keywords = sum(len(opp.get('keywords', {}).get('found', [])) for opp in opportunities) / len(opportunities)
+            lines.append(f"   • {avg_keywords:.1f} average keywords per opportunity")
+        lines.append("")
         
         # Critical opportunities
-        critical_opps = [opp for opp in opportunities if opp.get('priority') == 'Critical']
+        critical_opps = [opp for opp in opportunities if opp.get('scoring', {}).get('priority') == 'Critical']
         if critical_opps:
-            lines.append("CRITICAL PRIORITY OPPORTUNITIES:")
-            lines.append("-" * 40)
+            lines.append("🚨 CRITICAL PRIORITY OPPORTUNITIES:")
+            lines.append("-" * 45)
             for i, opp in enumerate(critical_opps[:5], 1):
                 lines.append(f"{i}. {opp.get('title', 'No title')}")
                 lines.append(f"   Organization: {opp.get('organization', 'Unknown')}")
-                lines.append(f"   Reference: {opp.get('reference_number', 'N/A')}")
-                lines.append(f"   Score: {opp.get('relevance_score', 0):.2f}")
-                lines.append(f"   Keywords: {', '.join(opp.get('keywords_found', []))}")
+                lines.append(f"   Budget: {opp.get('budget', {}).get('formatted', 'Not specified')}")
+                lines.append(f"   Deadline: {opp.get('deadline', {}).get('formatted', 'Not specified')}")
+                keywords = opp.get('keywords', {}).get('found', [])
+                lines.append(f"   Keywords: {', '.join(keywords[:5]) if keywords else 'None'}")
+                lines.append(f"   URL: {opp.get('source_url', 'N/A')}")
                 lines.append("")
+            lines.append("")
         
         # High priority opportunities
-        high_opps = [opp for opp in opportunities if opp.get('priority') == 'High']
+        high_opps = [opp for opp in opportunities if opp.get('scoring', {}).get('priority') == 'High']
+        if high_opps:
+            lines.append("⚡ HIGH PRIORITY OPPORTUNITIES:")
+            lines.append("-" * 40)
+            for i, opp in enumerate(high_opps[:5], 1):
+                lines.append(f"{i}. {opp.get('title', 'No title')}")
+                lines.append(f"   Organization: {opp.get('organization', 'Unknown')}")
+                lines.append(f"   Budget: {opp.get('budget', {}).get('formatted', 'Not specified')}")
+                keywords = opp.get('keywords', {}).get('found', [])
+                lines.append(f"   Keywords: {', '.join(keywords[:3]) if keywords else 'None'}")
+                lines.append("")
+            lines.append("")
+        
+        # Sample of other opportunities
+        other_opps = [opp for opp in opportunities if opp.get('scoring', {}).get('priority') not in ['Critical', 'High']]
+        if other_opps:
+            lines.append("📋 SAMPLE OF OTHER OPPORTUNITIES:")
+            lines.append("-" * 35)
+            for i, opp in enumerate(other_opps[:3], 1):
+                lines.append(f"{i}. {opp.get('title', 'No title')} ({opp.get('organization', 'Unknown')})")
+                keywords = opp.get('keywords', {}).get('found', [])
+                if keywords:
+                    lines.append(f"   Keywords: {', '.join(keywords[:3])}")
+                lines.append("")
+        
+        # Footer
+        lines.append("=" * 50)
+        lines.append("📎 ATTACHMENTS:")
+        lines.append("• Excel Tracker: Complete opportunity database with filtering")
+        lines.append("• JSON Data: Machine-readable data for further analysis")
+        lines.append("")
+        lines.append("This report is generated automatically by Proposaland")
+        lines.append("monitoring system. For questions, contact the admin team.")
+        
+        return "\n".join(lines)
         if high_opps:
             lines.append("HIGH PRIORITY OPPORTUNITIES:")
             lines.append("-" * 40)
