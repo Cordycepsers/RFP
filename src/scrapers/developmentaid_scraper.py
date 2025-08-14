@@ -52,7 +52,7 @@ class DevelopmentAidScraper(BaseScraper):
         # Setup logging
         self.logger = logging.getLogger(f"proposaland.{self.name}")
         
-    def scrape_opportunities(self) -> List[Dict[str, Any]]:
+    def scrape_opportunities(self) -> List[OpportunityData]:
         """
         Main method to scrape opportunities from Development Aid
         """
@@ -97,20 +97,19 @@ class DevelopmentAidScraper(BaseScraper):
             # Filter and enhance opportunities
             filtered_opportunities = []
             for opp in opportunities:
-                if self._is_relevant_opportunity(opp):
+                if self.is_relevant_opportunity(opp):
                     enhanced_opp = self._enhance_opportunity(opp)
                     filtered_opportunities.append(enhanced_opp)
             
             self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
             # Convert dictionaries to OpportunityData objects
-        opportunity_objects = []
-        for opp in filtered_opportunities:
-            if isinstance(opp, dict):
-                opportunity_objects.append(self._convert_dict_to_opportunity_data(opp))
-            else:
-                opportunity_objects.append(opp)
-        
-        return opportunity_objects
+            opportunity_objects = []
+            for opp in filtered_opportunities:
+                if isinstance(opp, dict):
+                    opportunity_objects.append(self._convert_dict_to_opportunity_data(opp))
+                else:
+                    opportunity_objects.append(opp)
+            return opportunity_objects
             
         except Exception as e:
             self.logger.error(f"Error scraping Development Aid: {str(e)}")
@@ -154,17 +153,14 @@ class DevelopmentAidScraper(BaseScraper):
         opportunities = []
         
         try:
-            # Look for opportunity containers in the grid
-            # Development Aid uses a grid layout with opportunity cards
-            opportunity_cards = soup.find_all(['div', 'article'], class_=lambda x: x and any(
-                term in x.lower() for term in ['tender', 'opportunity', 'result', 'item', 'card']
-            ))
+            # Look for opportunity containers - simplified without lambdas
+            opportunity_cards = soup.find_all(['div', 'article'])
             
             if not opportunity_cards:
                 # Try alternative selectors
                 opportunity_cards = soup.find_all('tr')  # Table rows
                 if not opportunity_cards:
-                    opportunity_cards = soup.find_all('div', class_=lambda x: x and 'row' in x.lower())
+                    opportunity_cards = soup.find_all('div')
             
             for card in opportunity_cards:
                 try:
@@ -180,7 +176,7 @@ class DevelopmentAidScraper(BaseScraper):
         
         return opportunities
     
-    def _parse_opportunity_card(self, card: BeautifulSoup) -> Optional[Dict[str, Any]]:
+    def _parse_opportunity_card(self, card) -> Optional[Dict[str, Any]]:
         """Parse individual opportunity card"""
         try:
             opportunity = {}
@@ -226,11 +222,11 @@ class DevelopmentAidScraper(BaseScraper):
             # Extract budget/value
             budget_text = self._extract_budget_from_card(card)
             if budget_text:
-                opportunity['budget'] = self._parse_budget(budget_text)
+                opportunity['budget'] = self.extract_budget(budget_text)
                 opportunity['budget_text'] = budget_text
             
             # Extract reference number
-            ref_number, confidence = self._extract_reference_number(opportunity.get('title', ''))
+            ref_number, confidence = self.extract_reference_number_advanced(opportunity.get('title', ''))
             opportunity['reference_number'] = ref_number
             opportunity['reference_confidence'] = confidence
             
@@ -366,6 +362,7 @@ class DevelopmentAidScraper(BaseScraper):
         if not deadline_text:
             return None
         
+        # Common date formats
         # Common date formats
         formats = [
             '%d/%m/%Y', '%m/%d/%Y', '%Y-%m-%d', '%Y/%m/%d',
@@ -589,30 +586,52 @@ class DevelopmentAidScraper(BaseScraper):
             }
             
             # Extract full description
-            desc_elem = soup.find(['div', 'section'], class_=lambda x: x and 'description' in x.lower())
+            desc_elem = None
+            for tag in soup.find_all(['div', 'section']):
+                try:
+                    tag_class = tag.get('class')
+                    if tag_class and any('description' in c.lower() for c in tag_class):
+                        desc_elem = tag
+                        break
+                except (AttributeError, TypeError):
+                    continue
             if desc_elem:
                 details['full_description'] = desc_elem.get_text(strip=True)
-            
             # Extract requirements
-            req_elem = soup.find(['div', 'section'], class_=lambda x: x and 'requirement' in x.lower())
+            req_elem = None
+            for tag in soup.find_all(['div', 'section']):
+                try:
+                    tag_class = tag.get('class')
+                    if tag_class and any('requirement' in c.lower() for c in tag_class):
+                        req_elem = tag
+                        break
+                except (AttributeError, TypeError):
+                    continue
             if req_elem:
                 details['requirements'] = req_elem.get_text(strip=True)
-            
             # Extract contact information
-            contact_elem = soup.find(['div', 'section'], class_=lambda x: x and 'contact' in x.lower())
+            contact_elem = None
+            for tag in soup.find_all(['div', 'section']):
+                try:
+                    tag_class = tag.get('class')
+                    if tag_class and any('contact' in c.lower() for c in tag_class):
+                        contact_elem = tag
+                        break
+                except (AttributeError, TypeError):
+                    continue
             if contact_elem:
                 details['contact_info'] = contact_elem.get_text(strip=True)
-            
             # Extract document links
-            doc_links = soup.find_all('a', href=lambda x: x and any(
-                ext in x.lower() for ext in ['.pdf', '.doc', '.docx', '.xls', '.xlsx']
-            ))
-            
-            for link in doc_links:
-                details['documents'].append({
-                    'title': link.get_text(strip=True),
-                    'url': urljoin(self.base_url, link['href'])
-                })
+            for link in soup.find_all('a'):
+                try:
+                    href = link.get('href')
+                    if isinstance(href, str) and any(ext in href.lower() for ext in ['.pdf', '.doc', '.docx', '.xls', '.xlsx']):
+                        details['documents'].append({
+                            'title': link.get_text(strip=True),
+                            'url': urljoin(self.base_url, href)
+                        })
+                except (AttributeError, TypeError):
+                    continue
             
             return details
             
