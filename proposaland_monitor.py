@@ -22,8 +22,8 @@ from scrapers.ungm_scraper import UNGMScraper
 from scrapers.globalfund_scraper import GlobalFundScraper
 from scrapers.worldbank_scraper import WorldBankScraper
 from scrapers.developmentaid_scraper import DevelopmentAidScraper
-from scrapers.iucn_scraper import IUCNScraper
-from scrapers.adb_scraper import ADBScraper
+# from scrapers.iucn_scraper import IUCNScraper  # Temporarily disabled due to BeautifulSoup errors
+# from scrapers.adb_scraper import ADBScraper  # Temporarily disabled due to BeautifulSoup errors
 
 
 class ProposalandMonitor:
@@ -94,9 +94,11 @@ class ProposalandMonitor:
                 elif website_type == 'developmentaid':
                     scraper = DevelopmentAidScraper(self.config, website)
                 elif website_type == 'iucn':
-                    scraper = IUCNScraper(self.config, website)
+                    logger.warning(f"IUCN scraper temporarily disabled due to BeautifulSoup errors")
+                    continue
                 elif website_type == 'adb':
-                    scraper = ADBScraper(self.config, website)
+                    logger.warning(f"ADB scraper temporarily disabled due to BeautifulSoup errors")
+                    continue
                 else:
                     # For now, use generic scraper for other types
                     scraper = self._create_generic_scraper(website)

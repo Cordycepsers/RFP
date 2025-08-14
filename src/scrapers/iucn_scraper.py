@@ -1,6 +1,11 @@
 """
 IUCN Scraper for Proposaland
-Scrapes opportunities from https://iucn.org/procurement/currently-running-tenders
+Scrapes opportunities from https://iucn.org/procurement/currently-ru            # Find the open tenders section
+            open_section = None
+            for h2 in soup.find_all('h2'):
+                if h2.get_text() and 'open tenders' in h2.get_text().lower():
+                    open_section = h2
+                    breaking-tenders
 """
 
 import requests
@@ -79,15 +84,16 @@ class IUCNScraper(BaseScraper):
                     filtered_opportunities.append(enhanced_opp)
             
             self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
+            
             # Convert dictionaries to OpportunityData objects
-        opportunity_objects = []
-        for opp in filtered_opportunities:
-            if isinstance(opp, dict):
-                opportunity_objects.append(self._convert_dict_to_opportunity_data(opp))
-            else:
-                opportunity_objects.append(opp)
-        
-        return opportunity_objects
+            opportunity_objects = []
+            for opp in filtered_opportunities:
+                if isinstance(opp, dict):
+                    opportunity_objects.append(self._convert_dict_to_opportunity_data(opp))
+                else:
+                    opportunity_objects.append(opp)
+            
+            return opportunity_objects
             
         except Exception as e:
             self.logger.error(f"Error scraping IUCN: {str(e)}")
