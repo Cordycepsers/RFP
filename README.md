@@ -1,9 +1,5 @@
 # Proposaland Opportunity Monitoring System
 
-**Version:** 1.0.0  
-**Author:** Manus AI  
-**Date:** August 2025
-
 ## Overview
 
 Proposaland is an automated opportunity monitoring system designed to search 23 development organization websites daily for multimedia and creative opportunities. The system extracts reference numbers, filters relevant opportunities, generates Excel trackers, and sends email notifications with comprehensive scoring and prioritization.
