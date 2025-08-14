@@ -824,3 +824,28 @@
 2025-08-14 04:46:04 | INFO | Initialized scraper for IPU
 2025-08-14 04:46:04 | INFO | Initialized scraper for IDC
 2025-08-14 04:46:04 | INFO | Starting Proposaland scheduler - daily execution at 09:00
+2025-08-14 04:47:41 | INFO | Proposaland monitoring system started
+2025-08-14 04:47:41 | INFO | Initializing scrapers for all target websites
+2025-08-14 04:47:41 | INFO | Initialized scraper for Devex
+2025-08-14 04:47:41 | INFO | Initialized scraper for UNDP Procurement
+2025-08-14 04:47:41 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-14 04:47:41 | INFO | Initialized scraper for Global Fund
+2025-08-14 04:47:41 | INFO | Initialized scraper for Development Aid
+2025-08-14 04:47:41 | INFO | Initialized scraper for ReliefWeb
+2025-08-14 04:47:41 | INFO | Initialized scraper for Save the Children
+2025-08-14 04:47:41 | INFO | Initialized scraper for Mercy Corps
+2025-08-14 04:47:41 | INFO | Initialized scraper for IRC
+2025-08-14 04:47:41 | INFO | Initialized scraper for Plan International
+2025-08-14 04:47:41 | WARNING | IUCN scraper temporarily disabled due to BeautifulSoup errors
+2025-08-14 04:47:41 | INFO | Initialized scraper for World Bank
+2025-08-14 04:47:41 | INFO | Initialized scraper for NRC
+2025-08-14 04:47:41 | INFO | Initialized scraper for DRC
+2025-08-14 04:47:41 | INFO | Initialized scraper for AfDB
+2025-08-14 04:47:41 | INFO | Initialized scraper for GGGI
+2025-08-14 04:47:41 | INFO | Initialized scraper for ACTED
+2025-08-14 04:47:41 | WARNING | ADB scraper temporarily disabled due to BeautifulSoup errors
+2025-08-14 04:47:41 | INFO | Initialized scraper for BirdLife
+2025-08-14 04:47:41 | INFO | Initialized scraper for Heifer
+2025-08-14 04:47:41 | INFO | Initialized scraper for DNDi
+2025-08-14 04:47:41 | INFO | Initialized scraper for IPU
+2025-08-14 04:47:41 | INFO | Initialized scraper for IDC
