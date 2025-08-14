@@ -1,0 +1,627 @@
+{
+  "metadata": {
+    "generated_timestamp": "2025-08-14T01:52:30.662248",
+    "generated_date": "2025-08-14",
+    "generated_time": "01:52:30",
+    "system_version": "1.0.0",
+    "total_opportunities": 5,
+    "data_format_version": "1.0",
+    "timezone": "UTC",
+    "generator": "Proposaland Opportunity Monitor"
+  },
+  "summary": {
+    "total_count": 5,
+    "priority_breakdown": {
+      "Critical": 0,
+      "High": 2,
+      "Medium": 2,
+      "Low": 1
+    },
+    "average_score": 0.531,
+    "score_distribution": {
+      "0.0-0.2": 0,
+      "0.2-0.4": 1,
+      "0.4-0.6": 2,
+      "0.6-0.8": 2,
+      "0.8-1.0": 0
+    },
+    "top_organizations": [
+      {
+        "name": "World Bank",
+        "count": 1
+      },
+      {
+        "name": "UNICEF",
+        "count": 1
+      },
+      {
+        "name": "Save the Children",
+        "count": 1
+      },
+      {
+        "name": "UNDP",
+        "count": 1
+      },
+      {
+        "name": "Government of India",
+        "count": 1
+      }
+    ],
+    "top_keywords": [
+      {
+        "keyword": "communication",
+        "count": 2
+      },
+      {
+        "keyword": "multimedia",
+        "count": 2
+      },
+      {
+        "keyword": "campaign",
+        "count": 1
+      },
+      {
+        "keyword": "video",
+        "count": 1
+      },
+      {
+        "keyword": "animation",
+        "count": 1
+      },
+      {
+        "keyword": "photography",
+        "count": 1
+      },
+      {
+        "keyword": "design",
+        "count": 1
+      },
+      {
+        "keyword": "visual",
+        "count": 1
+      },
+      {
+        "keyword": "podcasts",
+        "count": 1
+      },
+      {
+        "keyword": "media",
+        "count": 1
+      }
+    ],
+    "deadline_analysis": {
+      "total_with_deadlines": 5,
+      "urgent_opportunities": 0,
+      "expired_opportunities": 0,
+      "average_days_until_deadline": 33.0,
+      "deadline_distribution": {
+        "within_week": 0,
+        "within_month": 3,
+        "within_quarter": 2,
+        "beyond_quarter": 0
+      }
+    },
+    "budget_analysis": {
+      "total_with_budgets": 5,
+      "average_budget": 158000.0,
+      "median_budget": 75000,
+      "budget_range": {
+        "minimum": 25000,
+        "maximum": 500000
+      },
+      "budget_distribution": {
+        "under_10k": 0,
+        "10k_50k": 2,
+        "50k_100k": 1,
+        "100k_500k": 1,
+        "over_500k": 1
+      }
+    },
+    "reference_number_stats": {
+      "total_with_reference_numbers": 5,
+      "reference_number_rate": 1.0,
+      "high_confidence_references": 5,
+      "average_confidence": 0.916
+    }
+  },
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "Digital Communication Strategy Development",
+      "description": "World Bank seeks consultancy services for developing a comprehensive digital communication strategy including social media campaigns, website redesign, and multimedia content creation.",
+      "organization": "World Bank",
+      "source_url": "https://projects.worldbank.org/procurement",
+      "location": "Global",
+      "budget": {
+        "amount": 150000,
+        "currency": "USD",
+        "formatted": "USD 150,000.00"
+      },
+      "deadline": {
+        "raw": "2025-09-28T01:52:30.620776",
+        "formatted": "2025-09-28 01:52:30",
+        "days_until": 44
+      },
+      "reference_number": {
+        "number": "WB/2024/COMM/012",
+        "confidence": 0.92,
+        "has_reference": true
+      },
+      "keywords": {
+        "found": [
+          "communication",
+          "multimedia",
+          "campaign"
+        ],
+        "count": 3,
+        "primary_match": "communication"
+      },
+      "scoring": {
+        "relevance_score": 0.6437310198761813,
+        "priority": "High",
+        "scoring_details": {
+          "final_score": 0.6437310198761813,
+          "component_scores": {
+            "keyword_match": 0.5225806451612904,
+            "budget_range": 0.7929292929292929,
+            "deadline_urgency": 0.6,
+            "source_priority": 1.0,
+            "geographic_fit": 0.5,
+            "sector_relevance": 0.165,
+            "reference_number_bonus": 0.96
+          },
+          "weights_used": {
+            "keyword_match": 0.25,
+            "budget_range": 0.2,
+            "deadline_urgency": 0.15,
+            "source_priority": 0.15,
+            "geographic_fit": 0.1,
+            "sector_relevance": 0.1,
+            "reference_number_bonus": 0.05
+          }
+        },
+        "rank": 1
+      },
+      "extraction": {
+        "extracted_date": "2025-08-14T01:52:30.620777",
+        "extraction_method": "automated_scraping",
+        "data_quality": 1.0
+      },
+      "raw_data": {}
+    },
+    {
+      "id": 2,
+      "title": "Video Production Services for Health Campaign",
+      "description": "We are seeking a multimedia production company to create educational videos about maternal health. The project includes scriptwriting, filming, animation, and post-production services.",
+      "organization": "UNICEF",
+      "source_url": "https://www.unicef.org/procurement/notices",
+      "location": "Kenya",
+      "budget": {
+        "amount": 75000,
+        "currency": "USD",
+        "formatted": "USD 75,000.00"
+      },
+      "deadline": {
+        "raw": "2025-09-04T01:52:30.620767",
+        "formatted": "2025-09-04 01:52:30",
+        "days_until": 20
+      },
+      "reference_number": {
+        "number": "UNICEF/2024/MEDIA/001",
+        "confidence": 0.95,
+        "has_reference": true
+      },
+      "keywords": {
+        "found": [
+          "video",
+          "multimedia",
+          "animation"
+        ],
+        "count": 3,
+        "primary_match": "video"
+      },
+      "scoring": {
+        "relevance_score": 0.6079037960247637,
+        "priority": "High",
+        "scoring_details": {
+          "final_score": 0.6079037960247637,
+          "component_scores": {
+            "keyword_match": 0.635483870967742,
+            "budget_range": 0.6414141414141414,
+            "deadline_urgency": 0.8,
+            "source_priority": 0.5,
+            "geographic_fit": 0.5,
+            "sector_relevance": 0.27,
+            "reference_number_bonus": 0.975
+          },
+          "weights_used": {
+            "keyword_match": 0.25,
+            "budget_range": 0.2,
+            "deadline_urgency": 0.15,
+            "source_priority": 0.15,
+            "geographic_fit": 0.1,
+            "sector_relevance": 0.1,
+            "reference_number_bonus": 0.05
+          }
+        },
+        "rank": 2
+      },
+      "extraction": {
+        "extracted_date": "2025-08-14T01:52:30.620774",
+        "extraction_method": "automated_scraping",
+        "data_quality": 1.0
+      },
+      "raw_data": {}
+    },
+    {
+      "id": 3,
+      "title": "Photography and Design Services for Annual Report",
+      "description": "Save the Children requires professional photography and graphic design services for our 2024 annual report. Services include photo shoots, image editing, and layout design.",
+      "organization": "Save the Children",
+      "source_url": "https://www.savethechildren.net/tenders",
+      "location": "Nepal",
+      "budget": {
+        "amount": 25000,
+        "currency": "USD",
+        "formatted": "USD 25,000.00"
+      },
+      "deadline": {
+        "raw": "2025-08-28T01:52:30.620775",
+        "formatted": "2025-08-28 01:52:30",
+        "days_until": 13
+      },
+      "reference_number": {
+        "number": "SC/2024/DESIGN/003",
+        "confidence": 0.88,
+        "has_reference": true
+      },
+      "keywords": {
+        "found": [
+          "photography",
+          "design",
+          "visual"
+        ],
+        "count": 3,
+        "primary_match": "photography"
+      },
+      "scoring": {
+        "relevance_score": 0.5800001629195178,
+        "priority": "Medium",
+        "scoring_details": {
+          "final_score": 0.5800001629195178,
+          "component_scores": {
+            "keyword_match": 0.35967741935483877,
+            "budget_range": 0.5404040404040404,
+            "deadline_urgency": 0.8,
+            "source_priority": 1.0,
+            "geographic_fit": 0.65,
+            "sector_relevance": 0.0,
+            "reference_number_bonus": 0.94
+          },
+          "weights_used": {
+            "keyword_match": 0.25,
+            "budget_range": 0.2,
+            "deadline_urgency": 0.15,
+            "source_priority": 0.15,
+            "geographic_fit": 0.1,
+            "sector_relevance": 0.1,
+            "reference_number_bonus": 0.05
+          }
+        },
+        "rank": 3
+      },
+      "extraction": {
+        "extracted_date": "2025-08-14T01:52:30.620776",
+        "extraction_method": "automated_scraping",
+        "data_quality": 1.0
+      },
+      "raw_data": {}
+    },
+    {
+      "id": 4,
+      "title": "Podcast Production for Development Stories",
+      "description": "UNDP requires podcast production services to create a series about sustainable development success stories. Includes recording, editing, and distribution support.",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/",
+      "location": "Tanzania",
+      "budget": {
+        "amount": 40000,
+        "currency": "USD",
+        "formatted": "USD 40,000.00"
+      },
+      "deadline": {
+        "raw": "2025-09-13T01:52:30.620777",
+        "formatted": "2025-09-13 01:52:30",
+        "days_until": 29
+      },
+      "reference_number": {
+        "number": "UNDP-TZA-2024-001",
+        "confidence": 0.98,
+        "has_reference": true
+      },
+      "keywords": {
+        "found": [
+          "podcasts",
+          "media",
+          "communication"
+        ],
+        "count": 3,
+        "primary_match": "podcasts"
+      },
+      "scoring": {
+        "relevance_score": 0.5001414141414141,
+        "priority": "Medium",
+        "scoring_details": {
+          "final_score": 0.5001414141414141,
+          "component_scores": {
+            "keyword_match": 0.0,
+            "budget_range": 0.5707070707070707,
+            "deadline_urgency": 0.8,
+            "source_priority": 1.0,
+            "geographic_fit": 0.5,
+            "sector_relevance": 0.165,
+            "reference_number_bonus": 0.99
+          },
+          "weights_used": {
+            "keyword_match": 0.25,
+            "budget_range": 0.2,
+            "deadline_urgency": 0.15,
+            "source_priority": 0.15,
+            "geographic_fit": 0.1,
+            "sector_relevance": 0.1,
+            "reference_number_bonus": 0.05
+          }
+        },
+        "rank": 4
+      },
+      "extraction": {
+        "extracted_date": "2025-08-14T01:52:30.620778",
+        "extraction_method": "automated_scraping",
+        "data_quality": 1.0
+      },
+      "raw_data": {}
+    },
+    {
+      "id": 5,
+      "title": "Infrastructure Development Project - Local Contractors Only",
+      "description": "Road construction project in Mumbai requiring local Indian contractors with specific certifications. International companies not eligible.",
+      "organization": "Government of India",
+      "source_url": "https://example.gov.in/tenders",
+      "location": "Mumbai, India",
+      "budget": {
+        "amount": 500000,
+        "currency": "USD",
+        "formatted": "USD 500,000.00"
+      },
+      "deadline": {
+        "raw": "2025-10-13T01:52:30.620779",
+        "formatted": "2025-10-13 01:52:30",
+        "days_until": 59
+      },
+      "reference_number": {
+        "number": "GOI/2024/INFRA/045",
+        "confidence": 0.85,
+        "has_reference": true
+      },
+      "keywords": {
+        "found": [],
+        "count": 0,
+        "primary_match": null
+      },
+      "scoring": {
+        "relevance_score": 0.32175000000000004,
+        "priority": "Low",
+        "scoring_details": {
+          "final_score": 0.32175000000000004,
+          "component_scores": {
+            "keyword_match": 0.0,
+            "budget_range": 0.5,
+            "deadline_urgency": 0.6,
+            "source_priority": 0.5,
+            "geographic_fit": 0.0,
+            "sector_relevance": 0.10500000000000001,
+            "reference_number_bonus": 0.925
+          },
+          "weights_used": {
+            "keyword_match": 0.25,
+            "budget_range": 0.2,
+            "deadline_urgency": 0.15,
+            "source_priority": 0.15,
+            "geographic_fit": 0.1,
+            "sector_relevance": 0.1,
+            "reference_number_bonus": 0.05
+          }
+        },
+        "rank": 5
+      },
+      "extraction": {
+        "extracted_date": "2025-08-14T01:52:30.620779",
+        "extraction_method": "automated_scraping",
+        "data_quality": 1.0
+      },
+      "raw_data": {}
+    }
+  ],
+  "analytics": {
+    "data_quality": {
+      "average_quality_score": 1.0,
+      "complete_records": 5,
+      "completeness_rate": 1.0
+    },
+    "source_performance": {
+      "World Bank": {
+        "count": 1,
+        "total_score": 0.6437310198761813,
+        "high_priority": 1,
+        "with_references": 1,
+        "average_score": 0.6437310198761813,
+        "high_priority_rate": 1.0,
+        "reference_rate": 1.0
+      },
+      "UNICEF": {
+        "count": 1,
+        "total_score": 0.6079037960247637,
+        "high_priority": 1,
+        "with_references": 1,
+        "average_score": 0.6079037960247637,
+        "high_priority_rate": 1.0,
+        "reference_rate": 1.0
+      },
+      "Save the Children": {
+        "count": 1,
+        "total_score": 0.5800001629195178,
+        "high_priority": 0,
+        "with_references": 1,
+        "average_score": 0.5800001629195178,
+        "high_priority_rate": 0.0,
+        "reference_rate": 1.0
+      },
+      "UNDP": {
+        "count": 1,
+        "total_score": 0.5001414141414141,
+        "high_priority": 0,
+        "with_references": 1,
+        "average_score": 0.5001414141414141,
+        "high_priority_rate": 0.0,
+        "reference_rate": 1.0
+      },
+      "Government of India": {
+        "count": 1,
+        "total_score": 0.32175000000000004,
+        "high_priority": 0,
+        "with_references": 1,
+        "average_score": 0.32175000000000004,
+        "high_priority_rate": 0.0,
+        "reference_rate": 1.0
+      }
+    },
+    "temporal_analysis": {
+      "extraction_date": "2025-08-14T01:52:30.662355",
+      "opportunities_by_urgency": {
+        "immediate": 0,
+        "urgent": 0,
+        "moderate": 2,
+        "low": 3,
+        "unknown": 0
+      }
+    },
+    "geographic_distribution": {
+      "total_locations": 5,
+      "location_distribution": {
+        "Global": 1,
+        "Kenya": 1,
+        "Nepal": 1,
+        "Tanzania": 1,
+        "Mumbai, India": 1
+      }
+    },
+    "keyword_analysis": {
+      "single_keyword_frequency": {
+        "communication": 2,
+        "multimedia": 2,
+        "campaign": 1,
+        "video": 1,
+        "animation": 1,
+        "photography": 1,
+        "design": 1,
+        "visual": 1,
+        "podcasts": 1,
+        "media": 1
+      },
+      "keyword_combinations": {
+        "campaign, communication, multimedia": 1,
+        "animation, multimedia, video": 1,
+        "design, photography, visual": 1,
+        "communication, media, podcasts": 1
+      }
+    },
+    "scoring_analysis": {
+      "component_averages": {
+        "keyword_match": 0.30354838709677423,
+        "budget_range": 0.6090909090909091,
+        "deadline_urgency": 0.72,
+        "source_priority": 0.8,
+        "geographic_fit": 0.43,
+        "sector_relevance": 0.14100000000000001,
+        "reference_number_bonus": 0.958
+      },
+      "scoring_distribution": {
+        "0.0-0.2": 0,
+        "0.2-0.4": 1,
+        "0.4-0.6": 2,
+        "0.6-0.8": 2,
+        "0.8-1.0": 0
+      }
+    }
+  },
+  "configuration": {
+    "keywords": {
+      "primary": [
+        "video",
+        "photo",
+        "film",
+        "multimedia",
+        "design",
+        "visual",
+        "campaign",
+        "podcasts",
+        "virtual event",
+        "media",
+        "animation",
+        "animated video",
+        "promotion",
+        "communication",
+        "audiovisual"
+      ],
+      "exclusions": [
+        "local company",
+        "expired",
+        "closed",
+        "awarded",
+        "cancelled"
+      ]
+    },
+    "geographic_filters": {
+      "excluded_countries": [
+        "India",
+        "Pakistan",
+        "China",
+        "Bangladesh",
+        "Sri Lanka",
+        "Myanmar",
+        "Thailand",
+        "Vietnam",
+        "Cambodia",
+        "Laos",
+        "Malaysia",
+        "Indonesia",
+        "Philippines",
+        "Singapore"
+      ],
+      "included_countries": [
+        "Nepal"
+      ]
+    },
+    "budget_filters": {
+      "min_budget": 5000,
+      "max_budget": 500000,
+      "currency": "USD"
+    },
+    "scoring_weights": {
+      "keyword_match": 0.25,
+      "budget_range": 0.2,
+      "deadline_urgency": 0.15,
+      "source_priority": 0.15,
+      "geographic_fit": 0.1,
+      "sector_relevance": 0.1,
+      "reference_number_bonus": 0.05
+    },
+    "priority_thresholds": {
+      "critical": 0.8,
+      "high": 0.6,
+      "medium": 0.4,
+      "low": 0.0
+    },
+    "target_websites_count": 23
+  }
+}

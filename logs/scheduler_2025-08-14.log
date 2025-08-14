@@ -1,0 +1,82 @@
+2025-08-14 01:54:43 | SCHEDULER | INFO | Proposaland scheduler initialized
+2025-08-14 01:54:43 | SCHEDULER | INFO | Proposaland monitoring system started
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initializing scrapers for all target websites
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for Devex
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for UNDP Procurement
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for UN Global Marketplace
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for Global Fund
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for Development Aid
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for ReliefWeb
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for Save the Children
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for Mercy Corps
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for IRC
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for Plan International
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for World Bank
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for IUCN
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for NRC
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for DRC
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for AfDB
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for GGGI
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for ACTED
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for ADB
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for BirdLife
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for Heifer
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for DNDi
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for IPU
+2025-08-14 01:54:43 | SCHEDULER | INFO | Initialized scraper for IDC
+2025-08-14 01:54:43 | SCHEDULER | INFO | Starting Proposaland scheduler - daily execution at 09:00
+2025-08-14 01:54:43 | SCHEDULER | ERROR | Scheduler failed: 'Job' object has no attribute 'month'
+2025-08-14 01:58:19 | SCHEDULER | INFO | Proposaland scheduler initialized
+2025-08-14 01:58:19 | SCHEDULER | INFO | Proposaland monitoring system started
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initializing scrapers for all target websites
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for Devex
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for UNDP Procurement
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for UN Global Marketplace
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for Global Fund
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for Development Aid
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for ReliefWeb
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for Save the Children
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for Mercy Corps
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for IRC
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for Plan International
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for World Bank
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for IUCN
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for NRC
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for DRC
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for AfDB
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for GGGI
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for ACTED
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for ADB
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for BirdLife
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for Heifer
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for DNDi
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for IPU
+2025-08-14 01:58:19 | SCHEDULER | INFO | Initialized scraper for IDC
+2025-08-14 01:58:19 | SCHEDULER | INFO | Starting Proposaland scheduler - daily execution at 09:00
+2025-08-14 02:07:35 | SCHEDULER | INFO | Proposaland scheduler initialized
+2025-08-14 02:07:35 | SCHEDULER | INFO | Proposaland monitoring system started
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initializing scrapers for all target websites
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for Devex
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for UNDP Procurement
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for UN Global Marketplace
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for Global Fund
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for Development Aid
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for ReliefWeb
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for Save the Children
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for Mercy Corps
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for IRC
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for Plan International
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for World Bank
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for IUCN
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for NRC
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for DRC
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for AfDB
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for GGGI
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for ACTED
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for ADB
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for BirdLife
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for Heifer
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for DNDi
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for IPU
+2025-08-14 02:07:35 | SCHEDULER | INFO | Initialized scraper for IDC
+2025-08-14 02:07:35 | SCHEDULER | INFO | Starting Proposaland scheduler - daily execution at 09:00

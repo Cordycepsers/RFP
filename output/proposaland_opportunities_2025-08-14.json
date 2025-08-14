@@ -1,0 +1,2154 @@
+{
+  "generated_date": "2025-08-14T02:03:57.207018",
+  "total_opportunities": 105,
+  "opportunities": [
+    {
+      "title": "Opportunity from AfDB",
+      "description": "Generic opportunity detected",
+      "organization": "AfDB",
+      "source_url": "https://www.afdb.org/en/about-us/corporate-procurement/procurement-notices/current-solicitations",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "video",
+        "photo",
+        "multimedia",
+        "design",
+        "podcasts",
+        "media",
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:40.110514",
+      "raw_data": {
+        "relevance_score": 0.22166666666666668,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from Plan International",
+      "description": "Generic opportunity detected",
+      "organization": "Plan International",
+      "source_url": "https://plan-international.org/calls-tender/",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "design",
+        "campaign",
+        "media",
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:37.169390",
+      "raw_data": {
+        "relevance_score": 0.21666666666666667,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from IUCN",
+      "description": "Generic opportunity detected",
+      "organization": "IUCN",
+      "source_url": "https://www.iucn.org/procurement/currently-running-tenders",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "video",
+        "photo",
+        "design",
+        "visual",
+        "media",
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:38.136291",
+      "raw_data": {
+        "relevance_score": 0.20500000000000002,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from Save the Children",
+      "description": "Generic opportunity detected",
+      "organization": "Save the Children",
+      "source_url": "https://www.savethechildren.net/about-us/our-suppliers/tenders",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "campaign",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:36.172928",
+      "raw_data": {
+        "relevance_score": 0.18333333333333332,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from IRC",
+      "description": "Generic opportunity detected",
+      "organization": "IRC",
+      "source_url": "https://www.rescue.org/procurement-policies-and-bid-opportunities",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "campaign",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:36.801915",
+      "raw_data": {
+        "relevance_score": 0.18333333333333332,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFP - National Graphical Design Firm \u2013 Crowd Funding and Multimedia Production",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-25T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BLZ/BELIZE",
+      "reference_number": "UNDP-BLZ-00086",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "multimedia",
+        "design",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.081879",
+      "raw_data": {
+        "relevance_score": 0.175,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Firm Level Service provider -Graphic Design and Multimedia Services",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-14T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-ETH/ETHIOPIA",
+      "reference_number": "UNDP-ETH-00528",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "multimedia",
+        "design",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.096566",
+      "raw_data": {
+        "relevance_score": 0.175,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from Mercy Corps",
+      "description": "Generic opportunity detected",
+      "organization": "Mercy Corps",
+      "source_url": "https://www.mercycorps.org/tenders",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:36.493314",
+      "raw_data": {
+        "relevance_score": 0.16666666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "LBN-CO-ITB-132-25 LTA for the Provision of Multimedia and Content Production",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2508-08-27T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-LBN/LEBANON",
+      "reference_number": "UNDP-LBN-01069",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "multimedia",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.080859",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Short Video Documentary & Photos of the Post-TRRC Project",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2505-08-15T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-GMB/GAMBIA",
+      "reference_number": "UNDP-GMB-00431",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "video",
+        "photo"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.083175",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Design and Implementation of National Public Awareness \"Against SDS\" Campaign",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-21T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-IRN/IRAN",
+      "reference_number": "UNDP-IRN-00265",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design",
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.085024",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "342_Consultant on Social Media Campaign for Media Literacy and Critical Thinking",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-UKR/UKRAINE",
+      "reference_number": "UNDP-UKR-01382",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.087019",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Explainer Video Production Services: Digital Media on Sustainable Energy",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2508-08-22T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HQ/UNITED STATES OF AMERICA",
+      "reference_number": "UNDP-HQ-01783",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "video",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.089535",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Short Video Documentary & Photos of the Post-TRRC Project",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2503-08-06T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-GMB/GAMBIA",
+      "reference_number": "UNDP-GMB-00424",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "video",
+        "photo"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.095053",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFQ Videography and photography production for UNDP Seoul Policy Centre",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2502-08-12T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HQ/",
+      "reference_number": "UNDP-HQ-01771",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "video",
+        "photo"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.096911",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Adquisici\u00f3n e instalaci\u00f3n de equipamiento tecnol\u00f3gico audiovisual",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-11T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-CHL/CHILE",
+      "reference_number": "UNDP-CHL-00165",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "visual",
+        "audiovisual"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.097087",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Individual Consultant for Short Video Documentary and Photos of the POST TRR",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2510-07-29T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-GMB/GAMBIA",
+      "reference_number": "UNDP-GMB-00418",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "video",
+        "photo"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.097377",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Promotional videos on ecological tourism",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2510-08-08T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BLR/BELARUS",
+      "reference_number": "UNDP-BLR-00411",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "video",
+        "promotion"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.097545",
+      "raw_data": {
+        "relevance_score": 0.15833333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from NRC",
+      "description": "Generic opportunity detected",
+      "organization": "NRC",
+      "source_url": "https://www.nrc.no/procurement/",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "design",
+        "media",
+        "promotion"
+      ],
+      "extracted_date": "2025-08-14T02:03:38.690964",
+      "raw_data": {
+        "relevance_score": 0.155,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from IPU",
+      "description": "Generic opportunity detected",
+      "organization": "IPU",
+      "source_url": "https://www.ipu.org/work-with-us/vacancies",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "video",
+        "podcasts",
+        "virtual event",
+        "media",
+        "promotion"
+      ],
+      "extracted_date": "2025-08-14T02:03:55.641142",
+      "raw_data": {
+        "relevance_score": 0.1433333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from IDC",
+      "description": "Generic opportunity detected",
+      "organization": "IDC",
+      "source_url": "https://www.idc.co.za/tenders/",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "video",
+        "photo",
+        "design",
+        "media",
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:57.205891",
+      "raw_data": {
+        "relevance_score": 0.1433333333333333,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "CABINET COMMUNICATION ET PRODUCTION DES CONNAISSANCES DES PROJETS EN CASAMANCE",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2507-09-01T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-SEN/SENEGAL",
+      "reference_number": "UNDP-SEN-00498",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.080377",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "CSO to support the development & implementation of Media & CSO Joint Action Plan",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-27T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MDV/MALDIVES",
+      "reference_number": "UNDP-MDV-00283",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.080538",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RECRUTEMENT AGENCE EVENEMENTIELLE INSTITUTIONNELLE ET AGENCE DE COMMUNICATION",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2503-08-22T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MDG/MADAGASCAR",
+      "reference_number": "UNDP-MDG-00654",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.080962",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Acquisition des ordinateurs et autres mat\u00e9riels informatiques et communication",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2511-08-25T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-GIN/GUINEA",
+      "reference_number": "UNDP-GIN-00408",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.081296",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Aquisition de mat\u00e9riels et installation d'un systeme photovoltaique",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-28T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HTI/HAITI",
+      "reference_number": "UNDP-HTI-00474",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "photo"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.081333",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Consultancy to coordinate and manage SALIENT FUND Digital Campaign",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2505-08-25T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-GHA/GHANA",
+      "reference_number": "UNDP-GHA-00415",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.081428",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Event Visual Identity and Print Materials for the Event, Sep 2025",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MNE/MONTENEGRO",
+      "reference_number": "UNDP-MNE-00613",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "visual"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.081537",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "ITB- Procurement of Design and Printing Services for LMIS R&R tools",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2507-08-28T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-SDN/SUDAN",
+      "reference_number": "UNDP-SDN-00357",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.081643",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "P13.3.1 IT and Communication \u2013 Cap-Ha\u00eftien, Haiti",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HQ/HAITI",
+      "reference_number": "UNDP-HQ-01823",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.081729",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "SELECTION DE DEUX (2) PRESTATAIRES VIDEASTES OU AGENCES DE COMMUNICATION",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2508-08-30T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-NER/NIGER",
+      "reference_number": "UNDP-NER-00531",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.082040",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "National Consultant to undertake verification of detailed design and BOQ",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-24T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MDV/MALDIVES",
+      "reference_number": "UNDP-MDV-00282",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.082945",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "P14.1.1 Community co-designed waste management solutions - Cape Town",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-18T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HQ/SOUTH AFRICA",
+      "reference_number": "UNDP-HQ-01815",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.082980",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFP RECRUTEMENT D\u2019UN CABINET DE CONSULTANCE CHARGE DE LA COMMUNICATION",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2510-08-28T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-SEN/SENEGAL",
+      "reference_number": "UNDP-SEN-00493",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.083104",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Consultant for Portfolio Design on the Transformational Governance Thematic Area",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-21T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-RWA/RWANDA",
+      "reference_number": "UNDP-RWA-00284",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.083418",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Communication and Knowledge Management Consultant",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2510-08-20T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-LSO/LESOTHO",
+      "reference_number": "UNDP-LSO-00338",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.083632",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Consultant for Portfolio Design Process on Environment, Energy & Climate Change",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-21T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-RWA/RWANDA",
+      "reference_number": "UNDP-RWA-00283",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.083682",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Designs and supervision of works- MOLDOVA",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-09-01T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-SRB/SERBIA",
+      "reference_number": "UNDP-SRB-01065",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.083752",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Individual Consultant for Portfolio Design Economic Transformation Thematic Area",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-21T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-RWA/RWANDA",
+      "reference_number": "UNDP-RWA-00282",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.083994",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "National Consultant for Communication and Engagement",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-LAO/LAO PDR",
+      "reference_number": "UNDP-LAO-00550",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.084137",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFP - Consultancy to design and develop a website for the Magistracy of Belize",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-26T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BLZ/BELIZE",
+      "reference_number": "UNDP-BLZ-00085",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.084330",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFQ 587-25 for Closure and remediation of six illegal landfills",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-26T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MKD/Republic of North Macedonia",
+      "reference_number": "UNDP-MKD-00587",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.084402",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "FRP-RFQ-Main design for reconstruction of roads and bridges in Fojnica",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2508-08-22T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BIH/BOSNIA AND HERZEGOVINA",
+      "reference_number": "UNDP-BIH-01366",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.085042",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "IC-National Consultant, to Provide Data Analysis, Visualization and Training",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-25T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-ETH/ETHIOPIA",
+      "reference_number": "UNDP-ETH-00537",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "visual"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.085238",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "LBN-CO-RFP-153-25Development and Implementation of a Marketing Campaign",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2508-08-28T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-LBN/LEBANON",
+      "reference_number": "UNDP-LBN-01065",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.085293",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Main Design for Administrative building of Zeta Municipality",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2503-09-15T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MNE/MONTENEGRO",
+      "reference_number": "UNDP-MNE-00627",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.085329",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "01 National firm to provide design and renovation service",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2503-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-VNM/VIET NAM",
+      "reference_number": "UNDP-VNM-01651",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.086964",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "343_National Consultant on Media Literacy Action Planning and Assessment",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-UKR/UKRAINE",
+      "reference_number": "UNDP-UKR-01383",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.087036",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "344_IC for Development and Implementation of National Media Literacy Lesson",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-UKR/UKRAINE",
+      "reference_number": "UNDP-UKR-01384",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.087054",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "345_Consultant on Strategic Media Literacy Planning and Coordination",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-UKR/UKRAINE",
+      "reference_number": "UNDP-UKR-01385",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.087072",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "3674 -Comunicaci\u00f3n visual para la Econom\u00eda Circular Urbana",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-20T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-CUB/CUBA",
+      "reference_number": "UNDP-CUB-00379",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "visual"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.087106",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "CRFM-RFQ-Preliminary&detailed design for riverbed regulation of \u017deljeznica river",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BIH/BOSNIA AND HERZEGOVINA",
+      "reference_number": "UNDP-BIH-01361",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.087316",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "NC Designing and Implementing the \u201cPrisoners\u201d Health facility Module in the HIV",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-13T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-UZB/UZBEKISTAN",
+      "reference_number": "UNDP-UZB-01411",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.087623",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "National Consultancy - Design a project document on Innovative Local Governance",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2505-08-08T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-SOM/SOMALIA",
+      "reference_number": "UNDP-SOM-00492",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.088641",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "National Consultant for Communication",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-18T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MOZ/MOZAMBIQUE",
+      "reference_number": "UNDP-MOZ-00714",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.088676",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "National Individual Consultant: Learning Designer",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2511-08-18T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-NGA/NIGERIA",
+      "reference_number": "UNDP-NGA-01188",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.088728",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFP Develop and Implement an Awareness Raising and Behavioural Campaign under th",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2511-08-15T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-KOS/Kosovo, UNSCR 1244 (1999)",
+      "reference_number": "UNDP-KOS-00423",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.088908",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFP-Strategic Communications Services for the Better than Cash Alliance",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-GHA/GHANA",
+      "reference_number": "UNDP-GHA-00408",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.088947",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Survey, Design, and Preparation of Technical-Economic Report for the NbS",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-18T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-VNM/VIET NAM",
+      "reference_number": "UNDP-VNM-01646",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.089021",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "SUPPLY AND INSTALLATION OF SOLAR MINI-GRIDS AND COMMUNICATION INFRASTRUCTURE",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2501-08-29T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-FJI/FIJI",
+      "reference_number": "UNDP-FJI-00654",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.089165",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "IC 00584-2025 Redesign of Public Service for Bulky Waste Management in Gostivar",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2507-08-15T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MKD/Republic of North Macedonia",
+      "reference_number": "UNDP-MKD-00584",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.089572",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "320_awareness-raising campaign on access to social services and support",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-UKR/UKRAINE",
+      "reference_number": "UNDP-UKR-01363",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.090341",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Communication Specialist (National Consultant)",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2502-08-20T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-FJI/SOLOMON ISLANDS",
+      "reference_number": "UNDP-FJI-00664",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.090485",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Conduct strategic communication & capacity building for digital Cof LGBTIG+",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-14T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-VNM/VIET NAM",
+      "reference_number": "UNDP-VNM-01644",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.090502",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFP25/03100:Dniester2/ Development of a Feasibility Study and Concept Design",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-28T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MDA/MOLDOVA",
+      "reference_number": "UNDP-MDA-00781",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.090976",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Associations/ONG initiatives jeunes promotion activit\u00e9s changements climatiques",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2505-08-20T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MDG/MADAGASCAR",
+      "reference_number": "UNDP-MDG-00645",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "promotion"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.091350",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Design and Estimate Documentation for Azat Reservoir Dam",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2508-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-ARM/ARMENIA",
+      "reference_number": "UNDP-ARM-00762",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.091570",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "P12.1.1 Engagement and communication strategy -Municipality of Budapest-Hungary",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2503-08-14T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HQ/HUNGARY",
+      "reference_number": "UNDP-HQ-01798",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.091861",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "P31.1.2 - Research on marketing and visual identity",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2503-08-06T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HQ/BRAZIL",
+      "reference_number": "UNDP-HQ-01796",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "visual"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.091896",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "P12.1.3-The design of a Digital Platform surplus in the Municipality of Budapest",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-14T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HQ/HUNGARY",
+      "reference_number": "UNDP-HQ-01795",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.092867",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Prestataire national pour l\u2019animation de formations dans le domaine l'ESS",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2501-08-24T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-DZA/ALGERIA",
+      "reference_number": "UNDP-DZA-00214",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "animation"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.093912",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFP 580-2025 Biodegradable Waste Awareness and Farmer Engagement Campaign",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-19T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MKD/Republic of North Macedonia",
+      "reference_number": "UNDP-MKD-00580",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.094038",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFP- Design Digital Financial Literacy programme in Sudan",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2508-08-14T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-SDN/SUDAN",
+      "reference_number": "UNDP-SDN-00347",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.094055",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "National Firms Providing Digital Media Services",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2510-08-14T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-RWA/RWANDA",
+      "reference_number": "UNDP-RWA-00275",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.094235",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "DEVELOPMENT OF COMMUNICATION MATERIALS FOR SOCIAL ADVERTISING",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2507-08-12T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BLR/BELARUS",
+      "reference_number": "UNDP-BLR-00415",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.094524",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RfQ25/03062:Flood/ Development of detailed technical design documentation",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-18T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MDA/MOLDOVA",
+      "reference_number": "UNDP-MDA-00776",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.095018",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "SELECTION DE DEUX (2) PRESTATAIRES VIDEASTES OU AGENCES DE COMMUNICATION",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-10T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-NER/NIGER",
+      "reference_number": "UNDP-NER-00519",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.095035",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Strategic Communications Support to the HIV and Health Group, BPPS",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2503-08-12T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-HQ/UNITED STATES OF AMERICA",
+      "reference_number": "UNDP-HQ-01784",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.095071",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Consultancy to coordinate and manage SALIENT FUND Digital Campaign",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2505-08-07T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-GHA/GHANA",
+      "reference_number": "UNDP-GHA-00390",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.095370",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "National Consultant to Design a Toolkit for National Planning and Budgeting Act",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2511-08-08T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-ZMB/ZAMBIA",
+      "reference_number": "UNDP-ZMB-00466",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.095674",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "UNDP/RFP/39/2025-TCCF-Videography service on sustainable plastic waste solution",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2507-08-08T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-NPL/NEPAL",
+      "reference_number": "UNDP-NPL-00520",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "video"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.096087",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Design and deployment of a Dust Decision Support System in Khuzestan Province",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-13T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-IRN/IRAN",
+      "reference_number": "UNDP-IRN-00263",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.096475",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "EUFRP-RFQ-Development of the Hydraulic analysis and Conceptual design-Seon\u010dica",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-05T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BIH/BOSNIA AND HERZEGOVINA",
+      "reference_number": "UNDP-BIH-01334",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.096545",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Outdoor Exhibition Designer",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2505-08-06T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-JOR/JORDAN",
+      "reference_number": "UNDP-JOR-00535",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.096746",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "SDC-009-2025 \"Producci\u00f3n y Edici\u00f3n de Videos de Alta Resoluci\u00f3n\"",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-07T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-DOM/DOMINICAN REPUBLIC",
+      "reference_number": "UNDP-DOM-00534",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "video"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.096929",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RFQ-Conceptual Design for reconstruction of roads and infrastructure, Konjic",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2509-08-06T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BIH/BOSNIA AND HERZEGOVINA",
+      "reference_number": "UNDP-BIH-01333",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.097744",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Campaignn Manager for Trafficking in Persons and Smuggling of Migrants Programme",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2510-08-04T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-VNM/VIET NAM",
+      "reference_number": "UNDP-VNM-01624",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.097969",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "CONCEPTION ET PRODUCTION DES SUPPORTS DE COMMUNICATION (RELANCE)",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2507-07-28T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MDG/MADAGASCAR",
+      "reference_number": "UNDP-MDG-00642",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.097987",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Consultancy service for Design of models for Rural Transformation Centers",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-07-31T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-AGO/ANGOLA",
+      "reference_number": "UNDP-AGO-00192",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098060",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Consultancy service for Design of models for Rural Transformation Centers",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-04T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-AGO/ANGOLA",
+      "reference_number": "UNDP-AGO-00193",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098078",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Consulting services for Preparation of Detailed Engineering Designs and Site",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-12T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-JOR/JORDAN",
+      "reference_number": "UNDP-JOR-00534",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098131",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "CSO to Implement Voter Education Campaign and Awareness Program",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2506-08-17T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MDV/MALDIVES",
+      "reference_number": "UNDP-MDV-00277",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "campaign"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098168",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "DS-IC-Expert for Design of FBIH Development Strategy for Metal and Electro Ind.",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-04T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BIH/BOSNIA AND HERZEGOVINA",
+      "reference_number": "UNDP-BIH-01350",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098239",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "DS-IC-Expert for Design of FBIH Development Strategy for Wood Industry",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-04T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BIH/BOSNIA AND HERZEGOVINA",
+      "reference_number": "UNDP-BIH-01352",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098257",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "DS-IC-Expert for Design of FBIH Development Strategy-Construction Material Ind.",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-04T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-BIH/BOSNIA AND HERZEGOVINA",
+      "reference_number": "UNDP-BIH-01351",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098275",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Recrutement d\u2019une agence de communication ou de production audiovisuelle  (ODD)",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2512-08-01T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MLI/MALI",
+      "reference_number": "UNDP-MLI-00406",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098565",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "RECRUTEMENT D\u2019UNE AGENCE POUR LA PRODUCTION D\u2019UN FILM DOCUMENTAIRE",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2508-07-29T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-NER/NIGER",
+      "reference_number": "UNDP-NER-00513",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "film"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098586",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Recrutement d'une agence de communication ou de production audiovisuelle",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2511-08-01T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-MLI/MALI",
+      "reference_number": "UNDP-MLI-00405",
+      "reference_confidence": 0.9,
+      "keywords_found": [
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.098606",
+      "raw_data": {
+        "relevance_score": 0.14166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from ACTED",
+      "description": "Generic opportunity detected",
+      "organization": "ACTED",
+      "source_url": "https://www.acted.org/en/call-for-tenders/",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "design",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:42.478443",
+      "raw_data": {
+        "relevance_score": 0.13833333333333334,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from DNDi",
+      "description": "Generic opportunity detected",
+      "organization": "DNDi",
+      "source_url": "https://dndi.org/work-with-us/job-opportunities/",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "video",
+        "film",
+        "podcasts",
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:55.155525",
+      "raw_data": {
+        "relevance_score": 0.12666666666666665,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Graphic Design and Video Animation Services",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-10T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-R47/JORDAN",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "video",
+        "design",
+        "animation"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.091606",
+      "raw_data": {
+        "relevance_score": 0.125,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from DRC",
+      "description": "Generic opportunity detected",
+      "organization": "DRC",
+      "source_url": "https://pro.drc.ngo/resources/tenders/",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "media"
+      ],
+      "extracted_date": "2025-08-14T02:03:39.583578",
+      "raw_data": {
+        "relevance_score": 0.12166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from Heifer",
+      "description": "Generic opportunity detected",
+      "organization": "Heifer",
+      "source_url": "https://www.heifer.org/about-us/inside-heifer/procurement-and-contracting-services.html",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "design",
+        "media",
+        "communication"
+      ],
+      "extracted_date": "2025-08-14T02:03:53.130809",
+      "raw_data": {
+        "relevance_score": 0.11,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Provision of Data Visualization Services",
+      "description": "",
+      "organization": "UNDP",
+      "source_url": "https://procurement-notices.undp.org/search.cfm",
+      "deadline": "2504-08-06T00:00:00",
+      "budget": null,
+      "currency": "USD",
+      "location": "UNDP-R47/JORDAN",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "visual"
+      ],
+      "extracted_date": "2025-08-14T02:03:19.095711",
+      "raw_data": {
+        "relevance_score": 0.09166666666666666,
+        "priority": "Low"
+      }
+    },
+    {
+      "title": "Opportunity from BirdLife",
+      "description": "Generic opportunity detected",
+      "organization": "BirdLife",
+      "source_url": "https://www.birdlife.org/careers-hub/",
+      "deadline": null,
+      "budget": null,
+      "currency": "USD",
+      "location": "",
+      "reference_number": "",
+      "reference_confidence": 0.0,
+      "keywords_found": [
+        "design"
+      ],
+      "extracted_date": "2025-08-14T02:03:50.545025",
+      "raw_data": {
+        "relevance_score": 0.07666666666666666,
+        "priority": "Low"
+      }
+    }
+  ]
+}
