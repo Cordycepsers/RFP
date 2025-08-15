@@ -10,6 +10,7 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 from datetime import datetime
+import jinja2
 from typing import List, Dict, Any, Optional
 from pathlib import Path
 from loguru import logger
@@ -522,12 +523,16 @@ class EmailNotifier:
         else:
             return f"📊 {total} opportunities from {source_text} ({priority_text}) - {date_str}"
 
-    def _generate_html_content(self, opportunities: List[Dict], summary: Dict) -> str:
+    def _generate_html_content(self, opportunities: List[Dict], summary: Dict,
+                               excel_path: Optional[str] = None,
+                               json_path: Optional[str] = None) -> str:
         """Generate HTML email content with improved data analysis."""
-        # Load template
-        template_path = self.templates_dir / 'main_notification.html'
-        with open(template_path, 'r', encoding='utf-8') as f:
-            template = f.read()
+        # Use Jinja2 to render the template
+        env = jinja2.Environment(
+            loader=jinja2.FileSystemLoader(str(self.templates_dir)),
+            autoescape=jinja2.select_autoescape(['html', 'xml'])
+        )
+        template = env.get_template('main_notification.jinja2')
 
         # Prepare template variables
         date_str = datetime.now().strftime('%Y-%m-%d')
@@ -566,7 +571,7 @@ class EmailNotifier:
         top_keywords = sorted(all_keywords.items(),
                               key=lambda x: x[1], reverse=True)[:8]
 
-        # Get priority-specific opportunities (check actual priority field)
+    # Get priority-specific opportunities (check actual priority field)
         critical_opps = []
         high_opps = []
         for opp in opportunities:
@@ -593,7 +598,18 @@ class EmailNotifier:
         avg_keywords_per_opp = len(all_keywords) / \
             len(opportunities) if opportunities else 0
 
-        # Format data for template
+        # Build template variables for Jinja2
+        # Fallback filenames when paths are not provided
+        if excel_path:
+            tracker_filename = Path(excel_path).name
+        else:
+            tracker_filename = f"proposaland_tracker_{date_str}.xlsx"
+
+        if json_path:
+            json_filename = Path(json_path).name
+        else:
+            json_filename = f"proposaland_opportunities_{date_str}.json"
+
         template_vars = {
             'date': datetime.now().strftime('%B %d, %Y'),
             'date_str': date_str,
@@ -615,27 +631,12 @@ class EmailNotifier:
             'has_critical_opportunities': len(critical_opps) > 0,
             'critical_opportunities': self._format_opportunities_for_template(critical_opps[:5]),
             'has_high_opportunities': len(high_opps) > 0,
-            'high_opportunities': self._format_opportunities_for_template(high_opps[:5])
+            'high_opportunities': self._format_opportunities_for_template(high_opps[:5]),
+            'tracker_filename': tracker_filename,
+            'json_filename': json_filename,
         }
 
-        # Simple template replacement (for a full implementation, consider using Jinja2)
-        html_content = template
-        for key, value in template_vars.items():
-            placeholder = f"{{{{{key}}}}}"
-            html_content = html_content.replace(placeholder, str(value))
-
-        # Handle conditional blocks (simplified)
-        if not template_vars['has_critical_opportunities']:
-            # Remove critical opportunities section
-            start_marker = "{{#if has_critical_opportunities}}"
-            end_marker = "{{/if}}"
-            start_idx = html_content.find(start_marker)
-            if start_idx != -1:
-                end_idx = html_content.find(end_marker, start_idx)
-                if end_idx != -1:
-                    html_content = html_content[:start_idx] + \
-                        html_content[end_idx + len(end_marker):]
-
+        html_content = template.render(**template_vars)
         return html_content
 
     def _generate_text_content(self, opportunities: List[Dict], summary: Dict) -> str:

@@ -49,3 +49,6 @@ tenacity>=8.2.0
 # Web driver management
 webdriver-manager>=4.0.0
 
+# Templating
+Jinja2>=3.1.2
+
