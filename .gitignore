@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+
+# Logs and outputs
+logs/
+output/
+
+# Runtime artifacts
+proposaland.pid
+tmp/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
