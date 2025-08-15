@@ -344,5 +344,16 @@
     "excel_filename": "proposaland_tracker_{date}.xlsx",
     "max_opportunities_per_email": 50,
     "top_opportunities_count": 5
+  },
+  "monitoring": {
+    "zero_threshold": 3,
+    "error_threshold": 2,
+    "alert_email": null
+  },
+  "scheduler": {
+    "daily_time": "09:00",
+    "timezone": "UTC",
+    "max_retries": 3,
+    "retry_delay_minutes": 30
   }
 }

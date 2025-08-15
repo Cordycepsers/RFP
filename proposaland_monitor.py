@@ -4,28 +4,28 @@ Proposaland Opportunity Monitoring System
 Main script for automated daily monitoring of development organization opportunities.
 """
 
+from scrapers.adb_scraper import ADBScraper
+from scrapers.developmentaid_scraper import DevelopmentAidScraper
+from scrapers.worldbank_scraper import WorldBankScraper
+from scrapers.globalfund_scraper import GlobalFundScraper
+from scrapers.ungm_scraper import UNGMScraper
+from scrapers.undp_scraper import UNDPScraper
+from scrapers.devex_scraper import DevexScraper
+from scrapers.base_scraper import OpportunityData
+from scrapers.iucn_scraper import IUCNScraper
 from loguru import logger
 from typing import List, Dict, Any
 from pathlib import Path
 from datetime import datetime
 import json
-from scrapers.iucn_scraper import IUCNScraper
-from scrapers.base_scraper import OpportunityData
-from scrapers.devex_scraper import DevexScraper
-from scrapers.undp_scraper import UNDPScraper
-from scrapers.ungm_scraper import UNGMScraper
-from scrapers.globalfund_scraper import GlobalFundScraper
-from scrapers.worldbank_scraper import WorldBankScraper
-from scrapers.developmentaid_scraper import DevelopmentAidScraper
-from scrapers.adb_scraper import ADBScraper
+
 import sys
 import os
-# Ensure 'src' is on path so scraper modules can be imported when this file is run as a module
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
+# Ensure 'src' directory is on the import path so `scrapers.*` packages can be imported
+# when this module is executed directly or imported from other entrypoints.
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-# Add src directory to path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
 # from scrapers.iucn_scraper import IUCNScraper  # Temporarily disabled due to BeautifulSoup errors
 
@@ -39,7 +39,12 @@ class ProposalandMonitor:
         self.scrapers = {}
         self.opportunities = []
         self.setup_logging()
-        self.initialize_scrapers()
+    # Ensure logs folder exists for health tracking
+    Path('logs').mkdir(exist_ok=True)
+    # Load health state
+    self.health_path = Path('logs/scraper_health.json')
+    self._health = self._load_health()
+    self.initialize_scrapers()
 
     def _load_config(self) -> Dict[str, Any]:
         """Load configuration from JSON file."""
@@ -114,6 +119,79 @@ class ProposalandMonitor:
                 logger.error(
                     f"Failed to initialize scraper for {website['name']}: {e}")
 
+    # --- Scraper health monitoring helpers ---
+    def _load_health(self) -> Dict[str, Any]:
+        try:
+            if self.health_path.exists():
+                return json.loads(self.health_path.read_text())
+        except Exception:
+            logger.warning(
+                'Could not read scraper health file; starting fresh')
+        return {}
+
+    def _save_health(self):
+        try:
+            self.health_path.write_text(json.dumps(self._health, indent=2))
+        except Exception as e:
+            logger.error(f"Failed to write scraper health file: {e}")
+
+    def _record_scraper_result(self, name: str, count: int, error: str | None):
+        """Update health counters for a scraper and emit alerts when thresholds reached."""
+        now = datetime.now().isoformat()
+        entry = self._health.get(name, {
+            'zero_count': 0,
+            'error_count': 0,
+            'last_result_count': 0,
+            'last_error': None,
+            'last_seen': None
+        })
+
+        # thresholds configurable in config under 'monitoring'
+        zero_threshold = self.config.get(
+            'monitoring', {}).get('zero_threshold', 3)
+        error_threshold = self.config.get(
+            'monitoring', {}).get('error_threshold', 2)
+
+        entry['last_seen'] = now
+        entry['last_result_count'] = count
+
+        if error:
+            entry['error_count'] = entry.get('error_count', 0) + 1
+            entry['last_error'] = error
+        else:
+            entry['last_error'] = None
+            # reset error counter on success
+            entry['error_count'] = 0
+
+        if count == 0:
+            entry['zero_count'] = entry.get('zero_count', 0) + 1
+        else:
+            entry['zero_count'] = 0
+
+        self._health[name] = entry
+        self._save_health()
+
+        # Emit alerts to logs if thresholds exceeded
+        if entry['zero_count'] >= zero_threshold:
+            msg = (f"ALERT: Scraper '{name}' returned zero results {entry['zero_count']} "
+                   f"consecutive runs (threshold {zero_threshold}).")
+            logger.warning(msg)
+            try:
+                with Path('logs/scraper_alerts.log').open('a') as fh:
+                    fh.write(f"{now} {msg}\n")
+            except Exception:
+                logger.debug('Failed to write scraper alert to file')
+
+        if entry['error_count'] >= error_threshold:
+            msg = (f"ALERT: Scraper '{name}' raised errors {entry['error_count']} "
+                   f"consecutive runs (threshold {error_threshold}). Last error: {entry.get('last_error')}")
+            logger.warning(msg)
+            try:
+                with Path('logs/scraper_alerts.log').open('a') as fh:
+                    fh.write(f"{now} {msg}\n")
+            except Exception:
+                logger.debug('Failed to write scraper alert to file')
+
     def _create_generic_scraper(self, website_config):
         """Create a generic scraper for websites without specific implementations."""
         # For now, return a basic scraper that can handle simple cases
@@ -159,9 +237,20 @@ class ProposalandMonitor:
                 all_opportunities.extend(opportunities)
                 logger.info(
                     f"Found {len(opportunities)} opportunities from {name}")
+                # record successful scraper run
+                try:
+                    self._record_scraper_result(name, len(opportunities), None)
+                except Exception as e:
+                    logger.debug(f"Failed to record health for {name}: {e}")
 
             except Exception as e:
                 logger.error(f"Error running scraper for {name}: {e}")
+                # record scraper error
+                try:
+                    self._record_scraper_result(name, 0, str(e))
+                except Exception as rec_e:
+                    logger.debug(
+                        f"Failed to record health for {name}: {rec_e}")
                 continue
 
         logger.info(f"Total opportunities found: {len(all_opportunities)}")

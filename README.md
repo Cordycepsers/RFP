@@ -87,6 +87,34 @@ Proposaland System
 ## Quick Start
 
 ### Prerequisites
+
+## Running the scheduler (quick guide)
+
+Use the project's virtual environment and ensure the local `src` package is on PYTHONPATH when running scripts.
+
+- Create and activate a venv (macOS / bash):
+
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt
+
+- Test the email rendering (uses config in `config/proposaland_config.json`):
+
+  PYTHONPATH=. ./venv/bin/python scheduler.py --test-email
+
+- Run a single monitoring pass (helpful for debugging):
+
+  PYTHONPATH=. ./venv/bin/python scheduler.py --run-once
+
+- Start the scheduler in background using the provided script (creates a PID file and logs):
+
+  ./scripts/start_proposaland.sh
+  cat proposaland.pid
+  tail -n 200 logs/scheduler_output.log
+
+Notes:
+- If you see import errors for `scrapers`, ensure you run commands from the project root or set PYTHONPATH=.
+- Monitoring health: the system writes per-scraper health data to `logs/scraper_health.json` and alerts to `logs/scraper_alerts.log` when a scraper repeatedly returns zero results or raises parsing errors. Thresholds are configurable under the `monitoring` key in `config/proposaland_config.json`.
 - Python 3.11+
 - Internet connection
 - Email account for notifications
