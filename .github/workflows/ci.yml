@@ -7,7 +7,7 @@ on:
     branches: [main]
   schedule:
     # nightly at 02:00 UTC
-    - cron: '0 2 * * *'
+    - cron: "0 2 * * *"
 
 jobs:
   test:
