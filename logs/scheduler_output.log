@@ -1,0 +1,27 @@
+2025-08-15 16:38:20.321 | INFO     | __main__:setup_logging:75 - Proposaland scheduler initialized
+2025-08-15 16:38:20.325 | INFO     | proposaland_monitor:setup_logging:72 - Proposaland monitoring system started
+2025-08-15 16:38:20.325 | INFO     | proposaland_monitor:initialize_scrapers:76 - Initializing scrapers for all target websites
+2025-08-15 16:38:20.325 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for Devex
+2025-08-15 16:38:20.325 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for UNDP Procurement
+2025-08-15 16:38:20.325 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for UN Global Marketplace
+2025-08-15 16:38:20.325 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for Global Fund
+2025-08-15 16:38:20.325 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for Development Aid
+2025-08-15 16:38:20.326 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for ReliefWeb
+2025-08-15 16:38:20.326 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for Save the Children
+2025-08-15 16:38:20.326 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for Mercy Corps
+2025-08-15 16:38:20.326 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for IRC
+2025-08-15 16:38:20.326 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for Plan International
+2025-08-15 16:38:20.326 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for IUCN
+2025-08-15 16:38:20.326 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for World Bank
+2025-08-15 16:38:20.326 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for NRC
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for DRC
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for AfDB
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for GGGI
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for ACTED
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for ADB
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for BirdLife
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for Heifer
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for DNDi
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for IPU
+2025-08-15 16:38:20.327 | INFO     | proposaland_monitor:initialize_scrapers:111 - Initialized scraper for IDC
+2025-08-15 16:38:20.328 | INFO     | __main__:start_scheduler:162 - Starting Proposaland scheduler - daily execution at 09:00

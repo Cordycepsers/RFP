@@ -18,31 +18,34 @@ import os
 
 class EmailNotifier:
     """Professional email notification system with attachments and HTML templates."""
-    
+
     def __init__(self, config: Dict):
         self.config = config
         self.email_config = config.get('email', {})
-        self.smtp_server = self.email_config.get('smtp_server', 'smtp.gmail.com')
+        self.smtp_server = self.email_config.get(
+            'smtp_server', 'smtp.gmail.com')
         self.smtp_port = self.email_config.get('smtp_port', 587)
         self.sender_email = self.email_config.get('sender_email', '')
         self.sender_password = self.email_config.get('sender_password', '')
-        
+
         # Handle both single recipient (string) and multiple recipients (list)
-        recipient_config = self.email_config.get('recipient_email', 'majalemaja@pm.me')
+        recipient_config = self.email_config.get(
+            'recipient_email', 'majalemaja@pm.me')
         if isinstance(recipient_config, list):
             self.recipient_emails = recipient_config
-            self.recipient_email = ', '.join(recipient_config)  # For display purposes
+            self.recipient_email = ', '.join(
+                recipient_config)  # For display purposes
         else:
             self.recipient_emails = [recipient_config]
             self.recipient_email = recipient_config
-        
+
         # Email templates
         self.templates_dir = Path(__file__).parent / 'templates'
         self.templates_dir.mkdir(exist_ok=True)
-        
+
         # Initialize templates
         self._create_email_templates()
-    
+
     def _create_email_templates(self):
         """Create HTML email templates."""
         # Main notification template
@@ -345,89 +348,138 @@ class EmailNotifier:
 </body>
 </html>
         """
-        
+
         # Save template
         template_path = self.templates_dir / 'main_notification.html'
         with open(template_path, 'w', encoding='utf-8') as f:
             f.write(main_template)
-    
-    def send_daily_report(self, opportunities: List[Dict], summary: Dict, 
-                         excel_path: str, json_path: str) -> bool:
+
+    # --- Defensive helpers to handle mixed data shapes from scrapers ---
+    def _get_budget_amount(self, budget):
+        """Return numeric budget amount whether budget is a dict or a number."""
+        if not budget:
+            return None
+        if isinstance(budget, dict):
+            return budget.get('amount')
+        if isinstance(budget, (int, float)):
+            return budget
+        return None
+
+    def _get_deadline_raw(self, deadline):
+        """Return raw deadline string/value from different shapes."""
+        if not deadline:
+            return None
+        if isinstance(deadline, dict):
+            return deadline.get('raw') or deadline.get('formatted') or None
+        if isinstance(deadline, str):
+            return deadline
+        if isinstance(deadline, datetime):
+            return deadline.isoformat()
+        return None
+
+    def _get_keywords_found(self, keywords):
+        """Return list of found keywords from different shapes."""
+        if not keywords:
+            return []
+        if isinstance(keywords, dict):
+            return keywords.get('found', []) or []
+        if isinstance(keywords, (list, tuple)):
+            return list(keywords)
+        return []
+
+    def _get_priority_from_scoring(self, scoring):
+        """Safely extract priority from a scoring dict/object."""
+        if not scoring:
+            return None
+        if isinstance(scoring, dict):
+            return scoring.get('priority')
+        # Fallback for objects with attributes
+        try:
+            return getattr(scoring, 'priority', None)
+        except Exception:
+            return None
+
+    def send_daily_report(self, opportunities: List[Dict], summary: Dict,
+                          excel_path: str, json_path: str) -> bool:
         """Send daily opportunities report with attachments."""
         try:
             # Prepare email content
             subject = self._generate_subject(summary)
             html_content = self._generate_html_content(opportunities, summary)
             text_content = self._generate_text_content(opportunities, summary)
-            
+
             # Create message
             message = MIMEMultipart('alternative')
             message['Subject'] = subject
             message['From'] = self.sender_email
             message['To'] = ', '.join(self.recipient_emails)
-            
+
             # Add text and HTML parts
             text_part = MIMEText(text_content, 'plain')
             html_part = MIMEText(html_content, 'html')
-            
+
             message.attach(text_part)
             message.attach(html_part)
-            
+
             # Add attachments
             self._add_attachment(message, excel_path)
             self._add_attachment(message, json_path)
-            
+
             # Send email
             success = self._send_email(message)
-            
+
             if success:
-                logger.info(f"Daily report sent successfully to {self.recipient_email}")
+                logger.info(
+                    f"Daily report sent successfully to {self.recipient_email}")
             else:
                 logger.error("Failed to send daily report")
-            
+
             return success
-            
+
         except Exception as e:
             logger.error(f"Error sending daily report: {e}")
             return False
-    
+
     def send_urgent_alert(self, critical_opportunities: List[Dict]) -> bool:
         """Send urgent alert for critical opportunities."""
         try:
             if not critical_opportunities:
                 return True
-            
+
             subject = f"🚨 URGENT: {len(critical_opportunities)} Critical Opportunities Found"
-            
+
             # Generate urgent alert content
-            html_content = self._generate_urgent_alert_html(critical_opportunities)
-            text_content = self._generate_urgent_alert_text(critical_opportunities)
-            
+            html_content = self._generate_urgent_alert_html(
+                critical_opportunities)
+            text_content = self._generate_urgent_alert_text(
+                critical_opportunities)
+
             # Create message
             message = MIMEMultipart('alternative')
             message['Subject'] = subject
             message['From'] = self.sender_email
             message['To'] = ', '.join(self.recipient_emails)
-            
+
             # Add content
             text_part = MIMEText(text_content, 'plain')
             html_part = MIMEText(html_content, 'html')
-            
+
             message.attach(text_part)
             message.attach(html_part)
-            
+
             # Send email
             success = self._send_email(message)
-            
+
             if success:
-                logger.info(f"Urgent alert sent for {len(critical_opportunities)} critical opportunities")
-            
+                logger.info(
+                    f"Urgent alert sent for {len(critical_opportunities)} critical opportunities")
+
             return success
-            
+
         except Exception as e:
             logger.error(f"Error sending urgent alert: {e}")
             return False
-    
+
     def _generate_subject(self, summary: Dict) -> str:
         """Generate email subject line with actual data details."""
         total = summary.get('total_opportunities', 0)
@@ -435,9 +487,9 @@ class EmailNotifier:
         high = summary.get('priority_breakdown', {}).get('High', 0)
         medium = summary.get('priority_breakdown', {}).get('Medium', 0)
         low = summary.get('priority_breakdown', {}).get('Low', 0)
-        
+
         date_str = datetime.now().strftime('%Y-%m-%d')
-        
+
         # Get top sources for subject line
         sources = summary.get('sources', [])
         if len(sources) > 3:
@@ -448,7 +500,7 @@ class EmailNotifier:
             source_text = sources[0]
         else:
             source_text = "various sources"
-        
+
         # Create priority summary
         priority_counts = []
         if critical > 0:
@@ -459,9 +511,9 @@ class EmailNotifier:
             priority_counts.append(f"{medium}M")
         if low > 0:
             priority_counts.append(f"{low}L")
-        
+
         priority_text = "/".join(priority_counts) if priority_counts else "0"
-        
+
         # Generate subject based on priority urgency
         if critical > 0:
             return f"🚨 URGENT: {total} opportunities ({critical} CRITICAL) from {source_text}"
@@ -469,62 +521,78 @@ class EmailNotifier:
             return f"⚡ {total} opportunities ({high} high priority) from {source_text} - {date_str}"
         else:
             return f"📊 {total} opportunities from {source_text} ({priority_text}) - {date_str}"
-    
+
     def _generate_html_content(self, opportunities: List[Dict], summary: Dict) -> str:
         """Generate HTML email content with improved data analysis."""
         # Load template
         template_path = self.templates_dir / 'main_notification.html'
         with open(template_path, 'r', encoding='utf-8') as f:
             template = f.read()
-        
+
         # Prepare template variables
         date_str = datetime.now().strftime('%Y-%m-%d')
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        
+
         priority_breakdown = summary.get('priority_breakdown', {})
-        
+
         # Analyze real data for better insights
         organizations = {}
         all_keywords = {}
         total_with_budget = 0
         total_with_deadline = 0
-        
+
         for opp in opportunities:
             # Count organizations
             org = opp.get('organization', 'Unknown')
             organizations[org] = organizations.get(org, 0) + 1
-            
+
             # Count keywords
-            keywords = opp.get('keywords', {}).get('found', [])
+            keywords = self._get_keywords_found(opp.get('keywords'))
             for kw in keywords:
                 all_keywords[kw] = all_keywords.get(kw, 0) + 1
-            
+
             # Count opportunities with budget/deadline info
-            budget_amount = opp.get('budget', {}).get('amount')
+            budget_amount = self._get_budget_amount(opp.get('budget'))
             if budget_amount:
                 total_with_budget += 1
-                
-            deadline_raw = opp.get('deadline', {}).get('raw')
+
+            deadline_raw = self._get_deadline_raw(opp.get('deadline'))
             if deadline_raw:
                 total_with_deadline += 1
-        
+
         # Get top organizations and keywords from real data
-        top_orgs = sorted(organizations.items(), key=lambda x: x[1], reverse=True)[:5]
-        top_keywords = sorted(all_keywords.items(), key=lambda x: x[1], reverse=True)[:8]
-        
+        top_orgs = sorted(organizations.items(),
+                          key=lambda x: x[1], reverse=True)[:5]
+        top_keywords = sorted(all_keywords.items(),
+                              key=lambda x: x[1], reverse=True)[:8]
+
         # Get priority-specific opportunities (check actual priority field)
         critical_opps = []
         high_opps = []
         for opp in opportunities:
-            priority = opp.get('scoring', {}).get('priority', 'Low')
+            # Support both dicts with 'scoring' and dicts with top-level 'priority'
+            if isinstance(opp, dict):
+                priority = self._get_priority_from_scoring(opp.get('scoring'))
+                if priority is None:
+                    priority = opp.get('priority', 'Low')
+            else:
+                # If it's an object, try attribute access
+                priority = self._get_priority_from_scoring(
+                    getattr(opp, 'scoring', None))
+                if priority is None:
+                    try:
+                        priority = getattr(opp, 'priority', 'Low')
+                    except Exception:
+                        priority = 'Low'
             if priority == 'Critical':
                 critical_opps.append(opp)
             elif priority == 'High':
                 high_opps.append(opp)
-        
+
         # Format statistics
-        avg_keywords_per_opp = len(all_keywords) / len(opportunities) if opportunities else 0
-        
+        avg_keywords_per_opp = len(all_keywords) / \
+            len(opportunities) if opportunities else 0
+
         # Format data for template
         template_vars = {
             'date': datetime.now().strftime('%B %d, %Y'),
@@ -549,13 +617,13 @@ class EmailNotifier:
             'has_high_opportunities': len(high_opps) > 0,
             'high_opportunities': self._format_opportunities_for_template(high_opps[:5])
         }
-        
+
         # Simple template replacement (for a full implementation, consider using Jinja2)
         html_content = template
         for key, value in template_vars.items():
             placeholder = f"{{{{{key}}}}}"
             html_content = html_content.replace(placeholder, str(value))
-        
+
         # Handle conditional blocks (simplified)
         if not template_vars['has_critical_opportunities']:
             # Remove critical opportunities section
@@ -565,152 +633,185 @@ class EmailNotifier:
             if start_idx != -1:
                 end_idx = html_content.find(end_marker, start_idx)
                 if end_idx != -1:
-                    html_content = html_content[:start_idx] + html_content[end_idx + len(end_marker):]
-        
+                    html_content = html_content[:start_idx] + \
+                        html_content[end_idx + len(end_marker):]
+
         return html_content
-    
+
     def _generate_text_content(self, opportunities: List[Dict], summary: Dict) -> str:
         """Generate plain text email content with enhanced analytics."""
         lines = []
         lines.append("PROPOSALAND DAILY OPPORTUNITIES REPORT")
         lines.append("=" * 50)
-        lines.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
+        lines.append(
+            f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
         lines.append("")
-        
+
         # Enhanced Summary
         lines.append("📊 EXECUTIVE SUMMARY:")
-        lines.append(f"   Total Opportunities Found: {summary.get('total_opportunities', len(opportunities))}")
-        
+        lines.append(
+            f"   Total Opportunities Found: {summary.get('total_opportunities', len(opportunities))}")
+
         priority_breakdown = summary.get('priority_breakdown', {})
-        lines.append(f"   🚨 Critical Priority: {priority_breakdown.get('Critical', 0)}")
-        lines.append(f"   ⚡ High Priority: {priority_breakdown.get('High', 0)}")
-        lines.append(f"   📊 Medium Priority: {priority_breakdown.get('Medium', 0)}")
+        lines.append(
+            f"   🚨 Critical Priority: {priority_breakdown.get('Critical', 0)}")
+        lines.append(
+            f"   ⚡ High Priority: {priority_breakdown.get('High', 0)}")
+        lines.append(
+            f"   📊 Medium Priority: {priority_breakdown.get('Medium', 0)}")
         lines.append(f"   📋 Low Priority: {priority_breakdown.get('Low', 0)}")
         lines.append("")
-        
+
         # Analyze real data for insights
         organizations = {}
         all_keywords = {}
         total_with_budget = 0
         total_with_deadline = 0
-        
+
         for opp in opportunities:
             # Count organizations
             org = opp.get('organization', 'Unknown')
             organizations[org] = organizations.get(org, 0) + 1
-            
+
             # Count keywords
-            keywords = opp.get('keywords', {}).get('found', [])
+            keywords = self._get_keywords_found(opp.get('keywords'))
             for kw in keywords:
                 all_keywords[kw] = all_keywords.get(kw, 0) + 1
-            
+
             # Count opportunities with budget/deadline info
-            budget_amount = opp.get('budget', {}).get('amount')
+            budget_amount = self._get_budget_amount(opp.get('budget'))
             if budget_amount:
                 total_with_budget += 1
-                
-            deadline_raw = opp.get('deadline', {}).get('raw')
+
+            deadline_raw = self._get_deadline_raw(opp.get('deadline'))
             if deadline_raw:
                 total_with_deadline += 1
-        
+
         # Source Analysis
-        top_orgs = sorted(organizations.items(), key=lambda x: x[1], reverse=True)
+        top_orgs = sorted(organizations.items(),
+                          key=lambda x: x[1], reverse=True)
         lines.append("🏢 SOURCE ORGANIZATIONS:")
         for i, (org, count) in enumerate(top_orgs[:8], 1):
-            percentage = (count / len(opportunities) * 100) if opportunities else 0
-            lines.append(f"   {i:2}. {org}: {count} opportunities ({percentage:.1f}%)")
+            percentage = (count / len(opportunities) *
+                          100) if opportunities else 0
+            lines.append(
+                f"   {i:2}. {org}: {count} opportunities ({percentage:.1f}%)")
         if len(top_orgs) > 8:
             lines.append(f"   ... and {len(top_orgs) - 8} more organizations")
         lines.append("")
-        
+
         # Keyword Analysis
-        top_keywords = sorted(all_keywords.items(), key=lambda x: x[1], reverse=True)
+        top_keywords = sorted(all_keywords.items(),
+                              key=lambda x: x[1], reverse=True)
         lines.append("🔑 TOP KEYWORDS & THEMES:")
         for i, (kw, count) in enumerate(top_keywords[:10], 1):
             lines.append(f"   {i:2}. {kw}: {count} occurrences")
         lines.append("")
-        
+
         # Data Quality Insights
         lines.append("📈 DATA INSIGHTS:")
         lines.append(f"   • {len(organizations)} unique source organizations")
         lines.append(f"   • {len(all_keywords)} unique keywords identified")
-        lines.append(f"   • {total_with_budget} opportunities include budget information")
-        lines.append(f"   • {total_with_deadline} opportunities have deadline details")
+        lines.append(
+            f"   • {total_with_budget} opportunities include budget information")
+        lines.append(
+            f"   • {total_with_deadline} opportunities have deadline details")
         if opportunities:
-            avg_keywords = sum(len(opp.get('keywords', {}).get('found', [])) for opp in opportunities) / len(opportunities)
-            lines.append(f"   • {avg_keywords:.1f} average keywords per opportunity")
+            avg_keywords = sum(len(opp.get('keywords', {}).get('found', []))
+                               for opp in opportunities) / len(opportunities)
+            lines.append(
+                f"   • {avg_keywords:.1f} average keywords per opportunity")
         lines.append("")
-        
+
         # Critical opportunities
-        critical_opps = [opp for opp in opportunities if opp.get('scoring', {}).get('priority') == 'Critical']
+        critical_opps = [opp for opp in opportunities if opp.get(
+            'scoring', {}).get('priority') == 'Critical']
         if critical_opps:
             lines.append("🚨 CRITICAL PRIORITY OPPORTUNITIES:")
             lines.append("-" * 45)
             for i, opp in enumerate(critical_opps[:5], 1):
                 lines.append(f"{i}. {opp.get('title', 'No title')}")
-                lines.append(f"   Organization: {opp.get('organization', 'Unknown')}")
-                lines.append(f"   Budget: {opp.get('budget', {}).get('formatted', 'Not specified')}")
-                lines.append(f"   Deadline: {opp.get('deadline', {}).get('formatted', 'Not specified')}")
-                keywords = opp.get('keywords', {}).get('found', [])
-                lines.append(f"   Keywords: {', '.join(keywords[:5]) if keywords else 'None'}")
+                lines.append(
+                    f"   Organization: {opp.get('organization', 'Unknown')}")
+                # Safe budget and deadline formatting
+                budget_display = self._format_budget(opp.get('budget'), opp.get(
+                    'currency', 'USD')) if self._get_budget_amount(opp.get('budget')) else 'Not specified'
+                deadline_display = self._format_deadline(opp.get(
+                    'deadline')) if self._get_deadline_raw(opp.get('deadline')) else 'Not specified'
+                lines.append(f"   Budget: {budget_display}")
+                lines.append(f"   Deadline: {deadline_display}")
+                keywords = self._get_keywords_found(opp.get('keywords'))
+                lines.append(
+                    f"   Keywords: {', '.join(keywords[:5]) if keywords else 'None'}")
                 lines.append(f"   URL: {opp.get('source_url', 'N/A')}")
                 lines.append("")
             lines.append("")
-        
+
         # High priority opportunities
-        high_opps = [opp for opp in opportunities if opp.get('scoring', {}).get('priority') == 'High']
+        high_opps = [opp for opp in opportunities if opp.get(
+            'scoring', {}).get('priority') == 'High']
         if high_opps:
             lines.append("⚡ HIGH PRIORITY OPPORTUNITIES:")
             lines.append("-" * 40)
             for i, opp in enumerate(high_opps[:5], 1):
                 lines.append(f"{i}. {opp.get('title', 'No title')}")
-                lines.append(f"   Organization: {opp.get('organization', 'Unknown')}")
-                lines.append(f"   Budget: {opp.get('budget', {}).get('formatted', 'Not specified')}")
-                keywords = opp.get('keywords', {}).get('found', [])
-                lines.append(f"   Keywords: {', '.join(keywords[:3]) if keywords else 'None'}")
+                lines.append(
+                    f"   Organization: {opp.get('organization', 'Unknown')}")
+                budget_display = self._format_budget(opp.get('budget'), opp.get(
+                    'currency', 'USD')) if self._get_budget_amount(opp.get('budget')) else 'Not specified'
+                lines.append(f"   Budget: {budget_display}")
+                keywords = self._get_keywords_found(opp.get('keywords'))
+                lines.append(
+                    f"   Keywords: {', '.join(keywords[:3]) if keywords else 'None'}")
                 lines.append("")
             lines.append("")
-        
+
         # Sample of other opportunities
-        other_opps = [opp for opp in opportunities if opp.get('scoring', {}).get('priority') not in ['Critical', 'High']]
+        other_opps = [opp for opp in opportunities if opp.get(
+            'scoring', {}).get('priority') not in ['Critical', 'High']]
         if other_opps:
             lines.append("📋 SAMPLE OF OTHER OPPORTUNITIES:")
             lines.append("-" * 35)
             for i, opp in enumerate(other_opps[:3], 1):
-                lines.append(f"{i}. {opp.get('title', 'No title')} ({opp.get('organization', 'Unknown')})")
+                lines.append(
+                    f"{i}. {opp.get('title', 'No title')} ({opp.get('organization', 'Unknown')})")
                 keywords = opp.get('keywords', {}).get('found', [])
                 if keywords:
                     lines.append(f"   Keywords: {', '.join(keywords[:3])}")
                 lines.append("")
-        
+
         # Footer
         lines.append("=" * 50)
         lines.append("📎 ATTACHMENTS:")
-        lines.append("• Excel Tracker: Complete opportunity database with filtering")
+        lines.append(
+            "• Excel Tracker: Complete opportunity database with filtering")
         lines.append("• JSON Data: Machine-readable data for further analysis")
         lines.append("")
         lines.append("This report is generated automatically by Proposaland")
-        lines.append("monitoring system. For questions, contact the admin team.")
-        
+        lines.append(
+            "monitoring system. For questions, contact the admin team.")
+
         return "\n".join(lines)
         if high_opps:
             lines.append("HIGH PRIORITY OPPORTUNITIES:")
             lines.append("-" * 40)
             for i, opp in enumerate(high_opps[:5], 1):
                 lines.append(f"{i}. {opp.get('title', 'No title')}")
-                lines.append(f"   Organization: {opp.get('organization', 'Unknown')}")
-                lines.append(f"   Reference: {opp.get('reference_number', 'N/A')}")
+                lines.append(
+                    f"   Organization: {opp.get('organization', 'Unknown')}")
+                lines.append(
+                    f"   Reference: {opp.get('reference_number', 'N/A')}")
                 lines.append(f"   Score: {opp.get('relevance_score', 0):.2f}")
                 lines.append("")
-        
+
         lines.append("ATTACHMENTS:")
         lines.append("- Excel Tracker (proposaland_tracker_YYYY-MM-DD.xlsx)")
         lines.append("- JSON Data (proposaland_opportunities_YYYY-MM-DD.json)")
         lines.append("")
         lines.append("Generated by Proposaland Opportunity Monitor")
-        
+
         return "\n".join(lines)
-    
+
     def _generate_urgent_alert_html(self, critical_opportunities: List[Dict]) -> str:
         """Generate HTML content for urgent alerts."""
         html = f"""
@@ -725,7 +826,7 @@ class EmailNotifier:
                 <div style="margin-top: 20px;">
                     <p><strong>The following critical opportunities require immediate attention:</strong></p>
         """
-        
+
         for i, opp in enumerate(critical_opportunities[:3], 1):
             html += f"""
                     <div style="border: 1px solid #ddd; border-radius: 6px; margin: 15px 0; padding: 15px; background-color: #fff5f5;">
@@ -736,7 +837,7 @@ class EmailNotifier:
                         <p style="margin: 5px 0;"><strong>Keywords:</strong> {', '.join(opp.get('keywords_found', []))}</p>
                     </div>
             """
-        
+
         html += """
                     <div style="background-color: #e8f4f8; padding: 15px; border-radius: 6px; margin-top: 20px; text-align: center;">
                         <p style="margin: 0;"><strong>Action Required:</strong> Review these opportunities immediately and prepare proposals as needed.</p>
@@ -746,38 +847,42 @@ class EmailNotifier:
         </body>
         </html>
         """
-        
+
         return html
-    
+
     def _generate_urgent_alert_text(self, critical_opportunities: List[Dict]) -> str:
         """Generate text content for urgent alerts."""
         lines = []
         lines.append("🚨 URGENT ALERT - CRITICAL OPPORTUNITIES DETECTED")
         lines.append("=" * 60)
         lines.append(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        lines.append(f"Critical Opportunities Found: {len(critical_opportunities)}")
+        lines.append(
+            f"Critical Opportunities Found: {len(critical_opportunities)}")
         lines.append("")
         lines.append("IMMEDIATE ACTION REQUIRED:")
         lines.append("")
-        
+
         for i, opp in enumerate(critical_opportunities[:5], 1):
             lines.append(f"{i}. {opp.get('title', 'No title')}")
-            lines.append(f"   Organization: {opp.get('organization', 'Unknown')}")
+            lines.append(
+                f"   Organization: {opp.get('organization', 'Unknown')}")
             lines.append(f"   Reference: {opp.get('reference_number', 'N/A')}")
             lines.append(f"   Score: {opp.get('relevance_score', 0):.2f}")
-            lines.append(f"   Keywords: {', '.join(opp.get('keywords_found', []))}")
+            lines.append(
+                f"   Keywords: {', '.join(opp.get('keywords_found', []))}")
             lines.append("")
-        
-        lines.append("Please review these opportunities immediately and prepare proposals as needed.")
+
+        lines.append(
+            "Please review these opportunities immediately and prepare proposals as needed.")
         lines.append("")
         lines.append("Generated by Proposaland Opportunity Monitor")
-        
+
         return "\n".join(lines)
-    
+
     def _format_opportunities_for_template(self, opportunities: List[Dict]) -> List[Dict]:
         """Format opportunities for HTML template."""
         formatted = []
-        
+
         for opp in opportunities:
             formatted_opp = {
                 'title': opp.get('title', 'No title'),
@@ -791,9 +896,9 @@ class EmailNotifier:
                 'keywords_found': opp.get('keywords_found', [])
             }
             formatted.append(formatted_opp)
-        
+
         return formatted
-    
+
     def _add_attachment(self, message: MIMEMultipart, file_path: str):
         """Add file attachment to email message."""
         try:
@@ -801,66 +906,67 @@ class EmailNotifier:
             if not file_path.exists():
                 logger.warning(f"Attachment file not found: {file_path}")
                 return
-            
+
             with open(file_path, 'rb') as attachment:
                 part = MIMEBase('application', 'octet-stream')
                 part.set_payload(attachment.read())
-            
+
             encoders.encode_base64(part)
-            
+
             part.add_header(
                 'Content-Disposition',
                 f'attachment; filename= {file_path.name}'
             )
-            
+
             message.attach(part)
             logger.info(f"Added attachment: {file_path.name}")
-            
+
         except Exception as e:
             logger.error(f"Error adding attachment {file_path}: {e}")
-    
+
     def _send_email(self, message: MIMEMultipart) -> bool:
         """Send email message via SMTP."""
         try:
             # Create SMTP session
             context = ssl.create_default_context()
-            
+
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls(context=context)
                 server.login(self.sender_email, self.sender_password)
-                
+
                 text = message.as_string()
                 server.sendmail(self.sender_email, self.recipient_emails, text)
-            
+
             return True
-            
+
         except Exception as e:
             logger.error(f"Error sending email: {e}")
             return False
-    
+
     def _format_deadline(self, deadline) -> str:
         """Format deadline for display."""
         if not deadline:
             return 'Not specified'
-        
+
         if isinstance(deadline, str):
             try:
-                deadline = datetime.fromisoformat(deadline.replace('Z', '+00:00'))
+                deadline = datetime.fromisoformat(
+                    deadline.replace('Z', '+00:00'))
             except:
                 return deadline
-        
+
         if isinstance(deadline, datetime):
             return deadline.strftime('%Y-%m-%d')
-        
+
         return str(deadline)
-    
+
     def _format_budget(self, budget, currency: str) -> str:
         """Format budget for display."""
         if not budget:
             return 'Not specified'
-        
+
         return f"{currency} {budget:,.0f}"
-    
+
     def test_email_configuration(self) -> bool:
         """Test email configuration by sending a test message."""
         try:
@@ -869,7 +975,7 @@ class EmailNotifier:
             message['Subject'] = "Proposaland Email Configuration Test"
             message['From'] = self.sender_email
             message['To'] = ', '.join(self.recipient_emails)
-            
+
             test_content = f"""
             This is a test email from the Proposaland Opportunity Monitor.
             
@@ -881,21 +987,20 @@ class EmailNotifier:
             
             If you receive this email, the configuration is working correctly.
             """
-            
+
             text_part = MIMEText(test_content, 'plain')
             message.attach(text_part)
-            
+
             # Send test email
             success = self._send_email(message)
-            
+
             if success:
                 logger.info("Email configuration test successful")
             else:
                 logger.error("Email configuration test failed")
-            
+
             return success
-            
+
         except Exception as e:
             logger.error(f"Email configuration test error: {e}")
             return False
-

@@ -1,0 +1,91 @@
+{
+  "timestamp": "2025-08-14T15:10:11.853688",
+  "success": true,
+  "duration_seconds": 43.157344,
+  "opportunities_found": 99,
+  "summary": {
+    "total_opportunities": 99,
+    "priority_breakdown": {
+      "Critical": 0,
+      "High": 0,
+      "Medium": 0,
+      "Low": 99
+    },
+    "source_performance": {
+      "AfDB": 1,
+      "Plan International": 1,
+      "Save the Children": 1,
+      "IRC": 1,
+      "UNDP": 86,
+      "Mercy Corps": 1,
+      "NRC": 1,
+      "IPU": 1,
+      "IDC": 1,
+      "ACTED": 1,
+      "DNDi": 1,
+      "DRC": 1,
+      "Heifer": 1,
+      "BirdLife": 1
+    },
+    "top_keywords": {
+      "design": 42,
+      "media": 22,
+      "communication": 22,
+      "video": 13,
+      "campaign": 12,
+      "photo": 7,
+      "visual": 7,
+      "promotion": 5,
+      "multimedia": 4,
+      "podcasts": 3
+    },
+    "top_opportunities": [
+      {
+        "title": "Opportunity from AfDB",
+        "organization": "AfDB",
+        "priority": "Low",
+        "score": 0.22166666666666668,
+        "reference_number": "",
+        "deadline": "Not specified",
+        "source_url": "https://www.afdb.org/en/about-us/corporate-procurement/procurement-notices/current-solicitations"
+      },
+      {
+        "title": "Opportunity from Plan International",
+        "organization": "Plan International",
+        "priority": "Low",
+        "score": 0.21666666666666667,
+        "reference_number": "",
+        "deadline": "Not specified",
+        "source_url": "https://plan-international.org/calls-tender/"
+      },
+      {
+        "title": "Opportunity from Save the Children",
+        "organization": "Save the Children",
+        "priority": "Low",
+        "score": 0.18333333333333332,
+        "reference_number": "",
+        "deadline": "Not specified",
+        "source_url": "https://www.savethechildren.net/about-us/our-suppliers/tenders"
+      },
+      {
+        "title": "Opportunity from IRC",
+        "organization": "IRC",
+        "priority": "Low",
+        "score": 0.18333333333333332,
+        "reference_number": "",
+        "deadline": "Not specified",
+        "source_url": "https://www.rescue.org/procurement-policies-and-bid-opportunities"
+      },
+      {
+        "title": "RFP - National Graphical Design Firm \u2013 Crowd Funding and Multimedia Production",
+        "organization": "UNDP",
+        "priority": "Low",
+        "score": 0.175,
+        "reference_number": "UNDP-BLZ-00086",
+        "deadline": "2506-08-25",
+        "source_url": "https://procurement-notices.undp.org/search.cfm"
+      }
+    ]
+  },
+  "error_message": null
+}

@@ -1,0 +1,511 @@
+2025-08-15 16:23:04 | INFO | Proposaland monitoring system started
+2025-08-15 16:23:04 | INFO | Initializing scrapers for all target websites
+2025-08-15 16:23:04 | INFO | Initialized scraper for Devex
+2025-08-15 16:23:04 | INFO | Initialized scraper for UNDP Procurement
+2025-08-15 16:23:04 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-15 16:23:04 | INFO | Initialized scraper for Global Fund
+2025-08-15 16:23:04 | INFO | Initialized scraper for Development Aid
+2025-08-15 16:23:04 | INFO | Initialized scraper for ReliefWeb
+2025-08-15 16:23:04 | INFO | Initialized scraper for Save the Children
+2025-08-15 16:23:04 | INFO | Initialized scraper for Mercy Corps
+2025-08-15 16:23:04 | INFO | Initialized scraper for IRC
+2025-08-15 16:23:04 | INFO | Initialized scraper for Plan International
+2025-08-15 16:23:04 | WARNING | IUCN scraper temporarily disabled due to BeautifulSoup errors
+2025-08-15 16:23:04 | INFO | Initialized scraper for World Bank
+2025-08-15 16:23:04 | INFO | Initialized scraper for NRC
+2025-08-15 16:23:04 | INFO | Initialized scraper for DRC
+2025-08-15 16:23:04 | INFO | Initialized scraper for AfDB
+2025-08-15 16:23:04 | INFO | Initialized scraper for GGGI
+2025-08-15 16:23:04 | INFO | Initialized scraper for ACTED
+2025-08-15 16:23:04 | WARNING | ADB scraper temporarily disabled due to BeautifulSoup errors
+2025-08-15 16:23:04 | INFO | Initialized scraper for BirdLife
+2025-08-15 16:23:04 | INFO | Initialized scraper for Heifer
+2025-08-15 16:23:04 | INFO | Initialized scraper for DNDi
+2025-08-15 16:23:04 | INFO | Initialized scraper for IPU
+2025-08-15 16:23:04 | INFO | Initialized scraper for IDC
+2025-08-15 16:23:04 | INFO | Starting Proposaland scheduler - daily execution at 09:00
+2025-08-15 16:24:11 | INFO | Proposaland monitoring system started
+2025-08-15 16:24:11 | INFO | Initializing scrapers for all target websites
+2025-08-15 16:24:11 | INFO | Initialized scraper for Devex
+2025-08-15 16:24:11 | INFO | Initialized scraper for UNDP Procurement
+2025-08-15 16:24:11 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-15 16:24:11 | INFO | Initialized scraper for Global Fund
+2025-08-15 16:24:11 | INFO | Initialized scraper for Development Aid
+2025-08-15 16:24:11 | INFO | Initialized scraper for ReliefWeb
+2025-08-15 16:24:11 | INFO | Initialized scraper for Save the Children
+2025-08-15 16:24:11 | INFO | Initialized scraper for Mercy Corps
+2025-08-15 16:24:11 | INFO | Initialized scraper for IRC
+2025-08-15 16:24:11 | INFO | Initialized scraper for Plan International
+2025-08-15 16:24:11 | WARNING | IUCN scraper temporarily disabled due to BeautifulSoup errors
+2025-08-15 16:24:11 | INFO | Initialized scraper for World Bank
+2025-08-15 16:24:11 | INFO | Initialized scraper for NRC
+2025-08-15 16:24:11 | INFO | Initialized scraper for DRC
+2025-08-15 16:24:11 | INFO | Initialized scraper for AfDB
+2025-08-15 16:24:11 | INFO | Initialized scraper for GGGI
+2025-08-15 16:24:11 | INFO | Initialized scraper for ACTED
+2025-08-15 16:24:11 | INFO | Initialized scraper for ADB
+2025-08-15 16:24:11 | INFO | Initialized scraper for BirdLife
+2025-08-15 16:24:11 | INFO | Initialized scraper for Heifer
+2025-08-15 16:24:11 | INFO | Initialized scraper for DNDi
+2025-08-15 16:24:11 | INFO | Initialized scraper for IPU
+2025-08-15 16:24:11 | INFO | Initialized scraper for IDC
+2025-08-15 16:24:11 | INFO | Starting Proposaland scheduler - daily execution at 09:00
+2025-08-15 16:26:51 | INFO | Proposaland monitoring system started
+2025-08-15 16:26:51 | INFO | Initializing scrapers for all target websites
+2025-08-15 16:26:51 | INFO | Initialized scraper for Devex
+2025-08-15 16:26:51 | INFO | Initialized scraper for UNDP Procurement
+2025-08-15 16:26:51 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-15 16:26:51 | INFO | Initialized scraper for Global Fund
+2025-08-15 16:26:51 | INFO | Initialized scraper for Development Aid
+2025-08-15 16:26:51 | INFO | Initialized scraper for ReliefWeb
+2025-08-15 16:26:51 | INFO | Initialized scraper for Save the Children
+2025-08-15 16:26:51 | INFO | Initialized scraper for Mercy Corps
+2025-08-15 16:26:51 | INFO | Initialized scraper for IRC
+2025-08-15 16:26:51 | INFO | Initialized scraper for Plan International
+2025-08-15 16:26:51 | INFO | Initialized scraper for IUCN
+2025-08-15 16:26:51 | INFO | Initialized scraper for World Bank
+2025-08-15 16:26:51 | INFO | Initialized scraper for NRC
+2025-08-15 16:26:51 | INFO | Initialized scraper for DRC
+2025-08-15 16:26:51 | INFO | Initialized scraper for AfDB
+2025-08-15 16:26:51 | INFO | Initialized scraper for GGGI
+2025-08-15 16:26:51 | INFO | Initialized scraper for ACTED
+2025-08-15 16:26:51 | INFO | Initialized scraper for ADB
+2025-08-15 16:26:51 | INFO | Initialized scraper for BirdLife
+2025-08-15 16:26:51 | INFO | Initialized scraper for Heifer
+2025-08-15 16:26:51 | INFO | Initialized scraper for DNDi
+2025-08-15 16:26:51 | INFO | Initialized scraper for IPU
+2025-08-15 16:26:51 | INFO | Initialized scraper for IDC
+2025-08-15 16:26:51 | INFO | Starting opportunity monitoring process
+2025-08-15 16:26:51 | INFO | Running scraper for Devex
+2025-08-15 16:26:51 | INFO | Fetching https://www.devex.com/funding/r (attempt 1)
+2025-08-15 16:26:52 | INFO | Fetching https://www.devex.com/news (attempt 1)
+2025-08-15 16:26:52 | INFO | Found 0 relevant opportunities from Devex
+2025-08-15 16:26:52 | INFO | Found 0 opportunities from Devex
+2025-08-15 16:26:52 | INFO | Running scraper for UNDP Procurement
+2025-08-15 16:26:52 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=video&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:26:54 | INFO | Found 965 opportunities for keyword 'video'
+2025-08-15 16:26:54 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=photo&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:26:55 | INFO | Found 965 opportunities for keyword 'photo'
+2025-08-15 16:26:55 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=film&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:26:56 | INFO | Found 965 opportunities for keyword 'film'
+2025-08-15 16:26:56 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=multimedia&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:26:57 | INFO | Found 965 opportunities for keyword 'multimedia'
+2025-08-15 16:26:57 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=design&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:26:59 | INFO | Found 965 opportunities for keyword 'design'
+2025-08-15 16:26:59 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:27:00 | INFO | Found 965 recent opportunities from UNDP
+2025-08-15 16:27:00 | INFO | Found 79 relevant opportunities from UNDP
+2025-08-15 16:27:00 | INFO | Found 79 opportunities from UNDP Procurement
+2025-08-15 16:27:00 | INFO | Running scraper for UN Global Marketplace
+2025-08-15 16:27:00 | INFO | Fetching https://www.ungm.org/Public/Notice (attempt 1)
+2025-08-15 16:27:01 | INFO | Found 0 opportunities from UN Global Marketplace
+2025-08-15 16:27:01 | INFO | Running scraper for Global Fund
+2025-08-15 16:27:01 | INFO | Fetching https://www.theglobalfund.org/en/business-opportunities/ (attempt 1)
+2025-08-15 16:27:03 | INFO | Fetching https://fa-enmo-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/NegotiationAbstracts?prcBuId=300000003071579&_adf.ctrl-state=dr9zqv7ou_1&_afrLoop=9450745077996282&_afrWindowMode=0&_afrWindowId=null&_afrFS=16&_afrMT=screen&_afrMFW=2560&_afrMFH=1287&_afrMFDW=2560&_afrMFDH=1440&_afrMFC=8&_afrMFCI=0&_afrMFM=0&_afrMFR=96&_afrMFG=0&_afrMFS=0&_afrMFO=0 (attempt 1)
+2025-08-15 16:27:08 | INFO | Found 0 opportunities from Global Fund
+2025-08-15 16:27:08 | INFO | Running scraper for Development Aid
+2025-08-15 16:27:08 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc (attempt 1)
+2025-08-15 16:27:11 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=2 (attempt 1)
+2025-08-15 16:27:13 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=3 (attempt 1)
+2025-08-15 16:27:15 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=4 (attempt 1)
+2025-08-15 16:27:17 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=5 (attempt 1)
+2025-08-15 16:27:19 | INFO | Found 0 opportunities from Development Aid
+2025-08-15 16:27:19 | INFO | Running scraper for ReliefWeb
+2025-08-15 16:27:19 | INFO | Fetching https://reliefweb.int/jobs?type=264#content (attempt 1)
+2025-08-15 16:27:20 | INFO | Found 0 opportunities from ReliefWeb
+2025-08-15 16:27:20 | INFO | Running scraper for Save the Children
+2025-08-15 16:27:20 | INFO | Fetching https://www.savethechildren.net/about-us/our-suppliers/tenders (attempt 1)
+2025-08-15 16:27:21 | INFO | Found 1 opportunities from Save the Children
+2025-08-15 16:27:21 | INFO | Running scraper for Mercy Corps
+2025-08-15 16:27:21 | INFO | Fetching https://www.mercycorps.org/tenders (attempt 1)
+2025-08-15 16:27:24 | INFO | Found 1 opportunities from Mercy Corps
+2025-08-15 16:27:24 | INFO | Running scraper for IRC
+2025-08-15 16:27:24 | INFO | Fetching https://www.rescue.org/procurement-policies-and-bid-opportunities (attempt 1)
+2025-08-15 16:27:25 | INFO | Found 1 opportunities from IRC
+2025-08-15 16:27:25 | INFO | Running scraper for Plan International
+2025-08-15 16:27:25 | INFO | Fetching https://plan-international.org/calls-tender/ (attempt 1)
+2025-08-15 16:27:27 | INFO | Found 1 opportunities from Plan International
+2025-08-15 16:27:27 | INFO | Running scraper for IUCN
+2025-08-15 16:27:27 | INFO | Fetching https://iucn.org/procurement/currently-running-tenders (attempt 1)
+2025-08-15 16:27:27 | INFO | Found 17 opportunities from IUCN
+2025-08-15 16:27:27 | INFO | Running scraper for World Bank
+2025-08-15 16:27:27 | INFO | Fetching https://projects.worldbank.org/en/projects-operations/procurement?srce=both (attempt 1)
+2025-08-15 16:27:27 | INFO | Found 0 opportunities from World Bank
+2025-08-15 16:27:27 | INFO | Running scraper for NRC
+2025-08-15 16:27:27 | INFO | Fetching https://www.nrc.no/procurement/ (attempt 1)
+2025-08-15 16:27:28 | INFO | Found 1 opportunities from NRC
+2025-08-15 16:27:28 | INFO | Running scraper for DRC
+2025-08-15 16:27:28 | INFO | Fetching https://pro.drc.ngo/resources/tenders/ (attempt 1)
+2025-08-15 16:27:30 | INFO | Found 1 opportunities from DRC
+2025-08-15 16:27:30 | INFO | Running scraper for AfDB
+2025-08-15 16:27:30 | INFO | Fetching https://www.afdb.org/en/about-us/corporate-procurement/procurement-notices/current-solicitations (attempt 1)
+2025-08-15 16:27:30 | INFO | Found 1 opportunities from AfDB
+2025-08-15 16:27:30 | INFO | Running scraper for GGGI
+2025-08-15 16:27:30 | INFO | Fetching https://in-tendhost.co.uk/gggi/aspx/Tenders/Current (attempt 1)
+2025-08-15 16:27:31 | INFO | Found 0 opportunities from GGGI
+2025-08-15 16:27:31 | INFO | Running scraper for ACTED
+2025-08-15 16:27:31 | INFO | Fetching https://www.acted.org/en/call-for-tenders/ (attempt 1)
+2025-08-15 16:27:33 | INFO | Found 1 opportunities from ACTED
+2025-08-15 16:27:33 | INFO | Running scraper for ADB
+2025-08-15 16:27:33 | INFO | Fetching https://www.adb.org/projects/tenders (attempt 1)
+2025-08-15 16:27:38 | INFO | Fetching https://www.adb.org (attempt 1)
+2025-08-15 16:27:41 | INFO | Fetching https://www.adb.org/projects/tenders (attempt 1)
+2025-08-15 16:27:41 | INFO | Fetching https://www.adb.org/projects (attempt 1)
+2025-08-15 16:27:44 | INFO | Found 3 opportunities from ADB
+2025-08-15 16:27:44 | INFO | Running scraper for BirdLife
+2025-08-15 16:27:44 | INFO | Fetching https://www.birdlife.org/careers-hub/ (attempt 1)
+2025-08-15 16:27:45 | INFO | Found 1 opportunities from BirdLife
+2025-08-15 16:27:45 | INFO | Running scraper for Heifer
+2025-08-15 16:27:45 | INFO | Fetching https://www.heifer.org/about-us/inside-heifer/procurement-and-contracting-services.html (attempt 1)
+2025-08-15 16:27:48 | INFO | Found 1 opportunities from Heifer
+2025-08-15 16:27:48 | INFO | Running scraper for DNDi
+2025-08-15 16:27:48 | INFO | Fetching https://dndi.org/work-with-us/job-opportunities/ (attempt 1)
+2025-08-15 16:27:50 | INFO | Found 1 opportunities from DNDi
+2025-08-15 16:27:50 | INFO | Running scraper for IPU
+2025-08-15 16:27:50 | INFO | Fetching https://www.ipu.org/work-with-us/vacancies (attempt 1)
+2025-08-15 16:27:51 | INFO | Found 1 opportunities from IPU
+2025-08-15 16:27:51 | INFO | Running scraper for IDC
+2025-08-15 16:27:51 | INFO | Fetching https://www.idc.co.za/tenders/ (attempt 1)
+2025-08-15 16:27:53 | INFO | Found 1 opportunities from IDC
+2025-08-15 16:27:53 | INFO | Total opportunities found: 112
+2025-08-15 16:28:18 | INFO | Proposaland monitoring system started
+2025-08-15 16:28:18 | INFO | Initializing scrapers for all target websites
+2025-08-15 16:28:18 | INFO | Initialized scraper for Devex
+2025-08-15 16:28:18 | INFO | Initialized scraper for UNDP Procurement
+2025-08-15 16:28:18 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-15 16:28:18 | INFO | Initialized scraper for Global Fund
+2025-08-15 16:28:18 | INFO | Initialized scraper for Development Aid
+2025-08-15 16:28:18 | INFO | Initialized scraper for ReliefWeb
+2025-08-15 16:28:18 | INFO | Initialized scraper for Save the Children
+2025-08-15 16:28:18 | INFO | Initialized scraper for Mercy Corps
+2025-08-15 16:28:18 | INFO | Initialized scraper for IRC
+2025-08-15 16:28:18 | INFO | Initialized scraper for Plan International
+2025-08-15 16:28:18 | INFO | Initialized scraper for IUCN
+2025-08-15 16:28:18 | INFO | Initialized scraper for World Bank
+2025-08-15 16:28:18 | INFO | Initialized scraper for NRC
+2025-08-15 16:28:18 | INFO | Initialized scraper for DRC
+2025-08-15 16:28:18 | INFO | Initialized scraper for AfDB
+2025-08-15 16:28:18 | INFO | Initialized scraper for GGGI
+2025-08-15 16:28:18 | INFO | Initialized scraper for ACTED
+2025-08-15 16:28:18 | INFO | Initialized scraper for ADB
+2025-08-15 16:28:18 | INFO | Initialized scraper for BirdLife
+2025-08-15 16:28:18 | INFO | Initialized scraper for Heifer
+2025-08-15 16:28:18 | INFO | Initialized scraper for DNDi
+2025-08-15 16:28:18 | INFO | Initialized scraper for IPU
+2025-08-15 16:28:18 | INFO | Initialized scraper for IDC
+2025-08-15 16:28:18 | INFO | Starting Proposaland scheduler - daily execution at 09:00
+2025-08-15 16:38:17 | INFO | Proposaland monitoring system started
+2025-08-15 16:38:17 | INFO | Initializing scrapers for all target websites
+2025-08-15 16:38:17 | INFO | Initialized scraper for Devex
+2025-08-15 16:38:17 | INFO | Initialized scraper for UNDP Procurement
+2025-08-15 16:38:17 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-15 16:38:17 | INFO | Initialized scraper for Global Fund
+2025-08-15 16:38:17 | INFO | Initialized scraper for Development Aid
+2025-08-15 16:38:17 | INFO | Initialized scraper for ReliefWeb
+2025-08-15 16:38:17 | INFO | Initialized scraper for Save the Children
+2025-08-15 16:38:17 | INFO | Initialized scraper for Mercy Corps
+2025-08-15 16:38:17 | INFO | Initialized scraper for IRC
+2025-08-15 16:38:17 | INFO | Initialized scraper for Plan International
+2025-08-15 16:38:17 | INFO | Initialized scraper for IUCN
+2025-08-15 16:38:17 | INFO | Initialized scraper for World Bank
+2025-08-15 16:38:17 | INFO | Initialized scraper for NRC
+2025-08-15 16:38:17 | INFO | Initialized scraper for DRC
+2025-08-15 16:38:17 | INFO | Initialized scraper for AfDB
+2025-08-15 16:38:17 | INFO | Initialized scraper for GGGI
+2025-08-15 16:38:17 | INFO | Initialized scraper for ACTED
+2025-08-15 16:38:17 | INFO | Initialized scraper for ADB
+2025-08-15 16:38:17 | INFO | Initialized scraper for BirdLife
+2025-08-15 16:38:17 | INFO | Initialized scraper for Heifer
+2025-08-15 16:38:17 | INFO | Initialized scraper for DNDi
+2025-08-15 16:38:17 | INFO | Initialized scraper for IPU
+2025-08-15 16:38:17 | INFO | Initialized scraper for IDC
+2025-08-15 16:38:19 | INFO | Email configuration test successful
+2025-08-15 16:38:20 | INFO | Proposaland monitoring system started
+2025-08-15 16:38:20 | INFO | Initializing scrapers for all target websites
+2025-08-15 16:38:20 | INFO | Initialized scraper for Devex
+2025-08-15 16:38:20 | INFO | Initialized scraper for UNDP Procurement
+2025-08-15 16:38:20 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-15 16:38:20 | INFO | Initialized scraper for Global Fund
+2025-08-15 16:38:20 | INFO | Initialized scraper for Development Aid
+2025-08-15 16:38:20 | INFO | Initialized scraper for ReliefWeb
+2025-08-15 16:38:20 | INFO | Initialized scraper for Save the Children
+2025-08-15 16:38:20 | INFO | Initialized scraper for Mercy Corps
+2025-08-15 16:38:20 | INFO | Initialized scraper for IRC
+2025-08-15 16:38:20 | INFO | Initialized scraper for Plan International
+2025-08-15 16:38:20 | INFO | Initialized scraper for IUCN
+2025-08-15 16:38:20 | INFO | Initialized scraper for World Bank
+2025-08-15 16:38:20 | INFO | Initialized scraper for NRC
+2025-08-15 16:38:20 | INFO | Initialized scraper for DRC
+2025-08-15 16:38:20 | INFO | Initialized scraper for AfDB
+2025-08-15 16:38:20 | INFO | Initialized scraper for GGGI
+2025-08-15 16:38:20 | INFO | Initialized scraper for ACTED
+2025-08-15 16:38:20 | INFO | Initialized scraper for ADB
+2025-08-15 16:38:20 | INFO | Initialized scraper for BirdLife
+2025-08-15 16:38:20 | INFO | Initialized scraper for Heifer
+2025-08-15 16:38:20 | INFO | Initialized scraper for DNDi
+2025-08-15 16:38:20 | INFO | Initialized scraper for IPU
+2025-08-15 16:38:20 | INFO | Initialized scraper for IDC
+2025-08-15 16:38:20 | INFO | Starting Proposaland scheduler - daily execution at 09:00
+2025-08-15 16:40:42 | INFO | Proposaland monitoring system started
+2025-08-15 16:40:42 | INFO | Initializing scrapers for all target websites
+2025-08-15 16:40:42 | INFO | Initialized scraper for Devex
+2025-08-15 16:40:42 | INFO | Initialized scraper for UNDP Procurement
+2025-08-15 16:40:42 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-15 16:40:42 | INFO | Initialized scraper for Global Fund
+2025-08-15 16:40:42 | INFO | Initialized scraper for Development Aid
+2025-08-15 16:40:42 | INFO | Initialized scraper for ReliefWeb
+2025-08-15 16:40:42 | INFO | Initialized scraper for Save the Children
+2025-08-15 16:40:42 | INFO | Initialized scraper for Mercy Corps
+2025-08-15 16:40:42 | INFO | Initialized scraper for IRC
+2025-08-15 16:40:42 | INFO | Initialized scraper for Plan International
+2025-08-15 16:40:42 | INFO | Initialized scraper for IUCN
+2025-08-15 16:40:42 | INFO | Initialized scraper for World Bank
+2025-08-15 16:40:42 | INFO | Initialized scraper for NRC
+2025-08-15 16:40:42 | INFO | Initialized scraper for DRC
+2025-08-15 16:40:42 | INFO | Initialized scraper for AfDB
+2025-08-15 16:40:42 | INFO | Initialized scraper for GGGI
+2025-08-15 16:40:42 | INFO | Initialized scraper for ACTED
+2025-08-15 16:40:42 | INFO | Initialized scraper for ADB
+2025-08-15 16:40:42 | INFO | Initialized scraper for BirdLife
+2025-08-15 16:40:42 | INFO | Initialized scraper for Heifer
+2025-08-15 16:40:42 | INFO | Initialized scraper for DNDi
+2025-08-15 16:40:42 | INFO | Initialized scraper for IPU
+2025-08-15 16:40:42 | INFO | Initialized scraper for IDC
+2025-08-15 16:40:42 | INFO | Starting daily monitoring workflow
+2025-08-15 16:40:42 | INFO | Step 1: Running opportunity monitoring
+2025-08-15 16:40:42 | INFO | Starting opportunity monitoring process
+2025-08-15 16:40:42 | INFO | Running scraper for Devex
+2025-08-15 16:40:42 | INFO | Fetching https://www.devex.com/funding/r (attempt 1)
+2025-08-15 16:40:42 | INFO | Fetching https://www.devex.com/news (attempt 1)
+2025-08-15 16:40:43 | INFO | Found 0 relevant opportunities from Devex
+2025-08-15 16:40:43 | INFO | Found 0 opportunities from Devex
+2025-08-15 16:40:43 | INFO | Running scraper for UNDP Procurement
+2025-08-15 16:40:43 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=video&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:40:44 | INFO | Found 965 opportunities for keyword 'video'
+2025-08-15 16:40:44 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=photo&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:40:45 | INFO | Found 965 opportunities for keyword 'photo'
+2025-08-15 16:40:45 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=film&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:40:47 | INFO | Found 965 opportunities for keyword 'film'
+2025-08-15 16:40:47 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=multimedia&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:40:48 | INFO | Found 965 opportunities for keyword 'multimedia'
+2025-08-15 16:40:48 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=design&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:40:49 | INFO | Found 965 opportunities for keyword 'design'
+2025-08-15 16:40:49 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:40:50 | INFO | Found 965 recent opportunities from UNDP
+2025-08-15 16:40:50 | INFO | Found 79 relevant opportunities from UNDP
+2025-08-15 16:40:50 | INFO | Found 79 opportunities from UNDP Procurement
+2025-08-15 16:40:50 | INFO | Running scraper for UN Global Marketplace
+2025-08-15 16:40:50 | INFO | Fetching https://www.ungm.org/Public/Notice (attempt 1)
+2025-08-15 16:40:51 | INFO | Found 0 opportunities from UN Global Marketplace
+2025-08-15 16:40:51 | INFO | Running scraper for Global Fund
+2025-08-15 16:40:51 | INFO | Fetching https://www.theglobalfund.org/en/business-opportunities/ (attempt 1)
+2025-08-15 16:40:53 | INFO | Found 0 opportunities from Global Fund
+2025-08-15 16:40:53 | INFO | Running scraper for Development Aid
+2025-08-15 16:40:53 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc (attempt 1)
+2025-08-15 16:40:56 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=2 (attempt 1)
+2025-08-15 16:40:58 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=3 (attempt 1)
+2025-08-15 16:41:00 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=4 (attempt 1)
+2025-08-15 16:41:02 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=5 (attempt 1)
+2025-08-15 16:41:04 | INFO | Found 0 opportunities from Development Aid
+2025-08-15 16:41:04 | INFO | Running scraper for ReliefWeb
+2025-08-15 16:41:04 | INFO | Fetching https://reliefweb.int/jobs?type=264#content (attempt 1)
+2025-08-15 16:41:05 | INFO | Found 0 opportunities from ReliefWeb
+2025-08-15 16:41:05 | INFO | Running scraper for Save the Children
+2025-08-15 16:41:05 | INFO | Fetching https://www.savethechildren.net/about-us/our-suppliers/tenders (attempt 1)
+2025-08-15 16:41:06 | INFO | Found 1 opportunities from Save the Children
+2025-08-15 16:41:06 | INFO | Running scraper for Mercy Corps
+2025-08-15 16:41:06 | INFO | Fetching https://www.mercycorps.org/tenders (attempt 1)
+2025-08-15 16:41:06 | INFO | Found 1 opportunities from Mercy Corps
+2025-08-15 16:41:06 | INFO | Running scraper for IRC
+2025-08-15 16:41:06 | INFO | Fetching https://www.rescue.org/procurement-policies-and-bid-opportunities (attempt 1)
+2025-08-15 16:41:08 | INFO | Found 1 opportunities from IRC
+2025-08-15 16:41:08 | INFO | Running scraper for Plan International
+2025-08-15 16:41:08 | INFO | Fetching https://plan-international.org/calls-tender/ (attempt 1)
+2025-08-15 16:41:10 | INFO | Found 1 opportunities from Plan International
+2025-08-15 16:41:10 | INFO | Running scraper for IUCN
+2025-08-15 16:41:10 | INFO | Fetching https://iucn.org/procurement/currently-running-tenders (attempt 1)
+2025-08-15 16:41:10 | INFO | Found 17 opportunities from IUCN
+2025-08-15 16:41:10 | INFO | Running scraper for World Bank
+2025-08-15 16:41:10 | INFO | Fetching https://projects.worldbank.org/en/projects-operations/procurement?srce=both (attempt 1)
+2025-08-15 16:41:10 | INFO | Found 0 opportunities from World Bank
+2025-08-15 16:41:10 | INFO | Running scraper for NRC
+2025-08-15 16:41:10 | INFO | Fetching https://www.nrc.no/procurement/ (attempt 1)
+2025-08-15 16:41:11 | INFO | Found 1 opportunities from NRC
+2025-08-15 16:41:11 | INFO | Running scraper for DRC
+2025-08-15 16:41:11 | INFO | Fetching https://pro.drc.ngo/resources/tenders/ (attempt 1)
+2025-08-15 16:41:12 | INFO | Found 1 opportunities from DRC
+2025-08-15 16:41:12 | INFO | Running scraper for AfDB
+2025-08-15 16:41:12 | INFO | Fetching https://www.afdb.org/en/about-us/corporate-procurement/procurement-notices/current-solicitations (attempt 1)
+2025-08-15 16:41:13 | INFO | Found 1 opportunities from AfDB
+2025-08-15 16:41:13 | INFO | Running scraper for GGGI
+2025-08-15 16:41:13 | INFO | Fetching https://in-tendhost.co.uk/gggi/aspx/Tenders/Current (attempt 1)
+2025-08-15 16:41:14 | INFO | Found 0 opportunities from GGGI
+2025-08-15 16:41:14 | INFO | Running scraper for ACTED
+2025-08-15 16:41:14 | INFO | Fetching https://www.acted.org/en/call-for-tenders/ (attempt 1)
+2025-08-15 16:41:15 | INFO | Found 1 opportunities from ACTED
+2025-08-15 16:41:15 | INFO | Running scraper for ADB
+2025-08-15 16:41:15 | INFO | Fetching https://www.adb.org/projects/tenders (attempt 1)
+2025-08-15 16:41:21 | INFO | Fetching https://www.adb.org (attempt 1)
+2025-08-15 16:41:24 | INFO | Fetching https://www.adb.org/projects/tenders (attempt 1)
+2025-08-15 16:41:24 | INFO | Fetching https://www.adb.org/projects (attempt 1)
+2025-08-15 16:41:24 | INFO | Found 3 opportunities from ADB
+2025-08-15 16:41:24 | INFO | Running scraper for BirdLife
+2025-08-15 16:41:24 | INFO | Fetching https://www.birdlife.org/careers-hub/ (attempt 1)
+2025-08-15 16:41:25 | INFO | Found 1 opportunities from BirdLife
+2025-08-15 16:41:25 | INFO | Running scraper for Heifer
+2025-08-15 16:41:25 | INFO | Fetching https://www.heifer.org/about-us/inside-heifer/procurement-and-contracting-services.html (attempt 1)
+2025-08-15 16:41:27 | INFO | Found 1 opportunities from Heifer
+2025-08-15 16:41:27 | INFO | Running scraper for DNDi
+2025-08-15 16:41:27 | INFO | Fetching https://dndi.org/work-with-us/job-opportunities/ (attempt 1)
+2025-08-15 16:41:29 | INFO | Found 1 opportunities from DNDi
+2025-08-15 16:41:29 | INFO | Running scraper for IPU
+2025-08-15 16:41:29 | INFO | Fetching https://www.ipu.org/work-with-us/vacancies (attempt 1)
+2025-08-15 16:41:30 | INFO | Found 1 opportunities from IPU
+2025-08-15 16:41:30 | INFO | Running scraper for IDC
+2025-08-15 16:41:30 | INFO | Fetching https://www.idc.co.za/tenders/ (attempt 1)
+2025-08-15 16:41:31 | INFO | Found 1 opportunities from IDC
+2025-08-15 16:41:31 | INFO | Total opportunities found: 112
+2025-08-15 16:41:31 | INFO | Step 2: Filtering and scoring opportunities
+2025-08-15 16:41:31 | INFO | Filtered to 97 relevant opportunities
+2025-08-15 16:41:31 | INFO | Step 3: Generating Excel and JSON outputs
+2025-08-15 16:41:31 | INFO | Applied formatting to Excel file: output/proposaland_tracker_2025-08-15.xlsx
+2025-08-15 16:41:31 | INFO | Generated Excel tracker: output/proposaland_tracker_2025-08-15.xlsx
+2025-08-15 16:41:31 | INFO | Generated JSON output: output/proposaland_opportunities_2025-08-15.json
+2025-08-15 16:41:31 | INFO | Step 4: Generating summary report
+2025-08-15 16:41:31 | INFO | Step 5: Sending email notifications
+2025-08-15 16:41:31 | ERROR | Error sending daily report: 'float' object has no attribute 'get'
+2025-08-15 16:41:31 | INFO | Daily monitoring completed successfully in 0:00:49.741373
+2025-08-15 16:41:31 | INFO | Results: 97 opportunities, 0 critical, email sent: False
+2025-08-15 16:44:41 | INFO | Proposaland monitoring system started
+2025-08-15 16:44:41 | INFO | Initializing scrapers for all target websites
+2025-08-15 16:44:41 | INFO | Initialized scraper for Devex
+2025-08-15 16:44:41 | INFO | Initialized scraper for UNDP Procurement
+2025-08-15 16:44:41 | INFO | Initialized scraper for UN Global Marketplace
+2025-08-15 16:44:41 | INFO | Initialized scraper for Global Fund
+2025-08-15 16:44:41 | INFO | Initialized scraper for Development Aid
+2025-08-15 16:44:41 | INFO | Initialized scraper for ReliefWeb
+2025-08-15 16:44:41 | INFO | Initialized scraper for Save the Children
+2025-08-15 16:44:41 | INFO | Initialized scraper for Mercy Corps
+2025-08-15 16:44:41 | INFO | Initialized scraper for IRC
+2025-08-15 16:44:41 | INFO | Initialized scraper for Plan International
+2025-08-15 16:44:41 | INFO | Initialized scraper for IUCN
+2025-08-15 16:44:41 | INFO | Initialized scraper for World Bank
+2025-08-15 16:44:41 | INFO | Initialized scraper for NRC
+2025-08-15 16:44:41 | INFO | Initialized scraper for DRC
+2025-08-15 16:44:41 | INFO | Initialized scraper for AfDB
+2025-08-15 16:44:41 | INFO | Initialized scraper for GGGI
+2025-08-15 16:44:41 | INFO | Initialized scraper for ACTED
+2025-08-15 16:44:41 | INFO | Initialized scraper for ADB
+2025-08-15 16:44:41 | INFO | Initialized scraper for BirdLife
+2025-08-15 16:44:41 | INFO | Initialized scraper for Heifer
+2025-08-15 16:44:41 | INFO | Initialized scraper for DNDi
+2025-08-15 16:44:41 | INFO | Initialized scraper for IPU
+2025-08-15 16:44:41 | INFO | Initialized scraper for IDC
+2025-08-15 16:44:41 | INFO | Starting daily monitoring workflow
+2025-08-15 16:44:41 | INFO | Step 1: Running opportunity monitoring
+2025-08-15 16:44:41 | INFO | Starting opportunity monitoring process
+2025-08-15 16:44:41 | INFO | Running scraper for Devex
+2025-08-15 16:44:41 | INFO | Fetching https://www.devex.com/funding/r (attempt 1)
+2025-08-15 16:44:42 | INFO | Fetching https://www.devex.com/news (attempt 1)
+2025-08-15 16:44:42 | INFO | Found 0 relevant opportunities from Devex
+2025-08-15 16:44:42 | INFO | Found 0 opportunities from Devex
+2025-08-15 16:44:42 | INFO | Running scraper for UNDP Procurement
+2025-08-15 16:44:42 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=video&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:44:44 | INFO | Found 965 opportunities for keyword 'video'
+2025-08-15 16:44:44 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=photo&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:44:45 | INFO | Found 965 opportunities for keyword 'photo'
+2025-08-15 16:44:45 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=film&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:44:46 | INFO | Found 965 opportunities for keyword 'film'
+2025-08-15 16:44:46 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=multimedia&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:44:47 | INFO | Found 965 opportunities for keyword 'multimedia'
+2025-08-15 16:44:47 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?title=design&from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:44:48 | INFO | Found 965 opportunities for keyword 'design'
+2025-08-15 16:44:48 | INFO | Fetching https://procurement-notices.undp.org/search.cfm?from_date=16%2F07%2F2025&to_date=15%2F08%2F2026 (attempt 1)
+2025-08-15 16:44:50 | INFO | Found 965 recent opportunities from UNDP
+2025-08-15 16:44:50 | INFO | Found 79 relevant opportunities from UNDP
+2025-08-15 16:44:50 | INFO | Found 79 opportunities from UNDP Procurement
+2025-08-15 16:44:50 | INFO | Running scraper for UN Global Marketplace
+2025-08-15 16:44:50 | INFO | Fetching https://www.ungm.org/Public/Notice (attempt 1)
+2025-08-15 16:44:51 | INFO | Found 0 opportunities from UN Global Marketplace
+2025-08-15 16:44:51 | INFO | Running scraper for Global Fund
+2025-08-15 16:44:51 | INFO | Fetching https://www.theglobalfund.org/en/business-opportunities/ (attempt 1)
+2025-08-15 16:44:52 | INFO | Fetching https://fa-enmo-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/NegotiationAbstracts?prcBuId=300000003071579&_adf.ctrl-state=dr9zqv7ou_1&_afrLoop=9450745077996282&_afrWindowMode=0&_afrWindowId=null&_afrFS=16&_afrMT=screen&_afrMFW=2560&_afrMFH=1287&_afrMFDW=2560&_afrMFDH=1440&_afrMFC=8&_afrMFCI=0&_afrMFM=0&_afrMFR=96&_afrMFG=0&_afrMFS=0&_afrMFO=0 (attempt 1)
+2025-08-15 16:44:56 | INFO | Found 0 opportunities from Global Fund
+2025-08-15 16:44:56 | INFO | Running scraper for Development Aid
+2025-08-15 16:44:56 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc (attempt 1)
+2025-08-15 16:44:59 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=2 (attempt 1)
+2025-08-15 16:45:01 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=3 (attempt 1)
+2025-08-15 16:45:03 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=4 (attempt 1)
+2025-08-15 16:45:05 | INFO | Fetching https://www.developmentaid.org/tenders/search?q=multimedia OR video OR photo OR film OR design OR visual OR campaign OR communication OR media OR animation OR graphic OR documentation OR training OR capacity building OR outreach&sort=modified_date&order=desc&page=5 (attempt 1)
+2025-08-15 16:45:07 | INFO | Found 0 opportunities from Development Aid
+2025-08-15 16:45:07 | INFO | Running scraper for ReliefWeb
+2025-08-15 16:45:07 | INFO | Fetching https://reliefweb.int/jobs?type=264#content (attempt 1)
+2025-08-15 16:45:08 | INFO | Found 0 opportunities from ReliefWeb
+2025-08-15 16:45:08 | INFO | Running scraper for Save the Children
+2025-08-15 16:45:08 | INFO | Fetching https://www.savethechildren.net/about-us/our-suppliers/tenders (attempt 1)
+2025-08-15 16:45:11 | INFO | Found 1 opportunities from Save the Children
+2025-08-15 16:45:11 | INFO | Running scraper for Mercy Corps
+2025-08-15 16:45:11 | INFO | Fetching https://www.mercycorps.org/tenders (attempt 1)
+2025-08-15 16:45:11 | INFO | Found 1 opportunities from Mercy Corps
+2025-08-15 16:45:11 | INFO | Running scraper for IRC
+2025-08-15 16:45:11 | INFO | Fetching https://www.rescue.org/procurement-policies-and-bid-opportunities (attempt 1)
+2025-08-15 16:45:12 | INFO | Found 1 opportunities from IRC
+2025-08-15 16:45:12 | INFO | Running scraper for Plan International
+2025-08-15 16:45:12 | INFO | Fetching https://plan-international.org/calls-tender/ (attempt 1)
+2025-08-15 16:45:12 | INFO | Found 1 opportunities from Plan International
+2025-08-15 16:45:12 | INFO | Running scraper for IUCN
+2025-08-15 16:45:12 | INFO | Fetching https://iucn.org/procurement/currently-running-tenders (attempt 1)
+2025-08-15 16:45:12 | INFO | Found 17 opportunities from IUCN
+2025-08-15 16:45:12 | INFO | Running scraper for World Bank
+2025-08-15 16:45:12 | INFO | Fetching https://projects.worldbank.org/en/projects-operations/procurement?srce=both (attempt 1)
+2025-08-15 16:45:13 | INFO | Found 0 opportunities from World Bank
+2025-08-15 16:45:13 | INFO | Running scraper for NRC
+2025-08-15 16:45:13 | INFO | Fetching https://www.nrc.no/procurement/ (attempt 1)
+2025-08-15 16:45:13 | INFO | Found 1 opportunities from NRC
+2025-08-15 16:45:13 | INFO | Running scraper for DRC
+2025-08-15 16:45:13 | INFO | Fetching https://pro.drc.ngo/resources/tenders/ (attempt 1)
+2025-08-15 16:45:15 | INFO | Found 1 opportunities from DRC
+2025-08-15 16:45:15 | INFO | Running scraper for AfDB
+2025-08-15 16:45:15 | INFO | Fetching https://www.afdb.org/en/about-us/corporate-procurement/procurement-notices/current-solicitations (attempt 1)
+2025-08-15 16:45:15 | INFO | Found 1 opportunities from AfDB
+2025-08-15 16:45:15 | INFO | Running scraper for GGGI
+2025-08-15 16:45:15 | INFO | Fetching https://in-tendhost.co.uk/gggi/aspx/Tenders/Current (attempt 1)
+2025-08-15 16:45:16 | INFO | Found 0 opportunities from GGGI
+2025-08-15 16:45:16 | INFO | Running scraper for ACTED
+2025-08-15 16:45:16 | INFO | Fetching https://www.acted.org/en/call-for-tenders/ (attempt 1)
+2025-08-15 16:45:17 | INFO | Found 1 opportunities from ACTED
+2025-08-15 16:45:17 | INFO | Running scraper for ADB
+2025-08-15 16:45:17 | INFO | Fetching https://www.adb.org/projects/tenders (attempt 1)
+2025-08-15 16:45:23 | INFO | Fetching https://www.adb.org (attempt 1)
+2025-08-15 16:45:26 | INFO | Fetching https://www.adb.org/projects/tenders (attempt 1)
+2025-08-15 16:45:26 | INFO | Fetching https://www.adb.org/projects (attempt 1)
+2025-08-15 16:45:26 | INFO | Found 3 opportunities from ADB
+2025-08-15 16:45:26 | INFO | Running scraper for BirdLife
+2025-08-15 16:45:26 | INFO | Fetching https://www.birdlife.org/careers-hub/ (attempt 1)
+2025-08-15 16:45:27 | INFO | Found 1 opportunities from BirdLife
+2025-08-15 16:45:27 | INFO | Running scraper for Heifer
+2025-08-15 16:45:27 | INFO | Fetching https://www.heifer.org/about-us/inside-heifer/procurement-and-contracting-services.html (attempt 1)
+2025-08-15 16:45:30 | INFO | Found 1 opportunities from Heifer
+2025-08-15 16:45:30 | INFO | Running scraper for DNDi
+2025-08-15 16:45:30 | INFO | Fetching https://dndi.org/work-with-us/job-opportunities/ (attempt 1)
+2025-08-15 16:45:31 | INFO | Found 1 opportunities from DNDi
+2025-08-15 16:45:31 | INFO | Running scraper for IPU
+2025-08-15 16:45:31 | INFO | Fetching https://www.ipu.org/work-with-us/vacancies (attempt 1)
+2025-08-15 16:45:32 | INFO | Found 1 opportunities from IPU
+2025-08-15 16:45:32 | INFO | Running scraper for IDC
+2025-08-15 16:45:32 | INFO | Fetching https://www.idc.co.za/tenders/ (attempt 1)
+2025-08-15 16:45:33 | INFO | Found 1 opportunities from IDC
+2025-08-15 16:45:33 | INFO | Total opportunities found: 112
+2025-08-15 16:45:33 | INFO | Step 2: Filtering and scoring opportunities
+2025-08-15 16:45:33 | INFO | Filtered to 97 relevant opportunities
+2025-08-15 16:45:33 | INFO | Step 3: Generating Excel and JSON outputs
+2025-08-15 16:45:33 | INFO | Applied formatting to Excel file: output/proposaland_tracker_2025-08-15.xlsx
+2025-08-15 16:45:33 | INFO | Generated Excel tracker: output/proposaland_tracker_2025-08-15.xlsx
+2025-08-15 16:45:33 | INFO | Generated JSON output: output/proposaland_opportunities_2025-08-15.json
+2025-08-15 16:45:33 | INFO | Step 4: Generating summary report
+2025-08-15 16:45:33 | INFO | Step 5: Sending email notifications
+2025-08-15 16:45:33 | INFO | Added attachment: proposaland_tracker_2025-08-15.xlsx
+2025-08-15 16:45:33 | INFO | Added attachment: proposaland_opportunities_2025-08-15.json
+2025-08-15 16:45:37 | INFO | Daily report sent successfully to majakis@gmail.com, siphe@whattookyousolong.org, chris@whattookyousolong.org
+2025-08-15 16:45:37 | INFO | Daily monitoring completed successfully in 0:00:55.488278
+2025-08-15 16:45:37 | INFO | Results: 97 opportunities, 0 critical, email sent: True

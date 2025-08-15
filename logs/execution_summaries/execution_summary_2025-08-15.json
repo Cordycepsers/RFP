@@ -1,0 +1,94 @@
+{
+  "timestamp": "2025-08-15T16:45:37.047800",
+  "success": true,
+  "duration_seconds": 55.488278,
+  "opportunities_found": 97,
+  "summary": {
+    "total_opportunities": 97,
+    "priority_breakdown": {
+      "Critical": 0,
+      "High": 0,
+      "Medium": 0,
+      "Low": 97
+    },
+    "source_performance": {
+      "IUCN IUCH HQ Switzerland": 1,
+      "AfDB": 1,
+      "Plan International": 1,
+      "IUCN IUCN HQ": 1,
+      "Save the Children": 1,
+      "IRC": 1,
+      "UNDP": 79,
+      "Mercy Corps": 1,
+      "NRC": 1,
+      "IPU": 1,
+      "IDC": 1,
+      "ACTED": 1,
+      "DNDi": 1,
+      "DRC": 1,
+      "Heifer": 1,
+      "Asian Development Bank (ADB)": 3,
+      "BirdLife": 1
+    },
+    "top_keywords": {
+      "design": 41,
+      "media": 23,
+      "communication": 23,
+      "campaign": 11,
+      "video": 9,
+      "visual": 7,
+      "photo": 6,
+      "multimedia": 5,
+      "promotion": 5,
+      "podcasts": 3
+    },
+    "top_opportunities": [
+      {
+        "title": "rfp_biopamaii-graphicdesigner-final.pdf",
+        "organization": "IUCN IUCH HQ Switzerland",
+        "priority": "Low",
+        "score": 0.3435830911858309,
+        "reference_number": "",
+        "deadline": "2025-08-31",
+        "source_url": "https://iucn.org/procurement/currently-running-tenders"
+      },
+      {
+        "title": "Opportunity from AfDB",
+        "organization": "AfDB",
+        "priority": "Low",
+        "score": 0.22166666666666668,
+        "reference_number": "",
+        "deadline": "Not specified",
+        "source_url": "https://www.afdb.org/en/about-us/corporate-procurement/procurement-notices/current-solicitations"
+      },
+      {
+        "title": "Opportunity from Plan International",
+        "organization": "Plan International",
+        "priority": "Low",
+        "score": 0.21666666666666667,
+        "reference_number": "",
+        "deadline": "Not specified",
+        "source_url": "https://plan-international.org/calls-tender/"
+      },
+      {
+        "title": "rfp-member-magazine-open-procedure_rev-12-aug-2025.pdf",
+        "organization": "IUCN IUCN HQ",
+        "priority": "Low",
+        "score": 0.21472602739726027,
+        "reference_number": "",
+        "deadline": "2025-09-10",
+        "source_url": "https://iucn.org/procurement/currently-running-tenders"
+      },
+      {
+        "title": "Opportunity from Save the Children",
+        "organization": "Save the Children",
+        "priority": "Low",
+        "score": 0.18333333333333332,
+        "reference_number": "",
+        "deadline": "Not specified",
+        "source_url": "https://www.savethechildren.net/about-us/our-suppliers/tenders"
+      }
+    ]
+  },
+  "error_message": null
+}
