@@ -4,20 +4,25 @@ Proposaland Daily Scheduler
 Automated scheduling system for daily opportunity monitoring at 9 AM.
 """
 
-from src.notifications.email_notifier import EmailNotifier
-from src.outputs.json_generator import JSONGenerator
-from src.outputs.excel_generator import ExcelGenerator
-from proposaland_monitor import ProposalandMonitor
-import schedule
+from typing import Dict, Any
+import json
+import subprocess
+from loguru import logger
+from pathlib import Path
+from datetime import datetime, timedelta
 import time
+import schedule
+from proposaland_monitor import ProposalandMonitor
+from src.outputs.excel_generator import ExcelGenerator
+from src.outputs.json_generator import JSONGenerator
+from src.notifications.email_notifier import EmailNotifier
 import sys
 import os
-from datetime import datetime, timedelta
-from pathlib import Path
-from loguru import logger
-import subprocess
-import json
-from typing import Dict, Any
+
+# Ensure 'src' directory is on the import path so local packages like `scrapers` can be
+# imported by modules such as `proposaland_monitor` when scheduler is executed.
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
 
 # Add src directory to path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
