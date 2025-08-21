@@ -265,3 +265,26 @@ class BaseScraper(ABC):
         """Get the priority score for this website."""
         return self.website_config.get('priority', 0.5)
 
+<<<<<<< HEAD
+=======
+    def test_connection(self) -> bool:
+        """Default lightweight connectivity check for scrapers.
+
+        Performs a HEAD request to the website URL if available, falling back to
+        a page fetch using get_page when necessary. Returns True when the site
+        appears reachable (HTTP < 400 or valid parsed page).
+        """
+        url = self.get_website_url() or self.website_config.get('url', '')
+        try:
+            if url:
+                # Prefer HEAD to minimize payload
+                resp = self.session.head(url, timeout=8, allow_redirects=True)
+                if resp.status_code < 400:
+                    return True
+            # Fallback: try a parsed GET
+            page = self.get_page(url, timeout=15)
+            return page is not None
+        except Exception:
+            return False
+
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)

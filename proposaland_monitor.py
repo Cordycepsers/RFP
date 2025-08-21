@@ -39,12 +39,21 @@ class ProposalandMonitor:
         self.scrapers = {}
         self.opportunities = []
         self.setup_logging()
+<<<<<<< HEAD
     # Ensure logs folder exists for health tracking
     Path('logs').mkdir(exist_ok=True)
     # Load health state
     self.health_path = Path('logs/scraper_health.json')
     self._health = self._load_health()
     self.initialize_scrapers()
+=======
+        # Ensure logs folder exists for health tracking
+        Path('logs').mkdir(exist_ok=True)
+        # Load health state
+        self.health_path = Path('logs/scraper_health.json')
+        self._health = self._load_health()
+        self.initialize_scrapers()
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)
 
     def _load_config(self) -> Dict[str, Any]:
         """Load configuration from JSON file."""
@@ -135,7 +144,11 @@ class ProposalandMonitor:
         except Exception as e:
             logger.error(f"Failed to write scraper health file: {e}")
 
+<<<<<<< HEAD
     def _record_scraper_result(self, name: str, count: int, error: str | None):
+=======
+    def _record_scraper_result(self, name: str, count: int, error: 'Optional[str]'):
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)
         """Update health counters for a scraper and emit alerts when thresholds reached."""
         now = datetime.now().isoformat()
         entry = self._health.get(name, {
@@ -447,17 +460,45 @@ class ProposalandMonitor:
 
 def main():
     """Main entry point for the monitoring system."""
+<<<<<<< HEAD
     try:
         # Initialize monitor
         monitor = ProposalandMonitor()
 
         # Run monitoring
         opportunities = monitor.run_monitoring()
+=======
+    import argparse
+    parser = argparse.ArgumentParser(description="Proposaland Opportunity Monitoring System")
+    parser.add_argument('--scraper', type=str, help='Run only the specified scraper by name (e.g., Devex)')
+    args = parser.parse_args()
+
+    try:
+        monitor = ProposalandMonitor()
+
+        if args.scraper:
+            # Run only the specified scraper
+            scraper_name = args.scraper.lower()
+            found = False
+            for name, scraper in monitor.scrapers.items():
+                if name.lower() == scraper_name:
+                    logger.info(f"Running only scraper for {name}")
+                    opportunities = scraper.scrape_opportunities()
+                    found = True
+                    break
+            if not found:
+                logger.error(f"Scraper '{args.scraper}' not found.")
+                sys.exit(1)
+        else:
+            # Run all scrapers
+            opportunities = monitor.run_monitoring()
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)
 
         if not opportunities:
             logger.warning("No opportunities found")
             return
 
+<<<<<<< HEAD
         # Filter opportunities
         filtered_opportunities = monitor.filter_opportunities(opportunities)
 
@@ -471,6 +512,12 @@ def main():
         json_path = monitor.save_results(classified_opportunities)
 
         # Generate summary
+=======
+        filtered_opportunities = monitor.filter_opportunities(opportunities)
+        scored_opportunities = monitor.score_opportunities(filtered_opportunities)
+        classified_opportunities = monitor.classify_priorities(scored_opportunities)
+        json_path = monitor.save_results(classified_opportunities)
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)
         summary = monitor.generate_summary_report(classified_opportunities)
 
         logger.info("Monitoring process completed successfully")

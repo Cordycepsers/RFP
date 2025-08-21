@@ -1,4 +1,11 @@
 {
+<<<<<<< HEAD
+=======
+  "devex_credentials": {
+    "username": "dre@whattookyousolong.org",
+    "password": "whysolong"
+  },
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)
   "system": {
     "name": "Proposaland Opportunity Monitor",
     "version": "1.0.0",
@@ -8,16 +15,24 @@
   "email": {
     "recipient": "majakis@gmail.com",
     "recipient_email": [
+<<<<<<< HEAD
       "majakis@gmail.com",
       "siphe@whattookyousolong.org",
       "chris@whattookyousolong.org"
+=======
+      "majakis@gmail.com"
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)
     ],
     "subject_template": "Daily Proposaland Opportunity Report - {date}",
     "smtp_server": "smtp.gmail.com",
     "smtp_port": 587,
     "use_tls": true,
     "sender_email": "maja@whattookyousolong.org",
+<<<<<<< HEAD
     "sender_password": "nagc jsvd uizj uvtr"
+=======
+  "sender_password": "REDACTED_FOR_GITHUB"
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)
   },
   "target_websites": {
     "high_priority": [
@@ -356,4 +371,8 @@
     "max_retries": 3,
     "retry_delay_minutes": 30
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9009e9c (Initial commit: full configuration and codebase)
