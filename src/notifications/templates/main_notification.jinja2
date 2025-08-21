@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposaland Daily Opportunities Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #366092;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #366092;
+            margin: 0;
+            font-size: 28px;
+        }
+        .header .date {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        .summary {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #366092;
+        }
+        .summary h2 {
+            color: #366092;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #366092;
+            display: block;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        .priority-critical { background-color: #ff6b6b; color: white; }
+        .priority-high { background-color: #ffe66d; color: #333; }
+        .priority-medium { background-color: #a8e6cf; color: #333; }
+        .priority-low { background-color: #e8e8e8; color: #333; }
+        .opportunities {
+            margin-top: 30px;
+        }
+        .opportunity {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .opportunity-header {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+        .opportunity-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+        .opportunity-meta {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .opportunity-body {
+            padding: 20px;
+        }
+        .opportunity-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .detail-item {
+            font-size: 14px;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #366092;
+        }
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .attachments {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .attachments h3 {
+            color: #366092;
+            margin-top: 0;
+        }
+        .attachment-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .attachment-list li {
+            margin: 8px 0;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 14px;
+        }
+        .keywords {
+            margin-top: 10px;
+        }
+        .keyword-tag {
+            display: inline-block;
+            background-color: #366092;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Proposaland Daily Report</h1>
+            <div class="date">{{ date }}</div>
+        </div>
+        
+        <div class="summary">
+            <h2>📊 Summary</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">{{ total_opportunities }}</span>
+                    <span class="stat-label">Total Opportunities</span>
+                </div>
+                <div class="stat-item priority-critical">
+                    <span class="stat-number">{{ critical_count }}</span>
+                    <span class="stat-label">Critical Priority</span>
+                </div>
+                <div class="stat-item priority-high">
+                    <span class="stat-number">{{ high_count }}</span>
+                    <span class="stat-label">High Priority</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">{{ avg_keywords }}</span>
+                    <span class="stat-label">Avg Keywords</span>
+                </div>
+            </div>
+            
+            <p><strong>Top Keywords:</strong> {{ top_keywords }}</p>
+            <p><strong>Top Sources:</strong> {{ top_sources }}</p>
+        </div>
+        
+        {% if has_critical_opportunities %}
+        <div class="opportunities">
+            <h2>🚨 Critical Priority Opportunities</h2>
+            {% for opp in critical_opportunities %}
+            <div class="opportunity">
+                <div class="opportunity-header">
+                    <h3 class="opportunity-title">{{ opp.title }}</h3>
+                    <div class="opportunity-meta">
+                        {{ opp.organization }} | 
+                        <span class="priority-badge priority-critical">{{ opp.priority }}</span> |
+                        Score: {{ opp.relevance_score }}
+                    </div>
+                </div>
+                <div class="opportunity-body">
+                    <div class="opportunity-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Reference:</span> {{ opp.reference_number }}
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Deadline:</span> {{ opp.deadline }}
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Budget:</span> {{ opp.budget }}
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span> {{ opp.location }}
+                        </div>
+                    </div>
+                    <div class="keywords">
+                        {% for kw in opp.keywords_found %}
+                        <span class="keyword-tag">{{ kw }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if has_high_opportunities %}
+        <div class="opportunities">
+            <h2>⚡ High Priority Opportunities</h2>
+            {% for opp in high_opportunities %}
+            <div class="opportunity">
+                <div class="opportunity-header">
+                    <h3 class="opportunity-title">{{ opp.title }}</h3>
+                    <div class="opportunity-meta">
+                        {{ opp.organization }} | 
+                        <span class="priority-badge priority-high">{{ opp.priority }}</span> |
+                        Score: {{ opp.relevance_score }}
+                    </div>
+                </div>
+                <div class="opportunity-body">
+                    <div class="opportunity-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Reference:</span> {{ opp.reference_number }}
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Deadline:</span> {{ opp.deadline }}
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Budget:</span> {{ opp.budget }}
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span> {{ opp.location }}
+                        </div>
+                    </div>
+                    <div class="keywords">
+                        {% for kw in opp.keywords_found %}
+                        <span class="keyword-tag">{{ kw }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <div class="attachments">
+            <h3>📎 Attachments</h3>
+            <p>Complete opportunity data is attached to this email:</p>
+            <ul class="attachment-list">
+                <li>📊 Excel Tracker ({{ tracker_filename }})</li>
+                <li>📄 JSON Data ({{ json_filename }})</li>
+            </ul>
+            <p><em>Open the Excel file for detailed analysis and tracking capabilities.</em></p>
+        </div>
+        
+        <div class="footer">
+            <p>Generated by Proposaland Opportunity Monitor | {{ timestamp }}</p>
+            <p>This is an automated report. For questions, please contact your system administrator.</p>
+        </div>
+    </div>
+</body>
+</html>

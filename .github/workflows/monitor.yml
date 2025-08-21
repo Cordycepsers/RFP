@@ -1,0 +1,74 @@
+name: Proposaland Opportunity Monitor
+
+on:
+  schedule:
+    # Run daily at 9:00 AM UTC
+    - cron: "0 9 * * *"
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  run-monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run opportunity monitoring
+        run: |
+          PYTHONPATH=src python3 proposaland_monitor.py
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: monitor-output
+          path: output/*.json
+          retention-days: 30
+
+      - name: Check for critical opportunities
+        run: |
+          # Check if critical opportunities were found
+          if [ -f "output/proposaland_opportunities_$(date +%Y-%m-%d).json" ]; then
+            echo "✅ Monitoring completed successfully"
+            python -c "
+            import json
+            import os
+            from datetime import datetime
+            
+            filename = f'output/proposaland_opportunities_{datetime.now().strftime(\"%Y-%m-%d\")}.json'
+            if os.path.exists(filename):
+                with open(filename, 'r') as f:
+                    data = json.load(f)
+                print(f'📊 Found {len(data)} total opportunities')
+                critical = [opp for opp in data if opp.get('priority', '') == 'critical']
+                high = [opp for opp in data if opp.get('priority', '') == 'high']
+                print(f'🚨 Critical: {len(critical)} opportunities')
+                print(f'⚠️ High Priority: {len(high)} opportunities')
+            "
+          else
+            echo "⚠️ No results file found"
+          fi
+
+env:
+  # Environment variables for the monitoring system
+  PYTHONPATH: ${{ github.workspace }}
+  PROPOSALAND_ENV: production
