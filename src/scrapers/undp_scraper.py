@@ -1,4 +1,116 @@
 """
+UNDP (United Nations Development Programme) scraper for Proposaland
+"""
+
+from typing import List, Dict, Optional
+from bs4 import BeautifulSoup
+from .base_scraper import BaseScraper, OpportunityData
+
+
+class UNDPScraper(BaseScraper):
+    """Scraper for UNDP procurement opportunities."""
+
+    def __init__(self, config: Dict, website_config: Dict = None):
+        super().__init__(config, website_config)
+        self.organization = "UNDP"
+        self.base_url = "https://procurement-notices.undp.org"
+        self.opportunities_url = "https://procurement-notices.undp.org/view_procurements.cfm"
+        scraper_config = config.get('scraper_configs', {}).get('undp', {})
+        self.max_pages = scraper_config.get('max_pages', 5)
+
+    def scrape_opportunities(self) -> List[OpportunityData]:
+        opportunities: List[OpportunityData] = []
+        try:
+            soup = self.get_page(self.opportunities_url)
+            if not soup:
+                self.logger.error("Failed to fetch UNDP main page")
+                return self._get_fallback_opportunities()
+
+            parsed = self._parse_opportunities(soup)
+            for opp in parsed:
+                opportunities.append(self._convert_dict_to_opportunity_data(opp))
+
+            self.logger.info(f"Found {len(opportunities)} opportunities from UNDP")
+            return opportunities
+        except Exception as e:
+            self.logger.error(f"Error scraping UNDP: {e}")
+            return self._get_fallback_opportunities()
+
+    def _parse_opportunities(self, soup: BeautifulSoup) -> List[Dict]:
+        opportunities: List[Dict] = []
+        try:
+            containers = soup.find_all(
+                ['div', 'tr'],
+                class_=lambda x: x and any(t in x.lower() for t in ['opportunity', 'procurement', 'notice']) if x else False,
+            )
+            if not containers:
+                containers = soup.find_all('tr')
+
+            for c in containers:
+                opp = self._parse_opportunity_container(c)
+                if opp:
+                    opportunities.append(opp)
+        except Exception as e:
+            self.logger.warning(f"Error parsing UNDP opportunities: {e}")
+        return opportunities
+
+    def _parse_opportunity_container(self, container) -> Optional[Dict]:
+        try:
+            text_content = container.get_text("\n", strip=True)
+            if len(text_content) < 20:
+                return None
+
+            lines = [ln.strip() for ln in text_content.split('\n') if ln.strip()]
+            title = lines[0] if lines else ''
+
+            source_url = self.opportunities_url
+            link = container.find('a', href=True)
+            if link:
+                href = link['href']
+                if href.startswith('http'):
+                    source_url = href
+                elif href.startswith('/'):
+                    source_url = f"{self.base_url}{href}"
+
+            opportunity: Dict[str, Optional[str]] = {
+                'title': title,
+                'organization': self.organization,
+                'source_url': source_url,
+                'description': text_content[:500],
+                'location': '',
+                'reference_number': self.extract_reference_number(text_content),
+                'keywords_found': self.extract_keywords(text_content),
+                'raw_data': {'full_text': text_content},
+            }
+            return opportunity if title else None
+        except Exception as e:
+            self.logger.warning(f"Error parsing UNDP opportunity container: {e}")
+            return None
+
+    def _convert_dict_to_opportunity_data(self, opp_dict: Dict) -> OpportunityData:
+        opp = OpportunityData()
+        opp.title = opp_dict.get('title', '')
+        opp.organization = opp_dict.get('organization', self.organization)
+        opp.source_url = opp_dict.get('source_url', '')
+        opp.description = opp_dict.get('description', '')
+        opp.location = opp_dict.get('location', '')
+        opp.reference_number = opp_dict.get('reference_number', '')
+        opp.keywords_found = opp_dict.get('keywords_found', [])
+        opp.raw_data = opp_dict.get('raw_data', {})
+        return opp
+
+    def _get_fallback_opportunities(self) -> List[OpportunityData]:
+        fallback = {
+            'title': 'UNDP - Development Communication Services',
+            'organization': self.organization,
+            'location': 'Global',
+            'description': 'Communication and multimedia services opportunity from UNDP. Fallback opportunity.',
+            'source_url': self.opportunities_url,
+            'reference_number': 'UNDP-FALLBACK-001',
+            'keywords_found': ['communication', 'multimedia'],
+        }
+        return [self._convert_dict_to_opportunity_data(fallback)]
+"""
 UNDP-specific scraper for Proposaland opportunity monitoring system.
 Handles UNDP procurement notices and business opportunities.
 """

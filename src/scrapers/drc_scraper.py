@@ -9,7 +9,6 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import re
-from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse
 import logging
 from .base_scraper import BaseScraper, OpportunityData
@@ -47,14 +46,14 @@ class DRCScraper(BaseScraper):
         Main method to scrape opportunities from DRC
         """
         try:
-            self.logger.info(f"Starting DRC scraping from {self.tenders_url}")
+            self.self.self.self.self.self.logger.info(f"Starting DRC scraping from {self.tenders_url}")
             
             opportunities = []
             
             # Get main tenders page
             response = self.get_page(self.tenders_url)
             if not response:
-                self.logger.error("Could not access DRC tenders page")
+                self.self.self.self.self.self.logger.error("Could not access DRC tenders page")
                 return self._get_fallback_opportunities()
             
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -67,7 +66,7 @@ class DRCScraper(BaseScraper):
             if not opportunities:
                 opportunities = self._get_fallback_opportunities()
             
-            self.logger.info(f"Found {len(opportunities)} opportunities from DRC")
+            self.self.self.self.self.self.logger.info(f"Found {len(opportunities)} opportunities from DRC")
             
             # Filter and enhance opportunities
             filtered_opportunities = []
@@ -76,9 +75,11 @@ class DRCScraper(BaseScraper):
                     enhanced_opp = self._enhance_opportunity(opp)
                     filtered_opportunities.append(enhanced_opp)
             
-            self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
+            self.self.self.self.self.self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
             
             # Convert dictionaries to OpportunityData objects
+
+            
             opportunity_objects = []
             for opp in filtered_opportunities:
                 if isinstance(opp, dict):
@@ -89,7 +90,7 @@ class DRCScraper(BaseScraper):
             return opportunity_objects[:self.max_opportunities]
             
         except Exception as e:
-            self.logger.error(f"Error scraping DRC: {str(e)}")
+            self.self.self.self.self.self.logger.error(f"Error scraping DRC: {str(e)}")
             return self._get_fallback_opportunities()
     
     def _parse_tender_listings(self, soup: BeautifulSoup) -> List[OpportunityData]:
@@ -98,13 +99,13 @@ class DRCScraper(BaseScraper):
         
         try:
             # Look for tender sections - DRC may use various structures
-            tender_sections = soup.find_all(['div', 'section', 'article'], class_=re.compile(r'tender|procurement|rfp|itt', re.I))
+            tender_sections =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             
             # Also look for tender links
-            tender_links = soup.find_all('a', href=re.compile(r'tender|procurement|rfp', re.I))
+            tender_links =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             
             # Look for headings containing tender-related terms
-            tender_headings = soup.find_all(['h1', 'h2', 'h3', 'h4'], string=re.compile(r'tender|procurement|rfp|itt|call|invitation', re.I))
+            tender_headings =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             
             all_elements = tender_sections + tender_links + tender_headings
             
@@ -115,7 +116,7 @@ class DRCScraper(BaseScraper):
                         opportunities.append(opportunity)
                         
                 except Exception as e:
-                    self.logger.debug(f"Error parsing tender element: {e}")
+                    self.self.self.self.self.self.logger.debug(f"Error parsing tender element: {e}")
                     continue
             
             # If no structured elements found, try text-based extraction
@@ -123,9 +124,9 @@ class DRCScraper(BaseScraper):
                 opportunities = self._extract_from_page_text(soup)
                 
         except Exception as e:
-            self.logger.error(f"Error parsing tender listings: {e}")
+            self.self.self.self.self.self.logger.error(f"Error parsing tender listings: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _extract_tender_details(self, element: BeautifulSoup) -> Optional[OpportunityData]:
         """Extract details from a tender element"""
@@ -133,18 +134,12 @@ class DRCScraper(BaseScraper):
             opportunity = OpportunityData()
             
             # Extract title
-            if element.name in ['h1', 'h2', 'h3', 'h4']:
-                opportunity.title = element.get_text(strip=True)
-            elif element.name == 'a':
-                opportunity.title = element.get_text(strip=True)
-                opportunity.source_url = urljoin(self.base_url, element.get('href', ''))
+            if element.name in ['h1', 'h2', 'h3', 'h4']:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnt.get_text(strip=True)
+            elif element.name == 'a':\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnt.get_text(strip=True)\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn(self.base_url, element.get('href', ''))
             else:
                 # Look for title within the element
                 title_elem = element.find(['h1', 'h2', 'h3', 'h4', 'a'])
-                if title_elem:
-                    opportunity.title = title_elem.get_text(strip=True)
-                    if title_elem.name == 'a':
-                        opportunity.source_url = urljoin(self.base_url, title_elem.get('href', ''))
+                if title_elem:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passname == 'a':\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn(self.base_url, title_elem.get('href', ''))
             
             if not opportunity.title:
                 return None
@@ -152,34 +147,23 @@ class DRCScraper(BaseScraper):
             # Extract description from element or parent
             if element.name != 'a':
                 desc_elem = element.find(['p', 'div'], class_=re.compile(r'desc|summary|content'))
-                if desc_elem:
-                    opportunity.description = desc_elem.get_text(strip=True)[:500]
-            
-            # Extract reference number
+                if desc_elem:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce number
             element_text = element.get_text() if hasattr(element, 'get_text') else str(element)
-            opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(element_text)
+            opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(element_text)
             
             # Extract dates if available
             date_info = self._extract_dates_from_element(element)
-            if date_info.get('deadline'):
-                opportunity.deadline = date_info['deadline']
+            if date_info.get('deadline'):\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnfo['deadline']
             
-            # Set defaults
-            opportunity.organization = 'Danish Refugee Council (DRC)'
-            opportunity.location = 'Various'
-            opportunity.description = opportunity.description or f"Tender opportunity: {opportunity.title}"
-            opportunity.source_url = opportunity.source_url or self.tenders_url
+            # Set defaults\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnish Refugee Council (DRC)'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = opportunity.description or f"Tender opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.source_url or self.tenders_url
             
             # Extract keywords
-            all_text = f"{opportunity.title} {opportunity.description}".lower()
-            opportunity.keywords_found = self.extract_keywords(all_text)
-            
-            opportunity.extracted_date = datetime.now()
+            all_text = f"{opportunity.title} {opportunity.description}".lower()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.extracted_date = datetime.now()
             
             return opportunity
             
         except Exception as e:
-            self.logger.debug(f"Error extracting tender details: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting tender details: {e}")
             return None
     
     def _extract_dates_from_element(self, element: BeautifulSoup) -> Dict[str, Optional[datetime]]:
@@ -207,7 +191,7 @@ class DRCScraper(BaseScraper):
                         break
                         
         except Exception as e:
-            self.logger.debug(f"Error extracting dates: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting dates: {e}")
         
         return dates
     
@@ -249,7 +233,7 @@ class DRCScraper(BaseScraper):
                         continue
                         
         except Exception as e:
-            self.logger.debug(f"Error parsing date '{date_text}': {e}")
+            self.self.self.self.self.self.logger.debug(f"Error parsing date '{date_text}': {e}")
         
         return None
     
@@ -259,7 +243,7 @@ class DRCScraper(BaseScraper):
         
         try:
             # Look for tender patterns in the page text
-            page_text = soup.get_text()
+            page_text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             
             # Find tender titles using common patterns
             tender_patterns = [
@@ -276,34 +260,26 @@ class DRCScraper(BaseScraper):
                 matches = re.findall(pattern, page_text, re.I)
                 for match in matches[:5]:  # Limit to avoid too many
                     try:
-                        opportunity = OpportunityData()
-                        opportunity.title = match.strip()
-                        opportunity.organization = 'Danish Refugee Council (DRC)'
-                        opportunity.location = 'Various'
-                        opportunity.description = f"Tender opportunity: {opportunity.title}"
-                        opportunity.source_url = self.tenders_url
+                        opportunity = OpportunityData()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.organization = 'Danish Refugee Council (DRC)'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = f"Tender opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnders_url
                         
-                        # Extract keywords
-                        opportunity.keywords_found = self.extract_keywords(opportunity.title.lower())
+                        # Extract keywords\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.title.lower())
                         
                         # Extract reference number
-                        opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(
+                        opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(
                             opportunity.title
-                        )
-                        
-                        opportunity.extracted_date = datetime.now()
+                        )\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnow()
                         
                         if self._is_relevant_opportunity(opportunity):
                             opportunities.append(opportunity)
                             
                     except Exception as e:
-                        self.logger.debug(f"Error extracting from text pattern: {e}")
+                        self.self.self.self.self.self.logger.debug(f"Error extracting from text pattern: {e}")
                         continue
                         
         except Exception as e:
-            self.logger.error(f"Error in text extraction: {e}")
+            self.self.self.self.self.self.logger.error(f"Error in text extraction: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _get_fallback_opportunities(self) -> List[OpportunityData]:
         """Provide fallback opportunities when scraping fails"""
@@ -354,8 +330,7 @@ class DRCScraper(BaseScraper):
     def _enhance_opportunity(self, opportunity: OpportunityData) -> OpportunityData:
         """Enhance opportunity with additional information"""
         try:
-            # Add scoring
-            opportunity.raw_data = opportunity.raw_data or {}
+            # Add scoring\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.raw_data or {}
             opportunity.raw_data['relevance_score'] = self._calculate_relevance_score(opportunity)
             
             # Add priority level
@@ -366,11 +341,8 @@ class DRCScraper(BaseScraper):
                 days_until = (opportunity.deadline - datetime.now()).days
                 opportunity.raw_data['days_until_deadline'] = days_until
             
-            # Set currency (DRC typically uses EUR/USD)
-            opportunity.currency = 'EUR'
-            
-        except Exception as e:
-            self.logger.debug(f"Error enhancing opportunity: {e}")
+            # Set currency (DRC typically uses EUR/USD)\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn as e:
+            self.self.self.self.self.self.logger.debug(f"Error enhancing opportunity: {e}")
         
         return opportunity
     
@@ -435,7 +407,7 @@ class DRCScraper(BaseScraper):
             response = self.get_page(self.tenders_url)
             return response is not None and response.status_code == 200
         except Exception as e:
-            self.logger.error(f"DRC connection test failed: {e}")
+            self.self.self.self.self.self.logger.error(f"DRC connection test failed: {e}")
             return False
     
     def get_opportunity_details(self, opportunity_url: str) -> Dict[str, Any]:
@@ -455,14 +427,14 @@ class DRCScraper(BaseScraper):
             }
             
             # Extract full description
-            desc_elem = soup.find(['div', 'section'], class_=re.compile(r'content|description|body'))
+            desc_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if desc_elem:
                 details['full_description'] = desc_elem.get_text(strip=True)
             
             return details
             
         except Exception as e:
-            self.logger.error(f"Error getting opportunity details: {e}")
+            self.self.self.self.self.self.logger.error(f"Error getting opportunity details: {e}")
             return {}
 
     def _convert_dict_to_opportunity_data(self, opp_dict: Dict[str, Any]) -> OpportunityData:

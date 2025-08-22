@@ -2,9 +2,9 @@
   "email": {
     "smtp_server": "smtp.gmail.com",
     "smtp_port": 587,
-    "sender_email": "your-email@gmail.com",
-    "sender_password": "your-app-specific-password",
-    "recipient_email": "majalemaja@pm.me"
+    "sender_email": "maja@whattookyousolong.org",
+    "sender_password": "gppe qffv yuhu yubf",
+    "recipient_email": "majakis@gmail.com",
   },
   "scheduler": {
     "daily_time": "09:00",

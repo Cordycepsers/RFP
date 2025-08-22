@@ -203,12 +203,12 @@ def main():
     """Fix all scrapers to return OpportunityData objects"""
     
     scrapers_to_fix = [
-        'src/scrapers/adb_scraper.py',
-        'src/scrapers/developmentaid_scraper.py',
-        'src/scrapers/iucn_scraper.py',
-        'src/scrapers/ungm_scraper.py',
-        'src/scrapers/globalfund_scraper.py',
-        'src/scrapers/worldbank_scraper.py'
+        '/home/ubuntu/proposaland/src/scrapers/adb_scraper.py',
+        '/home/ubuntu/proposaland/src/scrapers/developmentaid_scraper.py',
+        '/home/ubuntu/proposaland/src/scrapers/iucn_scraper.py',
+        '/home/ubuntu/proposaland/src/scrapers/ungm_scraper.py',
+        '/home/ubuntu/proposaland/src/scrapers/globalfund_scraper.py',
+        '/home/ubuntu/proposaland/src/scrapers/worldbank_scraper.py'
     ]
     
     print("🔧 Fixing Proposaland data structure mismatch...")

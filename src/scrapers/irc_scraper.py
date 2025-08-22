@@ -9,7 +9,6 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import re
-from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse
 import logging
 from .base_scraper import BaseScraper, OpportunityData
@@ -48,7 +47,7 @@ class IRCScraper(BaseScraper):
         Main method to scrape opportunities from IRC
         """
         try:
-            self.logger.info(f"Starting IRC scraping from {self.procurement_url}")
+            self.self.self.self.self.self.logger.info(f"Starting IRC scraping from {self.procurement_url}")
             
             opportunities = []
             
@@ -60,7 +59,7 @@ class IRCScraper(BaseScraper):
                     else:
                         url = f"{self.procurement_url}?page={page-1}"  # IRC uses 0-based pagination
                     
-                    self.logger.info(f"Scraping IRC page {page}")
+                    self.self.self.self.self.self.logger.info(f"Scraping IRC page {page}")
                     
                     response = self.get_page(url)
                     if response:
@@ -74,14 +73,14 @@ class IRCScraper(BaseScraper):
                         break
                         
                 except Exception as e:
-                    self.logger.warning(f"Error scraping page {page}: {e}")
+                    self.self.self.self.self.self.logger.warning(f"Error scraping page {page}: {e}")
                     continue
             
             # If no opportunities found, provide fallback
             if not opportunities:
                 opportunities = self._get_fallback_opportunities()
             
-            self.logger.info(f"Found {len(opportunities)} opportunities from IRC")
+            self.self.self.self.self.self.logger.info(f"Found {len(opportunities)} opportunities from IRC")
             
             # Filter and enhance opportunities
             filtered_opportunities = []
@@ -90,9 +89,11 @@ class IRCScraper(BaseScraper):
                     enhanced_opp = self._enhance_opportunity(opp)
                     filtered_opportunities.append(enhanced_opp)
             
-            self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
+            self.self.self.self.self.self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
             
             # Convert dictionaries to OpportunityData objects
+
+            
             opportunity_objects = []
             for opp in filtered_opportunities:
                 if isinstance(opp, dict):
@@ -103,7 +104,7 @@ class IRCScraper(BaseScraper):
             return opportunity_objects[:self.max_opportunities]
             
         except Exception as e:
-            self.logger.error(f"Error scraping IRC: {str(e)}")
+            self.self.self.self.self.self.logger.error(f"Error scraping IRC: {str(e)}")
             return self._get_fallback_opportunities()
     
     def _parse_rfp_listings(self, soup: BeautifulSoup) -> List[OpportunityData]:
@@ -112,10 +113,10 @@ class IRCScraper(BaseScraper):
         
         try:
             # Look for RFP sections - IRC uses color-coded boxes
-            rfp_sections = soup.find_all(['div', 'section', 'article'], class_=re.compile(r'rfp|tender|procurement'))
+            rfp_sections =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             
             # Also look for elements containing "RFP" text
-            rfp_elements = soup.find_all(string=re.compile(r'RFP', re.I))
+            rfp_elements =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             for elem in rfp_elements:
                 parent = elem.parent
                 # Find the container div/section
@@ -130,7 +131,7 @@ class IRCScraper(BaseScraper):
                         opportunities.append(opportunity)
                         
                 except Exception as e:
-                    self.logger.debug(f"Error parsing RFP section: {e}")
+                    self.self.self.self.self.self.logger.debug(f"Error parsing RFP section: {e}")
                     continue
             
             # If no structured sections found, try text-based extraction
@@ -138,9 +139,9 @@ class IRCScraper(BaseScraper):
                 opportunities = self._extract_from_page_text(soup)
                 
         except Exception as e:
-            self.logger.error(f"Error parsing RFP listings: {e}")
+            self.self.self.self.self.self.logger.error(f"Error parsing RFP listings: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _extract_rfp_details(self, section: BeautifulSoup) -> Optional[OpportunityData]:
         """Extract details from an RFP section"""
@@ -155,50 +156,35 @@ class IRCScraper(BaseScraper):
                 if rfp_text:
                     title_elem = rfp_text.parent
             
-            if title_elem:
-                opportunity.title = title_elem.get_text(strip=True)
-            
-            if not opportunity.title:
+            if title_elem:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnot opportunity.title:
                 return None
             
             # Extract date
             date_elem = section.find(['span', 'div', 'p'], string=re.compile(r'\d{1,2},\s+\d{4}'))
             if date_elem:
-                date_text = date_elem.get_text(strip=True)
-                opportunity.deadline = self._parse_date(date_text)
-            
-            # Extract description from section text
+                date_text = date_elem.get_text(strip=True)\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn from section text
             section_text = section.get_text(strip=True)
             if len(section_text) > len(opportunity.title):
-                # Use section text as description, truncated
-                opportunity.description = section_text[:500]
+                # Use section text as description, truncated\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn_text[:500]
             
             # Extract reference number from title
-            opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(
+            opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(
                 opportunity.title
             )
             
             # Look for links to detailed RFP pages
             rfp_link = section.find('a')
-            if rfp_link:
-                opportunity.source_url = urljoin(self.base_url, rfp_link.get('href', ''))
+            if rfp_link:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn(self.base_url, rfp_link.get('href', ''))
             
-            # Set defaults
-            opportunity.organization = 'International Rescue Committee (IRC)'
-            opportunity.location = 'Various'
-            opportunity.description = opportunity.description or f"RFP opportunity: {opportunity.title}"
-            opportunity.source_url = opportunity.source_url or self.procurement_url
+            # Set defaults\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnternational Rescue Committee (IRC)'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = opportunity.description or f"RFP opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.source_url or self.procurement_url
             
             # Extract keywords
-            all_text = f"{opportunity.title} {opportunity.description}".lower()
-            opportunity.keywords_found = self.extract_keywords(all_text)
-            
-            opportunity.extracted_date = datetime.now()
+            all_text = f"{opportunity.title} {opportunity.description}".lower()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.extracted_date = datetime.now()
             
             return opportunity
             
         except Exception as e:
-            self.logger.debug(f"Error extracting RFP details: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting RFP details: {e}")
             return None
     
     def _parse_date(self, date_text: str) -> Optional[datetime]:
@@ -238,7 +224,7 @@ class IRCScraper(BaseScraper):
                         continue
                         
         except Exception as e:
-            self.logger.debug(f"Error parsing date '{date_text}': {e}")
+            self.self.self.self.self.self.logger.debug(f"Error parsing date '{date_text}': {e}")
         
         return None
     
@@ -248,7 +234,7 @@ class IRCScraper(BaseScraper):
         
         try:
             # Look for RFP patterns in the page text
-            page_text = soup.get_text()
+            page_text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             
             # Find RFP titles using common patterns
             rfp_patterns = [
@@ -263,34 +249,26 @@ class IRCScraper(BaseScraper):
                 matches = re.findall(pattern, page_text, re.I)
                 for match in matches[:10]:  # Limit to avoid too many
                     try:
-                        opportunity = OpportunityData()
-                        opportunity.title = match.strip()
-                        opportunity.organization = 'International Rescue Committee (IRC)'
-                        opportunity.location = 'Various'
-                        opportunity.description = f"RFP opportunity: {opportunity.title}"
-                        opportunity.source_url = self.procurement_url
+                        opportunity = OpportunityData()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.organization = 'International Rescue Committee (IRC)'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = f"RFP opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnt_url
                         
-                        # Extract keywords
-                        opportunity.keywords_found = self.extract_keywords(opportunity.title.lower())
+                        # Extract keywords\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.title.lower())
                         
                         # Extract reference number
-                        opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(
+                        opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(
                             opportunity.title
-                        )
-                        
-                        opportunity.extracted_date = datetime.now()
+                        )\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnow()
                         
                         if self._is_relevant_opportunity(opportunity):
                             opportunities.append(opportunity)
                             
                     except Exception as e:
-                        self.logger.debug(f"Error extracting from text pattern: {e}")
+                        self.self.self.self.self.self.logger.debug(f"Error extracting from text pattern: {e}")
                         continue
                         
         except Exception as e:
-            self.logger.error(f"Error in text extraction: {e}")
+            self.self.self.self.self.self.logger.error(f"Error in text extraction: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _get_fallback_opportunities(self) -> List[OpportunityData]:
         """Provide fallback opportunities when scraping fails"""
@@ -341,8 +319,7 @@ class IRCScraper(BaseScraper):
     def _enhance_opportunity(self, opportunity: OpportunityData) -> OpportunityData:
         """Enhance opportunity with additional information"""
         try:
-            # Add scoring
-            opportunity.raw_data = opportunity.raw_data or {}
+            # Add scoring\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.raw_data or {}
             opportunity.raw_data['relevance_score'] = self._calculate_relevance_score(opportunity)
             
             # Add priority level
@@ -353,11 +330,8 @@ class IRCScraper(BaseScraper):
                 days_until = (opportunity.deadline - datetime.now()).days
                 opportunity.raw_data['days_until_deadline'] = days_until
             
-            # Set currency
-            opportunity.currency = 'USD'
-            
-        except Exception as e:
-            self.logger.debug(f"Error enhancing opportunity: {e}")
+            # Set currency\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn as e:
+            self.self.self.self.self.self.logger.debug(f"Error enhancing opportunity: {e}")
         
         return opportunity
     
@@ -423,7 +397,7 @@ class IRCScraper(BaseScraper):
             response = self.get_page(self.procurement_url)
             return response is not None and response.status_code == 200
         except Exception as e:
-            self.logger.error(f"IRC connection test failed: {e}")
+            self.self.self.self.self.self.logger.error(f"IRC connection test failed: {e}")
             return False
     
     def get_opportunity_details(self, opportunity_url: str) -> Dict[str, Any]:
@@ -444,12 +418,12 @@ class IRCScraper(BaseScraper):
             }
             
             # Extract full description
-            desc_elem = soup.find(['div', 'section'], class_=re.compile(r'content|description|body'))
+            desc_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if desc_elem:
                 details['full_description'] = desc_elem.get_text(strip=True)
             
             # Extract downloadable documents
-            doc_links = soup.find_all('a', href=re.compile(r'\.(pdf|doc|docx|zip)$', re.I))
+            doc_links =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None$', re.I))
             for link in doc_links:
                 doc_info = {
                     'name': link.get_text(strip=True),
@@ -461,7 +435,7 @@ class IRCScraper(BaseScraper):
             return details
             
         except Exception as e:
-            self.logger.error(f"Error getting opportunity details: {e}")
+            self.self.self.self.self.self.logger.error(f"Error getting opportunity details: {e}")
             return {}
 
     def _convert_dict_to_opportunity_data(self, opp_dict: Dict[str, Any]) -> OpportunityData:

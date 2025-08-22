@@ -70,8 +70,7 @@ setup_environment() {
     
     # Install/update dependencies
     log "Installing dependencies..."
-    # Use the virtualenv's python to run pip to avoid missing 'pip' in PATH
-    "$VENV_DIR/bin/python" -m pip install -r requirements.txt > /dev/null 2>&1
+    pip install -r requirements.txt > /dev/null 2>&1
     
     success "Environment setup complete"
 }
@@ -103,7 +102,7 @@ test_email() {
     cd "$PROJECT_DIR"
     source "$VENV_DIR/bin/activate"
     
-    if "$VENV_DIR/bin/python" scheduler.py --test-email; then
+    if python3 scheduler.py --test-email; then
         success "Email configuration test passed"
     else
         warning "Email configuration test failed - check email settings"
@@ -118,7 +117,7 @@ start_scheduler() {
     source "$VENV_DIR/bin/activate"
     
     # Start scheduler in background
-    nohup "$VENV_DIR/bin/python" scheduler.py > "$LOG_DIR/scheduler_output.log" 2>&1 &
+    nohup python3 scheduler.py > "$LOG_DIR/scheduler_output.log" 2>&1 &
     
     # Save PID
     echo $! > "$PID_FILE"

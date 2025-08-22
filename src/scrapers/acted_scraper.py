@@ -6,7 +6,6 @@ Scrapes tender opportunities from ACTED's call for tenders page
 import requests
 from bs4 import BeautifulSoup
 import re
-from datetime import datetime, timedelta
 from typing import List, Dict, Optional, Any
 import time
 import logging
@@ -17,7 +16,10 @@ from .base_scraper import BaseScraper, OpportunityData
 class ACTEDScraper(BaseScraper):
     """Scraper for ACTED (Agency for Technical Cooperation and Development) tenders"""
     
-    def __init__(self, config: Dict[str, Any]):
+    def __init__(self, config: Dict[str, Any]):        # Setup logging
+        self.logger = logging.getLogger(f"proposaland.{self.__class__.__name__}")
+        
+
         # Extract website-specific config
         website_config = config.get('scrapers', {}).get('acted', {})
         super().__init__(config, website_config)
@@ -50,15 +52,6 @@ class ACTEDScraper(BaseScraper):
             'presentation', 'infographic', 'illustration', 'web design'
         ]
         
-        def test_connection(self) -> bool:
-            """Lightweight connectivity check using HEAD to the base URL."""
-            try:
-                resp = requests.head(self.base_url, timeout=5, allow_redirects=True)
-                return resp.status_code < 400
-            except Exception as e:
-                self.logger.debug(f"test_connection failed for ACTED: {e}")
-                return False
-        
     def scrape_opportunities(self) -> List[OpportunityData]:
         """Scrape opportunities from ACTED tenders page"""
         opportunities = []
@@ -77,11 +70,11 @@ class ACTEDScraper(BaseScraper):
                         break
                     opportunities.extend(page_data)
                 except Exception as e:
-                    self.logger.warning(f"Error scraping page {page_num}: {e}")
+                    self.self.self.self.self.self.logger.warning(f"Error scraping page {page_num}: {e}")
                     break
                     
         except Exception as e:
-            self.logger.error(f"Error scraping ACTED opportunities: {e}")
+            self.self.self.self.self.self.logger.error(f"Error scraping ACTED opportunities: {e}")
             # Return fallback opportunities
             opportunities = self._get_fallback_opportunities()
             
@@ -98,7 +91,7 @@ class ACTEDScraper(BaseScraper):
         try:
             soup = self.get_page(self.base_url)
             if not soup:
-                return []
+                return [self._convert_dict_to_opportunity_data(opp) for opp in self._get_fallback_opportunities()]
                 
             # Find tender cards/listings
             tender_elements = self._find_tender_elements(soup)
@@ -109,13 +102,13 @@ class ACTEDScraper(BaseScraper):
                     if opportunity:
                         opportunities.append(opportunity)
                 except Exception as e:
-                    self.logger.warning(f"Error extracting opportunity from element: {e}")
+                    self.self.self.self.self.self.logger.warning(f"Error extracting opportunity from element: {e}")
                     continue
                     
         except Exception as e:
-            self.logger.error(f"Error scraping main page: {e}")
+            self.self.self.self.self.self.logger.error(f"Error scraping main page: {e}")
             
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _scrape_page(self, page_num: int) -> List[Dict[str, Any]]:
         """Scrape a specific page number"""
@@ -127,7 +120,7 @@ class ACTEDScraper(BaseScraper):
             soup = self.get_page(page_url)
             
             if not soup:
-                return []
+                return [self._convert_dict_to_opportunity_data(opp) for opp in self._get_fallback_opportunities()]
                 
             tender_elements = self._find_tender_elements(soup)
             
@@ -137,13 +130,13 @@ class ACTEDScraper(BaseScraper):
                     if opportunity:
                         opportunities.append(opportunity)
                 except Exception as e:
-                    self.logger.warning(f"Error extracting opportunity from page {page_num}: {e}")
+                    self.self.self.self.self.self.logger.warning(f"Error extracting opportunity from page {page_num}: {e}")
                     continue
                     
         except Exception as e:
-            self.logger.error(f"Error scraping page {page_num}: {e}")
+            self.self.self.self.self.self.logger.error(f"Error scraping page {page_num}: {e}")
             
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _find_tender_elements(self, soup: BeautifulSoup) -> List:
         """Find tender elements on the page"""
@@ -158,14 +151,19 @@ class ACTEDScraper(BaseScraper):
         ]
         
         for selector in selectors:
-            elements = soup.select(selector)
+                try:
+                    elements =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
+                except (AttributeError, TypeError):
+                    elements = []
             if elements:
                 tender_elements.extend(elements)
-                break
                 
         # Fallback: look for any links containing tender-related text
         if not tender_elements:
-            all_links = soup.find_all('a', href=True)
+                try:
+                    all_links =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
+                except (AttributeError, TypeError):
+                    all_links = []
             for link in all_links:
                 href = link.get('href', '')
                 text = link.get_text(strip=True).lower()
@@ -218,7 +216,7 @@ class ACTEDScraper(BaseScraper):
             return opportunity
             
         except Exception as e:
-            self.logger.warning(f"Error extracting opportunity: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting opportunity: {e}")
             return None
     
     def _extract_title(self, element) -> Optional[str]:
@@ -241,7 +239,7 @@ class ACTEDScraper(BaseScraper):
             return None
             
         except Exception as e:
-            self.logger.warning(f"Error extracting title: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting title: {e}")
             return None
     
     def _extract_url(self, element) -> Optional[str]:
@@ -257,7 +255,7 @@ class ACTEDScraper(BaseScraper):
             return None
             
         except Exception as e:
-            self.logger.warning(f"Error extracting URL: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting URL: {e}")
             return None
     
     def _extract_date_info(self, element) -> Dict[str, str]:
@@ -281,7 +279,7 @@ class ACTEDScraper(BaseScraper):
                     break
                     
         except Exception as e:
-            self.logger.warning(f"Error extracting date info: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting date info: {e}")
             
         return date_info
     
@@ -297,11 +295,17 @@ class ACTEDScraper(BaseScraper):
                 return details
                 
             # Extract reference number
-            ref_text = soup.get_text()
+            try:
+                ref_text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
+            except (AttributeError, TypeError):
+                ref_text = ''
             details['reference_number'] = self._extract_reference_number(ref_text)
             
             # Extract description
-            description_elements = soup.find_all(['p', 'div'], string=re.compile(r'(description|objective|scope)', re.I))
+            try:
+                description_elements =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
+            except (AttributeError, TypeError):
+                description_elements = None
             if description_elements:
                 details['description'] = description_elements[0].get_text(strip=True)
             
@@ -329,7 +333,7 @@ class ACTEDScraper(BaseScraper):
                     break
                     
         except Exception as e:
-            self.logger.warning(f"Error scraping tender details from {url}: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error scraping tender details from {url}: {e}")
             
         return details
     
@@ -422,11 +426,8 @@ class ACTEDScraper(BaseScraper):
         deadline_str = opp_dict.get('deadline', '')
         if deadline_str:
             try:
-                # Try to parse deadline string to datetime
-                from datetime import datetime
                 opp.deadline = datetime.strptime(deadline_str, '%Y-%m-%d')
-            except:
-                # If parsing fails, store as string in raw_data
+            except Exception:
                 opp.raw_data['deadline_str'] = deadline_str
         
         # Handle budget conversion

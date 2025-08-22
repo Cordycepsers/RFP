@@ -62,18 +62,18 @@ def fix_scraper_file(file_path):
 
 def main():
     """Fix all scrapers"""
-    scrapers_dir = '/home/ubuntu/proposaland/src/scrapers'
+    scrapers_dir = '/Users/lemaja/RFP_monitor/src/scrapers'
     
-    scrapers_to_fix = [
-        'src/scrapers/ungm_scraper.py',
-        'src/scrapers/globalfund_scraper.py',
-        'src/scrapers/worldbank_scraper.py',
-        'src/scrapers/developmentaid_scraper.py',
-        'src/scrapers/iucn_scraper.py',
-        'src/scrapers/adb_scraper.py'
+    scraper_files = [
+        'ungm_scraper.py',
+        'globalfund_scraper.py', 
+        'worldbank_scraper.py',
+        'developmentaid_scraper.py',
+        'iucn_scraper.py',
+        'adb_scraper.py'
     ]
     
-    for filename in scrapers_to_fix:
+    for filename in scraper_files:
         file_path = os.path.join(scrapers_dir, filename)
         if os.path.exists(file_path):
             fix_scraper_file(file_path)

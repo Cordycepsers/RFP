@@ -1,11 +1,4 @@
 {
-<<<<<<< HEAD
-=======
-  "devex_credentials": {
-    "username": "dre@whattookyousolong.org",
-    "password": "whysolong"
-  },
->>>>>>> 9009e9c (Initial commit: full configuration and codebase)
   "system": {
     "name": "Proposaland Opportunity Monitor",
     "version": "1.0.0",
@@ -13,26 +6,11 @@
     "timezone": "UTC"
   },
   "email": {
-    "recipient": "majakis@gmail.com",
-    "recipient_email": [
-<<<<<<< HEAD
-      "majakis@gmail.com",
-      "siphe@whattookyousolong.org",
-      "chris@whattookyousolong.org"
-=======
-      "majakis@gmail.com"
->>>>>>> 9009e9c (Initial commit: full configuration and codebase)
-    ],
+    "recipient": "majalemaja@pm.me",
     "subject_template": "Daily Proposaland Opportunity Report - {date}",
     "smtp_server": "smtp.gmail.com",
     "smtp_port": 587,
-    "use_tls": true,
-    "sender_email": "maja@whattookyousolong.org",
-<<<<<<< HEAD
-    "sender_password": "nagc jsvd uizj uvtr"
-=======
-  "sender_password": "REDACTED_FOR_GITHUB"
->>>>>>> 9009e9c (Initial commit: full configuration and codebase)
+    "use_tls": true
   },
   "target_websites": {
     "high_priority": [
@@ -182,53 +160,22 @@
   },
   "keywords": {
     "primary": [
-      "video",
-      "photo",
-      "film",
-      "multimedia",
-      "design",
-      "visual",
-      "campaign",
-      "podcasts",
-      "virtual event",
-      "media",
-      "animation",
-      "animated video",
-      "promotion",
-      "communication",
-      "audiovisual"
+      "video", "photo", "film", "multimedia", "design", "visual", 
+      "campaign", "podcasts", "virtual event", "media", "animation", 
+      "animated video", "promotion", "communication", "audiovisual"
     ],
     "exclusions": [
-      "local company",
-      "expired",
-      "closed",
-      "awarded",
-      "cancelled"
+      "local company", "expired", "closed", "awarded", "cancelled"
     ]
   },
   "geographic_filters": {
     "excluded_countries": [
-      "India",
-      "Pakistan",
-      "China",
-      "Bangladesh",
-      "Sri Lanka",
-      "Myanmar",
-      "Thailand",
-      "Vietnam",
-      "Cambodia",
-      "Laos",
-      "Malaysia",
-      "Indonesia",
-      "Philippines",
-      "Singapore"
+      "India", "Pakistan", "China", "Bangladesh", "Sri Lanka", 
+      "Myanmar", "Thailand", "Vietnam", "Cambodia", "Laos", 
+      "Malaysia", "Indonesia", "Philippines", "Singapore"
     ],
-    "included_countries": [
-      "Nepal"
-    ],
-    "excluded_regions": [
-      "most of asia"
-    ]
+    "included_countries": ["Nepal"],
+    "excluded_regions": ["most of asia"]
   },
   "budget_filters": {
     "min_budget": 5000,
@@ -359,20 +306,6 @@
     "excel_filename": "proposaland_tracker_{date}.xlsx",
     "max_opportunities_per_email": 50,
     "top_opportunities_count": 5
-  },
-  "monitoring": {
-    "zero_threshold": 3,
-    "error_threshold": 2,
-    "alert_email": null
-  },
-  "scheduler": {
-    "daily_time": "09:00",
-    "timezone": "UTC",
-    "max_retries": 3,
-    "retry_delay_minutes": 30
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9009e9c (Initial commit: full configuration and codebase)
+

@@ -1,0 +1,131 @@
+{
+  "system": {
+    "name": "Proposaland Development Environment",
+    "version": "1.0.0-dev",
+    "environment": "development",
+    "timezone": "UTC",
+    "log_level": "DEBUG",
+    "max_concurrent_scrapers": 1,
+    "global_timeout": 30,
+    "retry_attempts": 1,
+    "retry_delay": 2
+  },
+  
+  "scheduling": {
+    "enabled": false,
+    "daily_run_time": "10:00",
+    "timezone": "UTC",
+    "max_execution_time": 1800,
+    "overlap_prevention": false,
+    "failure_retry_interval": 600
+  },
+  
+  "email": {
+    "enabled": false,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "use_tls": true,
+    "sender_email": "maja@whattookyousolong.org",
+    "sender_password": "gppe qffv yuhu yubf",
+    "recipient_email": "majakis@gmail.com",
+    "subject_prefix": "[Proposaland-DEV]",
+    "send_daily_summary": false,
+    "send_on_errors": false,
+    "send_on_high_priority": false,
+    "max_opportunities_per_email": 10
+  },
+  
+  "scrapers": {
+    "devex": {
+      "enabled": true,
+      "priority": 1,
+      "request_delay": 1,
+      "max_jobs": 5,
+      "max_news": 3,
+      "timeout": 20,
+      "max_retries": 1
+    },
+    "undp": {
+      "enabled": true,
+      "priority": 1,
+      "request_delay": 1,
+      "max_pages": 1,
+      "timeout": 15,
+      "max_retries": 1
+    },
+    "ungm": {
+      "enabled": false,
+      "priority": 3
+    },
+    "globalfund": {
+      "enabled": false,
+      "priority": 3
+    },
+    "worldbank": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 1,
+      "max_pages": 1,
+      "timeout": 15,
+      "max_retries": 1
+    },
+    "acted": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 1,
+      "max_pages": 1,
+      "timeout": 15,
+      "max_retries": 1
+    },
+    "birdlife": {
+      "enabled": true,
+      "priority": 3,
+      "request_delay": 1,
+      "max_jobs": 3,
+      "timeout": 10,
+      "max_retries": 1
+    }
+  },
+  
+  "keywords": {
+    "primary": [
+      "video", "multimedia", "design", "communication"
+    ],
+    "secondary": [
+      "outreach", "engagement"
+    ],
+    "exclusions": [
+      "construction", "engineering"
+    ]
+  },
+  
+  "output": {
+    "excel": {
+      "enabled": true,
+      "filename_template": "dev_opportunities_{date}.xlsx"
+    },
+    "json": {
+      "enabled": true,
+      "filename_template": "dev_data_{date}.json",
+      "pretty_print": true,
+      "include_raw_data": true
+    },
+    "directory": "./output/dev"
+  },
+  
+  "performance": {
+    "cache_enabled": false,
+    "cache_duration": 300,
+    "parallel_processing": false,
+    "max_workers": 1,
+    "memory_limit": "256MB"
+  },
+  
+  "monitoring": {
+    "enabled": true,
+    "log_file": "./logs/dev_proposaland.log",
+    "performance_tracking": true,
+    "error_reporting": true
+  }
+}
+

@@ -6,7 +6,6 @@ Scrapes job opportunities from BirdLife's careers hub and TeamTailor platform
 import requests
 from bs4 import BeautifulSoup
 import re
-from datetime import datetime, timedelta
 from typing import List, Dict, Optional, Any
 import time
 import logging
@@ -18,7 +17,10 @@ from .base_scraper import BaseScraper, OpportunityData
 class BirdLifeScraper(BaseScraper):
     """Scraper for BirdLife International job opportunities"""
     
-    def __init__(self, config: Dict[str, Any]):
+    def __init__(self, config: Dict[str, Any]):        # Setup logging
+        self.logger = logging.getLogger(f"proposaland.{self.__class__.__name__}")
+        
+
         # Extract website-specific config
         website_config = config.get('scrapers', {}).get('birdlife', {})
         super().__init__(config, website_config)
@@ -32,15 +34,6 @@ class BirdLifeScraper(BaseScraper):
         self.request_delay = website_config.get('request_delay', 2)
         self.timeout = website_config.get('timeout', 30)
         self.max_jobs = website_config.get('max_jobs', 20)
-        
-    def test_connection(self) -> bool:
-        """Lightweight connectivity check using HEAD to the base URL."""
-        try:
-            resp = requests.head(self.base_url, timeout=5, allow_redirects=True)
-            return resp.status_code < 400
-        except Exception as e:
-            self.logger.debug(f"test_connection failed for BirdLife: {e}")
-            return False
         
         # Reference number patterns for BirdLife (TeamTailor job IDs)
         self.reference_patterns = [
@@ -73,10 +66,10 @@ class BirdLifeScraper(BaseScraper):
                 api_jobs = self._scrape_teamtailor_api()
                 opportunities.extend(api_jobs)
             except Exception as e:
-                self.logger.warning(f"TeamTailor API scraping failed: {e}")
+                self.self.self.self.self.self.logger.warning(f"TeamTailor API scraping failed: {e}")
                 
         except Exception as e:
-            self.logger.error(f"Error scraping BirdLife opportunities: {e}")
+            self.self.self.self.self.self.logger.error(f"Error scraping BirdLife opportunities: {e}")
             # Return fallback opportunities
             opportunities = self._get_fallback_opportunities()
             
@@ -93,7 +86,7 @@ class BirdLifeScraper(BaseScraper):
         try:
             soup = self.get_page(self.base_url)
             if not soup:
-                return []
+                return [self._convert_dict_to_opportunity_data(opp) for opp in self._get_fallback_opportunities()]
                 
             # Find job listings in the open roles section
             job_elements = self._find_job_elements(soup)
@@ -111,13 +104,13 @@ class BirdLifeScraper(BaseScraper):
                             opportunity.update(details)
                             
                 except Exception as e:
-                    self.logger.warning(f"Error extracting job from element: {e}")
+                    self.self.self.self.self.self.logger.warning(f"Error extracting job from element: {e}")
                     continue
                     
         except Exception as e:
-            self.logger.error(f"Error scraping main careers page: {e}")
+            self.self.self.self.self.self.logger.error(f"Error scraping main careers page: {e}")
             
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _scrape_teamtailor_api(self) -> List[Dict[str, Any]]:
         """Try to scrape jobs from TeamTailor API"""
@@ -145,13 +138,13 @@ class BirdLifeScraper(BaseScraper):
                         if opportunity:
                             opportunities.append(opportunity)
                     except Exception as e:
-                        self.logger.warning(f"Error extracting API job: {e}")
+                        self.self.self.self.self.self.logger.warning(f"Error extracting API job: {e}")
                         continue
                         
         except Exception as e:
-            self.logger.warning(f"TeamTailor API not accessible: {e}")
+            self.self.self.self.self.self.logger.warning(f"TeamTailor API not accessible: {e}")
             
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _find_job_elements(self, soup: BeautifulSoup) -> List:
         """Find job elements on the careers page"""
@@ -167,15 +160,15 @@ class BirdLifeScraper(BaseScraper):
         ]
         
         for selector in selectors:
-            elements = soup.select(selector)
+            elements =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             if elements:
                 job_elements.extend(elements)
                 
         # Fallback: look for any links in the open roles section
         if not job_elements:
-            roles_section = soup.find('section', string=re.compile(r'open roles', re.I))
+            roles_section =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if not roles_section:
-                roles_section = soup.find('div', string=re.compile(r'open roles', re.I))
+                roles_section =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
                 
             if roles_section:
                 job_links = roles_section.find_all('a', href=True)
@@ -221,7 +214,7 @@ class BirdLifeScraper(BaseScraper):
             return opportunity
             
         except Exception as e:
-            self.logger.warning(f"Error extracting opportunity: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting opportunity: {e}")
             return None
     
     def _extract_opportunity_from_api_job(self, job_data: Dict) -> Optional[Dict[str, Any]]:
@@ -253,7 +246,7 @@ class BirdLifeScraper(BaseScraper):
             return opportunity
             
         except Exception as e:
-            self.logger.warning(f"Error extracting API job: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting API job: {e}")
             return None
     
     def _scrape_teamtailor_job(self, url: str) -> Dict[str, Any]:
@@ -268,38 +261,38 @@ class BirdLifeScraper(BaseScraper):
                 return details
                 
             # Extract detailed description
-            description_elem = soup.find('div', class_=re.compile(r'description|content|body', re.I))
+            description_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if description_elem:
                 details['description'] = description_elem.get_text(strip=True)
             
             # Extract application deadline
-            deadline_elem = soup.find(string=re.compile(r'application deadline|closing date', re.I))
+            deadline_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if deadline_elem:
                 deadline_match = re.search(r'\d{1,2}\s+\w+\s+\d{4}', deadline_elem.parent.get_text())
                 if deadline_match:
                     details['deadline'] = deadline_match.group(0)
             
             # Extract location
-            location_elem = soup.find(string=re.compile(r'location', re.I))
+            location_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if location_elem:
                 location_text = location_elem.parent.get_text(strip=True)
                 details['location'] = location_text.replace('Location:', '').strip()
             
             # Extract salary information
-            salary_elem = soup.find(string=re.compile(r'salary|compensation', re.I))
+            salary_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if salary_elem:
                 salary_text = salary_elem.parent.get_text(strip=True)
                 details['budget'] = salary_text
             
             # Extract requirements
-            req_elem = soup.find('h3', string=re.compile(r'requirements|qualifications', re.I))
+            req_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if req_elem:
                 req_content = req_elem.find_next_sibling()
                 if req_content:
                     details['requirements'] = req_content.get_text(strip=True)
                     
         except Exception as e:
-            self.logger.warning(f"Error scraping TeamTailor job from {url}: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error scraping TeamTailor job from {url}: {e}")
             
         return details
     
@@ -319,7 +312,7 @@ class BirdLifeScraper(BaseScraper):
             return None
             
         except Exception as e:
-            self.logger.warning(f"Error extracting title: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting title: {e}")
             return None
     
     def _extract_url(self, element) -> Optional[str]:
@@ -335,7 +328,7 @@ class BirdLifeScraper(BaseScraper):
             return None
             
         except Exception as e:
-            self.logger.warning(f"Error extracting URL: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting URL: {e}")
             return None
     
     def _extract_department_location(self, element) -> Dict[str, str]:
@@ -368,7 +361,7 @@ class BirdLifeScraper(BaseScraper):
                     break
                     
         except Exception as e:
-            self.logger.warning(f"Error extracting department/location: {e}")
+            self.self.self.self.self.self.logger.warning(f"Error extracting department/location: {e}")
             
         return info
     
@@ -467,7 +460,6 @@ class BirdLifeScraper(BaseScraper):
         if deadline_str:
             try:
                 # Try to parse deadline string to datetime
-                from datetime import datetime
                 opp.deadline = datetime.strptime(deadline_str, '%Y-%m-%d')
             except:
                 # If parsing fails, store as string in raw_data

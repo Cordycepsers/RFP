@@ -4,6 +4,8 @@ Handles multimedia/creative keyword matching and exclusion filtering.
 """
 
 import re
+import difflib
+from functools import lru_cache
 from typing import List, Dict, Set, Tuple
 from loguru import logger
 
@@ -15,6 +17,9 @@ class KeywordFilter:
         self.primary_keywords = [kw.lower() for kw in config.get('keywords', {}).get('primary', [])]
         self.exclusion_keywords = [kw.lower() for kw in config.get('keywords', {}).get('exclusions', [])]
         self.keyword_weights = self._initialize_keyword_weights()
+        # Precompile simple boundary regexes for speed
+        self._compiled_words = {kw: re.compile(rf"\b{re.escape(kw)}\b", re.I) for kw in self.primary_keywords if ' ' not in kw}
+        self._compiled_phrases = {kw: re.compile(rf"\b{re.escape(kw)}\b", re.I) for kw in self.primary_keywords if ' ' in kw}
         
     def _initialize_keyword_weights(self) -> Dict[str, float]:
         """Initialize weights for different keywords based on relevance."""
@@ -43,67 +48,76 @@ class KeywordFilter:
             'animated video': 1.0,
         }
     
+    @lru_cache(maxsize=4096)
+    def _normalize(self, s: str) -> str:
+        s = s.lower()
+        s = re.sub(r"[^\w\s]", " ", s)
+        s = re.sub(r"\s+", " ", s).strip()
+        return s
+
+    def _word_boundary_match(self, keyword: str, text: str) -> bool:
+        patt = self._compiled_phrases.get(keyword) if ' ' in keyword else self._compiled_words.get(keyword)
+        if patt and patt.search(text):
+            return True
+        return re.search(rf"\b{re.escape(keyword)}\b", text, re.I) is not None
+
+    def _plural_variants(self, token: str) -> List[str]:
+        variants = {token}
+        if token.endswith('ies'):
+            variants.add(token[:-3] + 'y')
+        if token.endswith('es'):
+            variants.add(token[:-2])
+        if token.endswith('s'):
+            variants.add(token[:-1])
+        return list(variants)
+
+    def _keyword_matches(self, keyword: str, text: str) -> bool:
+        """Fuzzy/boundary-aware matching for single tokens and phrases."""
+        norm_text = self._normalize(text)
+        norm_kw = self._normalize(keyword)
+        
+        # Exact word/phrase boundary
+        if self._word_boundary_match(norm_kw, norm_text):
+            return True
+        
+        # Phrase: sliding window fuzzy
+        if ' ' in norm_kw:
+            kw_tokens = norm_kw.split()
+            tks = norm_text.split()
+            n = len(kw_tokens)
+            if re.search(rf"\b{re.escape(norm_kw)}\b", norm_text):
+                return True
+            for i in range(0, max(0, len(tks) - n + 1)):
+                window = " ".join(tks[i:i+n])
+                if difflib.SequenceMatcher(None, window, norm_kw).ratio() >= 0.88:
+                    return True
+            return False
+        
+        # Single token: plural variants and fuzzy per token
+        for v in self._plural_variants(norm_kw):
+            if re.search(rf"\b{re.escape(v)}\b", norm_text):
+                return True
+        for tok in norm_text.split():
+            if len(tok) < 3 or tok[0] != norm_kw[0]:
+                continue
+            if difflib.SequenceMatcher(None, tok, norm_kw).ratio() >= 0.88:
+                return True
+        return False
+    
     def extract_keywords(self, text: str) -> List[str]:
         """Extract matching keywords from text with fuzzy matching."""
         if not text:
             return []
-        
         text_lower = text.lower()
         found_keywords = []
-        
+        seen = set()
         for keyword in self.primary_keywords:
+            if keyword in seen:
+                continue
             if self._keyword_matches(keyword, text_lower):
                 found_keywords.append(keyword)
-        
+                seen.add(keyword)
         return found_keywords
-    
-    def _keyword_matches(self, keyword: str, text: str) -> bool:
-        """Check if keyword matches in text with fuzzy matching."""
-        # Exact match
-        if keyword in text:
-            return True
-        
-        # Handle compound keywords
-        if ' ' in keyword:
-            words = keyword.split()
-            # All words must be present (not necessarily adjacent)
-            if all(word in text for word in words):
-                return True
-        
-        # Handle variations and plurals
-        variations = self._get_keyword_variations(keyword)
-        for variation in variations:
-            if variation in text:
-                return True
-        
-        return False
-    
-    def _get_keyword_variations(self, keyword: str) -> List[str]:
-        """Get variations of a keyword (plurals, related terms)."""
-        variations = []
-        
-        # Add plural forms
-        if not keyword.endswith('s'):
-            variations.append(keyword + 's')
-        
-        # Add specific variations for common keywords
-        keyword_variations = {
-            'video': ['videos', 'videography', 'video production'],
-            'photo': ['photos', 'photography', 'photographic'],
-            'film': ['films', 'filming', 'filmmaking'],
-            'design': ['designs', 'designing', 'designer'],
-            'media': ['multimedia', 'social media'],
-            'animation': ['animations', 'animated', 'animator'],
-            'communication': ['communications', 'comms'],
-            'campaign': ['campaigns', 'campaigning'],
-            'visual': ['visuals', 'visualization'],
-            'audiovisual': ['audio-visual', 'av', 'audio visual']
-        }
-        
-        if keyword in keyword_variations:
-            variations.extend(keyword_variations[keyword])
-        
-        return variations
     
     def has_exclusion_keywords(self, text: str) -> Tuple[bool, List[str]]:
         """Check if text contains exclusion keywords."""
@@ -120,44 +134,33 @@ class KeywordFilter:
         return len(found_exclusions) > 0, found_exclusions
     
     def calculate_keyword_score(self, found_keywords: List[str]) -> float:
-        """Calculate relevance score based on found keywords."""
+        """Calculate relevance score based on found keywords (normalized)."""
         if not found_keywords:
             return 0.0
-        
-        total_weight = 0.0
-        max_possible_weight = sum(self.keyword_weights.values())
-        
-        for keyword in found_keywords:
-            weight = self.keyword_weights.get(keyword, 0.5)  # Default weight for unknown keywords
-            total_weight += weight
-        
-        # Normalize score to 0-1 range
-        score = min(1.0, total_weight / max_possible_weight)
-        
-        # Bonus for multiple relevant keywords
+        total_weight = sum(self.keyword_weights.get(k, 0.5) for k in found_keywords)
+        max_possible = sum(self.keyword_weights.values())
+        score = min(1.0, total_weight / max_possible)
         if len(found_keywords) > 1:
-            score += min(0.2, len(found_keywords) * 0.05)
-        
-        return min(1.0, score)
+            score = min(1.0, score + min(0.2, len(found_keywords) * 0.05))
+        return score
+
+    def score_keywords(self, text: str) -> Tuple[float, List[str]]:
+        """Convenience: extract and score in one call."""
+        kws = self.extract_keywords(text)
+        return self.calculate_keyword_score(kws), kws
     
     def is_relevant_opportunity(self, title: str, description: str) -> Tuple[bool, Dict]:
         """Determine if opportunity is relevant based on keywords."""
         all_text = f"{title} {description}"
         
-        # Extract keywords
         found_keywords = self.extract_keywords(all_text)
-        
-        # Check exclusions
         has_exclusions, exclusion_list = self.has_exclusion_keywords(all_text)
-        
-        # Calculate keyword score
         keyword_score = self.calculate_keyword_score(found_keywords)
         
-        # Determine relevance
         is_relevant = (
-            len(found_keywords) > 0 and  # Has relevant keywords
-            not has_exclusions and       # No exclusion keywords
-            keyword_score >= 0.3         # Minimum relevance threshold
+            len(found_keywords) > 0 and
+            not has_exclusions and
+            keyword_score >= 0.3
         )
         
         result = {
@@ -180,18 +183,14 @@ class KeywordFilter:
         keyword_lower = keyword.lower()
         contexts = []
         
-        # Find all occurrences of the keyword
         start = 0
         while True:
             pos = text_lower.find(keyword_lower, start)
             if pos == -1:
                 break
-            
-            # Extract context around the keyword
             context_start = max(0, pos - context_length)
             context_end = min(len(text), pos + len(keyword) + context_length)
             context = text[context_start:context_end].strip()
-            
             contexts.append(context)
             start = pos + 1
         
@@ -204,7 +203,6 @@ class KeywordFilter:
         
         words = text.lower().split()
         total_words = len(words)
-        
         if total_words == 0:
             return {}
         
@@ -212,17 +210,12 @@ class KeywordFilter:
         for keyword in self.primary_keywords:
             count = 0
             if ' ' in keyword:
-                # Multi-word keyword
-                keyword_phrase = keyword.lower()
-                count = text.lower().count(keyword_phrase)
+                count = text.lower().count(keyword.lower())
             else:
-                # Single word keyword
                 count = words.count(keyword.lower())
-            
             if count > 0:
                 density = count / total_words
                 keyword_counts[keyword] = density
-        
         return keyword_counts
     
     def get_filter_summary(self, opportunities: List[Dict]) -> Dict:
@@ -236,20 +229,13 @@ class KeywordFilter:
         for opp in opportunities:
             title = opp.get('title', '')
             description = opp.get('description', '')
-            
             is_relevant, result = self.is_relevant_opportunity(title, description)
-            
             if is_relevant:
                 relevant_count += 1
-            
             if result['has_exclusions']:
                 excluded_count += 1
-            
-            # Count keyword occurrences
             for keyword in result['found_keywords']:
                 keyword_stats[keyword] = keyword_stats.get(keyword, 0) + 1
-            
-            # Count exclusion occurrences
             for exclusion in result['exclusion_keywords']:
                 exclusion_stats[exclusion] = exclusion_stats.get(exclusion, 0) + 1
         

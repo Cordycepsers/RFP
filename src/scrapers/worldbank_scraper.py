@@ -4,14 +4,14 @@ Scrapes procurement opportunities from World Bank Projects & Operations
 https://projects.worldbank.org/en/projects-operations/procurement
 """
 
+from typing import List, Dict, Optional, Any
+
 import requests
 from bs4 import BeautifulSoup
 import time
 import re
-from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse, parse_qs
 import logging
-from typing import Dict, Any
 from .base_scraper import OpportunityData, BaseScraper
 
 class WorldBankScraper(BaseScraper):
@@ -64,14 +64,14 @@ class WorldBankScraper(BaseScraper):
         opportunities = []
         
         try:
-            self.logger.info(f"Starting World Bank scraping from {self.procurement_url}")
+            self.self.self.self.self.logger.info(f"Starting World Bank scraping from {self.procurement_url}")
             
             # Start with the main procurement page
             url = f"{self.procurement_url}?srce=both"  # Include both Bank and Borrower procurement
             
             # Scrape multiple pages
             for page in range(self.max_pages):
-                self.logger.info(f"Scraping World Bank page {page + 1}/{self.max_pages}")
+                self.self.self.self.self.logger.info(f"Scraping World Bank page {page + 1}/{self.max_pages}")
                 
                 # Add pagination parameters
                 page_url = f"{url}&page={page + 1}" if page > 0 else url
@@ -84,7 +84,7 @@ class WorldBankScraper(BaseScraper):
                 page_opportunities = self._parse_opportunities_page(soup)
                 
                 if not page_opportunities:
-                    self.logger.info("No more opportunities found, stopping pagination")
+                    self.self.self.self.self.logger.info("No more opportunities found, stopping pagination")
                     break
                     
                 opportunities.extend(page_opportunities)
@@ -99,10 +99,10 @@ class WorldBankScraper(BaseScraper):
                     time.sleep(self.request_delay)
                     
         except Exception as e:
-            self.logger.error(f"Error scraping World Bank: {str(e)}")
+            self.self.self.self.self.logger.error(f"Error scraping World Bank: {str(e)}")
             
-        self.logger.info(f"World Bank scraping completed. Found {len(opportunities)} opportunities")
-        return opportunities
+        self.self.self.self.self.logger.info(f"World Bank scraping completed. Found {len(opportunities)} opportunities")
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
 
     def _parse_opportunities_page(self, soup):
         """
@@ -113,11 +113,11 @@ class WorldBankScraper(BaseScraper):
         try:
             # Find the procurement table
             # World Bank uses a table structure for displaying procurement notices
-            table = soup.find('table') or soup.find('div', class_=lambda x: x and 'table' in x.lower())
+            table = None
             
             if not table:
                 # Try alternative selectors for the opportunities list
-                opportunities_container = soup.find('div', class_=lambda x: x and ('procurement' in x.lower() or 'notice' in x.lower()))
+                opportunities_container = None
                 if opportunities_container:
                     # Look for individual opportunity items
                     opportunity_items = opportunities_container.find_all(['tr', 'div'], class_=lambda x: x and ('row' in x.lower() or 'item' in x.lower()))
@@ -127,8 +127,8 @@ class WorldBankScraper(BaseScraper):
                         if opportunity:
                             opportunities.append(opportunity)
                 else:
-                    self.logger.warning("Could not find procurement table or container")
-                    return opportunities
+                    self.self.self.self.self.logger.warning("Could not find procurement table or container")
+                    return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
             else:
                 # Parse table rows
                 rows = table.find_all('tr')[1:]  # Skip header row
@@ -139,9 +139,9 @@ class WorldBankScraper(BaseScraper):
                         opportunities.append(opportunity)
                         
         except Exception as e:
-            self.logger.error(f"Error parsing World Bank opportunities page: {str(e)}")
+            self.self.self.self.self.logger.error(f"Error parsing World Bank opportunities page: {str(e)}")
             
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
 
     def _parse_opportunity_row(self, row):
         """
@@ -218,7 +218,7 @@ class WorldBankScraper(BaseScraper):
             return opportunity
             
         except Exception as e:
-            self.logger.error(f"Error parsing World Bank opportunity row: {str(e)}")
+            self.self.self.self.self.logger.error(f"Error parsing World Bank opportunity row: {str(e)}")
             return None
 
     def _parse_opportunity_item(self, item):
@@ -279,7 +279,7 @@ class WorldBankScraper(BaseScraper):
             return opportunity
             
         except Exception as e:
-            self.logger.error(f"Error parsing World Bank opportunity item: {str(e)}")
+            self.self.self.self.self.logger.error(f"Error parsing World Bank opportunity item: {str(e)}")
             return None
 
     def _extract_project_id(self, text, url):
@@ -419,7 +419,7 @@ class WorldBankScraper(BaseScraper):
                     continue
                     
         except Exception as e:
-            self.logger.warning(f"Could not parse World Bank date '{date_str}': {str(e)}")
+            self.self.self.self.self.logger.warning(f"Could not parse World Bank date '{date_str}': {str(e)}")
             
         return None
 
@@ -431,7 +431,7 @@ class WorldBankScraper(BaseScraper):
             soup = self.get_page(self.procurement_url)
             return soup is not None
         except Exception as e:
-            self.logger.error(f"World Bank connection test failed: {str(e)}")
+            self.self.self.self.self.logger.error(f"World Bank connection test failed: {str(e)}")
             return False
 
     def get_opportunity_details(self, opportunity_url):
@@ -459,7 +459,7 @@ class WorldBankScraper(BaseScraper):
             return details
             
         except Exception as e:
-            self.logger.error(f"Error getting World Bank opportunity details: {str(e)}")
+            self.self.self.self.self.logger.error(f"Error getting World Bank opportunity details: {str(e)}")
             return None
 
     def _extract_worldbank_description(self, soup):
@@ -473,7 +473,7 @@ class WorldBankScraper(BaseScraper):
         ]
         
         for selector in description_selectors:
-            elements = soup.select(selector)
+            elements =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             for element in elements:
                 text = element.get_text(strip=True)
                 if len(text) > 100:  # Ensure substantial content
@@ -488,27 +488,22 @@ class WorldBankScraper(BaseScraper):
         
         for keyword in requirements_keywords:
             # Look for headings containing the keyword
-            headings = soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+            headings =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             for heading in headings:
                 if keyword in heading.get_text().lower():
                     # Get content following this heading
                     content = []
-                    next_element = heading.find_next_sibling()
-                    while next_element and next_element.name not in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
-                        if next_element.get_text(strip=True):
-                            content.append(next_element.get_text(strip=True))
-                        next_element = next_element.find_next_sibling()
-                    
-                    if content:
-                        return ' '.join(content)
-                        
-        return None
-
-    def _extract_worldbank_contact_info(self, soup):
-        """Extract contact information from World Bank opportunity detail page"""
-        contact_info = {}
-        
-        text = soup.get_text()
+                            doc_extensions = ['.pdf', '.doc', '.docx', '.xls', '.xlsx']
+                            doc_keywords = ['download', 'document', 'attachment', 'tender', 'rfp', 'specification']
+                            is_document = (any(ext in href.lower() for ext in doc_extensions) or
+                                          any(keyword in text.lower() for keyword in doc_keywords))
+                            if is_document and len(text) > 3:
+                                documents.append({
+                                    'title': text,
+                                    'url': urljoin(self.base_url, href)
+                                })
+                        return documents if documents else None
+    text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
         
         # Email pattern
         email_pattern = r'([a-zA-Z0-9._%+-]+@worldbank\.org|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})'
@@ -525,28 +520,20 @@ class WorldBankScraper(BaseScraper):
         return contact_info if contact_info else None
 
     def _extract_worldbank_documents(self, soup):
-        """Extract document links from World Bank opportunity detail page"""
+        doc_links =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
         documents = []
-        
-        # Look for document links
-        doc_links = soup.find_all('a', href=True)
         for link in doc_links:
             href = link.get('href', '')
             text = link.get_text(strip=True)
-            
-            # Check if it's a document link
             doc_extensions = ['.pdf', '.doc', '.docx', '.xls', '.xlsx']
             doc_keywords = ['download', 'document', 'attachment', 'tender', 'rfp', 'specification']
-            
             is_document = (any(ext in href.lower() for ext in doc_extensions) or
-                          any(keyword in text.lower() for keyword in doc_keywords))
-            
+                           any(keyword in text.lower() for keyword in doc_keywords))
             if is_document and len(text) > 3:
                 documents.append({
                     'title': text,
                     'url': urljoin(self.base_url, href)
                 })
-                
         return documents if documents else None
 
     def _extract_worldbank_timeline(self, soup):
@@ -556,7 +543,7 @@ class WorldBankScraper(BaseScraper):
         # Look for date-related information
         date_keywords = ['deadline', 'submission', 'closing', 'opening', 'published']
         
-        text = soup.get_text()
+    text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
         
         for keyword in date_keywords:
             # Look for patterns like "Deadline: August 15, 2025"
@@ -632,11 +619,11 @@ class WorldBankScraper(BaseScraper):
     def _extract_project_info(self, soup):
         """Extract project information from World Bank opportunity detail page"""
         project_info = {}
-        
+        text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
         # Look for project-specific information
         project_keywords = ['project id', 'project number', 'project title', 'country', 'region']
         
-        text = soup.get_text()
+    text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
         
         for keyword in project_keywords:
             pattern = rf'{keyword}[:\s]+([^\n\r]+)'
@@ -645,4 +632,19 @@ class WorldBankScraper(BaseScraper):
                 project_info[keyword.lower().replace(' ', '_')] = matches[0].strip()
                 
         return project_info if project_info else None
-
+    def _get_fallback_opportunities(self) -> List[dict]:
+        """Provide fallback opportunities when scraping fails"""
+        return [
+            {
+                'title': f'{self.organization} - Multimedia Services Opportunity',
+                'organization': self.organization,
+                'location': 'Global',
+                'description': f'Multimedia and communication services opportunity from {self.organization}. This is a fallback opportunity generated when live scraping encounters issues.',
+                'source_url': getattr(self, 'base_url', ''),
+                'deadline': '',
+                'reference_number': f'{self.organization.upper().replace(" ", "")}-FALLBACK-001',
+                'keywords_found': ['multimedia', 'communication'],
+                'relevance_score': 0.6,
+                'raw_data': {'source': 'fallback', 'confidence': 0.5}
+            }
+        ]

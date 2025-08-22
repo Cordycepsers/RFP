@@ -9,7 +9,6 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import re
-from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse
 import logging
 from .base_scraper import BaseScraper, OpportunityData
@@ -47,14 +46,14 @@ class PlanInternationalScraper(BaseScraper):
         Main method to scrape opportunities from Plan International
         """
         try:
-            self.logger.info(f"Starting Plan International scraping from {self.tenders_url}")
+            self.self.self.self.self.self.logger.info(f"Starting Plan International scraping from {self.tenders_url}")
             
             opportunities = []
             
             # Get main tenders page
             response = self.get_page(self.tenders_url)
             if not response:
-                self.logger.error("Could not access Plan International tenders page")
+                self.self.self.self.self.self.logger.error("Could not access Plan International tenders page")
                 return self._get_fallback_opportunities()
             
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -67,7 +66,7 @@ class PlanInternationalScraper(BaseScraper):
             if not opportunities:
                 opportunities = self._get_fallback_opportunities()
             
-            self.logger.info(f"Found {len(opportunities)} opportunities from Plan International")
+            self.self.self.self.self.self.logger.info(f"Found {len(opportunities)} opportunities from Plan International")
             
             # Filter and enhance opportunities
             filtered_opportunities = []
@@ -76,9 +75,11 @@ class PlanInternationalScraper(BaseScraper):
                     enhanced_opp = self._enhance_opportunity(opp)
                     filtered_opportunities.append(enhanced_opp)
             
-            self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
+            self.self.self.self.self.self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
             
             # Convert dictionaries to OpportunityData objects
+
+            
             opportunity_objects = []
             for opp in filtered_opportunities:
                 if isinstance(opp, dict):
@@ -89,7 +90,7 @@ class PlanInternationalScraper(BaseScraper):
             return opportunity_objects[:self.max_opportunities]
             
         except Exception as e:
-            self.logger.error(f"Error scraping Plan International: {str(e)}")
+            self.self.self.self.self.self.logger.error(f"Error scraping Plan International: {str(e)}")
             return self._get_fallback_opportunities()
     
     def _parse_tender_listings(self, soup: BeautifulSoup) -> List[OpportunityData]:
@@ -98,7 +99,7 @@ class PlanInternationalScraper(BaseScraper):
         
         try:
             # Look for tender sections - Plan International uses headings for each tender
-            tender_headings = soup.find_all(['h1', 'h2', 'h3', 'h4'], string=re.compile(r'ITT|RFQ|tender|construction|audit|design|evaluation', re.I))
+            tender_headings =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             
             for heading in tender_headings:
                 try:
@@ -113,7 +114,7 @@ class PlanInternationalScraper(BaseScraper):
                         opportunities.append(opportunity)
                         
                 except Exception as e:
-                    self.logger.debug(f"Error parsing tender heading: {e}")
+                    self.self.self.self.self.self.logger.debug(f"Error parsing tender heading: {e}")
                     continue
             
             # If no structured headings found, try text-based extraction
@@ -121,9 +122,9 @@ class PlanInternationalScraper(BaseScraper):
                 opportunities = self._extract_from_page_text(soup)
                 
         except Exception as e:
-            self.logger.error(f"Error parsing tender listings: {e}")
+            self.self.self.self.self.self.logger.error(f"Error parsing tender listings: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _extract_tender_details(self, section: BeautifulSoup, heading: BeautifulSoup = None) -> Optional[OpportunityData]:
         """Extract details from a tender section"""
@@ -131,14 +132,10 @@ class PlanInternationalScraper(BaseScraper):
             opportunity = OpportunityData()
             
             # Extract title from heading or section
-            if heading:
-                opportunity.title = heading.get_text(strip=True)
+            if heading:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passng.get_text(strip=True)
             else:
                 title_elem = section.find(['h1', 'h2', 'h3', 'h4', 'h5'])
-                if title_elem:
-                    opportunity.title = title_elem.get_text(strip=True)
-            
-            if not opportunity.title:
+                if title_elem:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnot opportunity.title:
                 return None
             
             # Extract description from section text
@@ -154,17 +151,15 @@ class PlanInternationalScraper(BaseScraper):
                     if p_text and len(p_text) > 20:  # Skip short paragraphs
                         desc_parts.append(p_text)
                 
-                if desc_parts:
-                    opportunity.description = ' '.join(desc_parts)[:500]
+                if desc_parts:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn(desc_parts)[:500]
             
             # Extract reference number from title or section
             ref_text = f"{opportunity.title} {section_text}"
-            opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(ref_text)
+            opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(ref_text)
             
             # Extract dates
             date_info = self._extract_dates_from_section(section)
-            if date_info.get('deadline'):
-                opportunity.deadline = date_info['deadline']
+            if date_info.get('deadline'):\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnfo['deadline']
             
             # Extract location from section text
             location_patterns = [
@@ -177,32 +172,23 @@ class PlanInternationalScraper(BaseScraper):
                 match = re.search(pattern, section_text, re.I)
                 if match:
                     location = match.group(1)
-                    if location not in ['International', 'is', 'the']:
-                        opportunity.location = location
+                    if location not in ['International', 'is', 'the']:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn
                         break
             
             # Look for downloadable documents
             doc_links = section.find_all('a', href=re.compile(r'\.(pdf|doc|docx|zip)$', re.I))
             if doc_links:
-                # Use first document link as source URL
-                opportunity.source_url = urljoin(self.base_url, doc_links[0].get('href', ''))
+                # Use first document link as source URL\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn(self.base_url, doc_links[0].get('href', ''))
             
-            # Set defaults
-            opportunity.organization = 'Plan International'
-            opportunity.location = opportunity.location or 'Various'
-            opportunity.description = opportunity.description or f"Tender opportunity: {opportunity.title}"
-            opportunity.source_url = opportunity.source_url or self.tenders_url
+            # Set defaults\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn International'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.location or 'Various'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description or f"Tender opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.source_url or self.tenders_url
             
             # Extract keywords
-            all_text = f"{opportunity.title} {opportunity.description}".lower()
-            opportunity.keywords_found = self.extract_keywords(all_text)
-            
-            opportunity.extracted_date = datetime.now()
+            all_text = f"{opportunity.title} {opportunity.description}".lower()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.extracted_date = datetime.now()
             
             return opportunity
             
         except Exception as e:
-            self.logger.debug(f"Error extracting tender details: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting tender details: {e}")
             return None
     
     def _extract_dates_from_section(self, section: BeautifulSoup) -> Dict[str, Optional[datetime]]:
@@ -230,7 +216,7 @@ class PlanInternationalScraper(BaseScraper):
                         break
                         
         except Exception as e:
-            self.logger.debug(f"Error extracting dates: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting dates: {e}")
         
         return dates
     
@@ -289,7 +275,7 @@ class PlanInternationalScraper(BaseScraper):
                         continue
                         
         except Exception as e:
-            self.logger.debug(f"Error parsing date '{date_text}': {e}")
+            self.self.self.self.self.self.logger.debug(f"Error parsing date '{date_text}': {e}")
         
         return None
     
@@ -299,7 +285,7 @@ class PlanInternationalScraper(BaseScraper):
         
         try:
             # Look for tender patterns in the page text
-            page_text = soup.get_text()
+            page_text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             
             # Find tender titles using common patterns
             tender_patterns = [
@@ -315,34 +301,26 @@ class PlanInternationalScraper(BaseScraper):
                 matches = re.findall(pattern, page_text, re.I)
                 for match in matches[:5]:  # Limit to avoid too many
                     try:
-                        opportunity = OpportunityData()
-                        opportunity.title = match.strip()
-                        opportunity.organization = 'Plan International'
-                        opportunity.location = 'Various'
-                        opportunity.description = f"Tender opportunity: {opportunity.title}"
-                        opportunity.source_url = self.tenders_url
+                        opportunity = OpportunityData()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.organization = 'Plan International'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = f"Tender opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnders_url
                         
-                        # Extract keywords
-                        opportunity.keywords_found = self.extract_keywords(opportunity.title.lower())
+                        # Extract keywords\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.title.lower())
                         
                         # Extract reference number
-                        opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(
+                        opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(
                             opportunity.title
-                        )
-                        
-                        opportunity.extracted_date = datetime.now()
+                        )\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnow()
                         
                         if self._is_relevant_opportunity(opportunity):
                             opportunities.append(opportunity)
                             
                     except Exception as e:
-                        self.logger.debug(f"Error extracting from text pattern: {e}")
+                        self.self.self.self.self.self.logger.debug(f"Error extracting from text pattern: {e}")
                         continue
                         
         except Exception as e:
-            self.logger.error(f"Error in text extraction: {e}")
+            self.self.self.self.self.self.logger.error(f"Error in text extraction: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _get_fallback_opportunities(self) -> List[OpportunityData]:
         """Provide fallback opportunities when scraping fails"""
@@ -394,8 +372,7 @@ class PlanInternationalScraper(BaseScraper):
     def _enhance_opportunity(self, opportunity: OpportunityData) -> OpportunityData:
         """Enhance opportunity with additional information"""
         try:
-            # Add scoring
-            opportunity.raw_data = opportunity.raw_data or {}
+            # Add scoring\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.raw_data or {}
             opportunity.raw_data['relevance_score'] = self._calculate_relevance_score(opportunity)
             
             # Add priority level
@@ -406,15 +383,12 @@ class PlanInternationalScraper(BaseScraper):
                 days_until = (opportunity.deadline - datetime.now()).days
                 opportunity.raw_data['days_until_deadline'] = days_until
             
-            # Set currency (Plan International typically uses USD/GBP/EUR)
-            opportunity.currency = 'USD'
-            
-            # Add gender equality focus note
+            # Set currency (Plan International typically uses USD/GBP/EUR)\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnder equality focus note
             opportunity.raw_data['gender_focus'] = True
             opportunity.raw_data['women_owned_encouraged'] = True
             
         except Exception as e:
-            self.logger.debug(f"Error enhancing opportunity: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error enhancing opportunity: {e}")
         
         return opportunity
     
@@ -480,7 +454,7 @@ class PlanInternationalScraper(BaseScraper):
             response = self.get_page(self.tenders_url)
             return response is not None and response.status_code == 200
         except Exception as e:
-            self.logger.error(f"Plan International connection test failed: {e}")
+            self.self.self.self.self.self.logger.error(f"Plan International connection test failed: {e}")
             return False
     
     def get_opportunity_details(self, opportunity_url: str) -> Dict[str, Any]:
@@ -501,12 +475,12 @@ class PlanInternationalScraper(BaseScraper):
             }
             
             # Extract full description
-            desc_elem = soup.find(['div', 'section'], class_=re.compile(r'content|description|body'))
+            desc_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if desc_elem:
                 details['full_description'] = desc_elem.get_text(strip=True)
             
             # Extract downloadable documents
-            doc_links = soup.find_all('a', href=re.compile(r'\.(pdf|doc|docx|zip)$', re.I))
+            doc_links =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None$', re.I))
             for link in doc_links:
                 doc_info = {
                     'name': link.get_text(strip=True),
@@ -518,7 +492,7 @@ class PlanInternationalScraper(BaseScraper):
             return details
             
         except Exception as e:
-            self.logger.error(f"Error getting opportunity details: {e}")
+            self.self.self.self.self.self.logger.error(f"Error getting opportunity details: {e}")
             return {}
 
     def _convert_dict_to_opportunity_data(self, opp_dict: Dict[str, Any]) -> OpportunityData:

@@ -9,7 +9,6 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import re
-from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse
 import logging
 from .base_scraper import BaseScraper, OpportunityData
@@ -47,14 +46,14 @@ class MercyCorpsScraper(BaseScraper):
         Main method to scrape opportunities from Mercy Corps
         """
         try:
-            self.logger.info(f"Starting Mercy Corps scraping from {self.tenders_url}")
+            self.self.self.self.self.self.logger.info(f"Starting Mercy Corps scraping from {self.tenders_url}")
             
             opportunities = []
             
             # Get main tenders page
             response = self.get_page(self.tenders_url)
             if not response:
-                self.logger.error("Could not access Mercy Corps tenders page")
+                self.self.self.self.self.self.logger.error("Could not access Mercy Corps tenders page")
                 return self._get_fallback_opportunities()
             
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -67,7 +66,7 @@ class MercyCorpsScraper(BaseScraper):
             if not opportunities:
                 opportunities = self._get_fallback_opportunities()
             
-            self.logger.info(f"Found {len(opportunities)} opportunities from Mercy Corps")
+            self.self.self.self.self.self.logger.info(f"Found {len(opportunities)} opportunities from Mercy Corps")
             
             # Filter and enhance opportunities
             filtered_opportunities = []
@@ -76,9 +75,11 @@ class MercyCorpsScraper(BaseScraper):
                     enhanced_opp = self._enhance_opportunity(opp)
                     filtered_opportunities.append(enhanced_opp)
             
-            self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
+            self.self.self.self.self.self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
             
             # Convert dictionaries to OpportunityData objects
+
+            
             opportunity_objects = []
             for opp in filtered_opportunities:
                 if isinstance(opp, dict):
@@ -89,7 +90,7 @@ class MercyCorpsScraper(BaseScraper):
             return opportunity_objects[:self.max_opportunities]
             
         except Exception as e:
-            self.logger.error(f"Error scraping Mercy Corps: {str(e)}")
+            self.self.self.self.self.self.logger.error(f"Error scraping Mercy Corps: {str(e)}")
             return self._get_fallback_opportunities()
     
     def _parse_tender_listings(self, soup: BeautifulSoup) -> List[OpportunityData]:
@@ -98,10 +99,10 @@ class MercyCorpsScraper(BaseScraper):
         
         try:
             # Look for tender sections with REF# patterns
-            tender_sections = soup.find_all(['div', 'section', 'article'], string=re.compile(r'REF#|Intent to Bid', re.I))
+            tender_sections =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             
             # Also look for parent containers of tender headings
-            tender_headings = soup.find_all(['h1', 'h2', 'h3', 'h4'], string=re.compile(r'REF#|Intent to Bid|tender', re.I))
+            tender_headings =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             for heading in tender_headings:
                 parent = heading.find_parent(['div', 'section', 'article'])
                 if parent and parent not in tender_sections:
@@ -114,7 +115,7 @@ class MercyCorpsScraper(BaseScraper):
                         opportunities.append(opportunity)
                         
                 except Exception as e:
-                    self.logger.debug(f"Error parsing tender section: {e}")
+                    self.self.self.self.self.self.logger.debug(f"Error parsing tender section: {e}")
                     continue
             
             # If no structured sections found, try text-based extraction
@@ -122,9 +123,9 @@ class MercyCorpsScraper(BaseScraper):
                 opportunities = self._extract_from_page_text(soup)
                 
         except Exception as e:
-            self.logger.error(f"Error parsing tender listings: {e}")
+            self.self.self.self.self.self.logger.error(f"Error parsing tender listings: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _extract_tender_details(self, section: BeautifulSoup) -> Optional[OpportunityData]:
         """Extract details from a tender section"""
@@ -140,10 +141,7 @@ class MercyCorpsScraper(BaseScraper):
                     # Get the parent element containing the full title
                     title_elem = ref_text.parent
             
-            if title_elem:
-                opportunity.title = title_elem.get_text(strip=True)
-            
-            if not opportunity.title:
+            if title_elem:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnot opportunity.title:
                 return None
             
             # Extract country/location
@@ -153,39 +151,29 @@ class MercyCorpsScraper(BaseScraper):
                 location_parent = location_elem.parent
                 location_text = location_parent.get_text()
                 location_match = re.search(r'Country of destination[:\s]*([^\n,]+)', location_text, re.I)
-                if location_match:
-                    opportunity.location = location_match.group(1).strip()
+                if location_match:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn_match.group(1).strip()
             
             # Extract dates
             date_info = self._extract_dates_from_section(section)
-            if date_info.get('deadline'):
-                opportunity.deadline = date_info['deadline']
+            if date_info.get('deadline'):\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnfo['deadline']
             
             # Extract reference number from title
-            opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(
+            opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(
                 opportunity.title
             )
             
             # Look for "Read More" links
             read_more_link = section.find('a', string=re.compile(r'read more|more info|details', re.I))
-            if read_more_link:
-                opportunity.source_url = urljoin(self.base_url, read_more_link.get('href', ''))
+            if read_more_link:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn(self.base_url, read_more_link.get('href', ''))
             
-            # Set defaults
-            opportunity.organization = 'Mercy Corps'
-            opportunity.location = opportunity.location or 'Various'
-            opportunity.description = f"Procurement opportunity: {opportunity.title}"
-            opportunity.source_url = opportunity.source_url or self.tenders_url
+            # Set defaults\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.location = opportunity.location or 'Various'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnt opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.source_url or self.tenders_url
             
-            # Extract keywords from title
-            opportunity.keywords_found = self.extract_keywords(opportunity.title.lower())
-            
-            opportunity.extracted_date = datetime.now()
+            # Extract keywords from title\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.title.lower())\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnow()
             
             return opportunity
             
         except Exception as e:
-            self.logger.debug(f"Error extracting tender details: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting tender details: {e}")
             return None
     
     def _extract_dates_from_section(self, section: BeautifulSoup) -> Dict[str, Optional[datetime]]:
@@ -227,7 +215,7 @@ class MercyCorpsScraper(BaseScraper):
                         break
                         
         except Exception as e:
-            self.logger.debug(f"Error extracting dates: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting dates: {e}")
         
         return dates
     
@@ -273,7 +261,7 @@ class MercyCorpsScraper(BaseScraper):
                         continue
                         
         except Exception as e:
-            self.logger.debug(f"Error parsing date '{date_text}': {e}")
+            self.self.self.self.self.self.logger.debug(f"Error parsing date '{date_text}': {e}")
         
         return None
     
@@ -283,7 +271,7 @@ class MercyCorpsScraper(BaseScraper):
         
         try:
             # Look for REF# patterns in the page text
-            page_text = soup.get_text()
+            page_text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             
             # Find tender titles with REF# patterns
             ref_patterns = [
@@ -296,33 +284,25 @@ class MercyCorpsScraper(BaseScraper):
                 matches = re.findall(pattern, page_text, re.I)
                 for match in matches[:5]:  # Limit to avoid too many
                     try:
-                        opportunity = OpportunityData()
-                        opportunity.title = match.strip()
-                        opportunity.organization = 'Mercy Corps'
-                        opportunity.location = 'Various'
-                        opportunity.description = f"Procurement opportunity: {opportunity.title}"
-                        opportunity.source_url = self.tenders_url
+                        opportunity = OpportunityData()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.organization = 'Mercy Corps'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = f"Procurement opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnders_url
                         
                         # Extract reference number
-                        opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(
+                        opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(
                             opportunity.title
                         )
                         
-                        # Extract keywords
-                        opportunity.keywords_found = self.extract_keywords(opportunity.title.lower())
-                        
-                        opportunity.extracted_date = datetime.now()
+                        # Extract keywords\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.title.lower())\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnow()
                         
                         opportunities.append(opportunity)
                         
                     except Exception as e:
-                        self.logger.debug(f"Error extracting from text pattern: {e}")
+                        self.self.self.self.self.self.logger.debug(f"Error extracting from text pattern: {e}")
                         continue
                         
         except Exception as e:
-            self.logger.error(f"Error in text extraction: {e}")
+            self.self.self.self.self.self.logger.error(f"Error in text extraction: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _get_fallback_opportunities(self) -> List[OpportunityData]:
         """Provide fallback opportunities when scraping fails"""
@@ -360,8 +340,7 @@ class MercyCorpsScraper(BaseScraper):
     def _enhance_opportunity(self, opportunity: OpportunityData) -> OpportunityData:
         """Enhance opportunity with additional information"""
         try:
-            # Add scoring
-            opportunity.raw_data = opportunity.raw_data or {}
+            # Add scoring\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.raw_data or {}
             opportunity.raw_data['relevance_score'] = self._calculate_relevance_score(opportunity)
             
             # Add priority level
@@ -372,11 +351,8 @@ class MercyCorpsScraper(BaseScraper):
                 days_until = (opportunity.deadline - datetime.now()).days
                 opportunity.raw_data['days_until_deadline'] = days_until
             
-            # Set currency
-            opportunity.currency = 'USD'
-            
-        except Exception as e:
-            self.logger.debug(f"Error enhancing opportunity: {e}")
+            # Set currency\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn as e:
+            self.self.self.self.self.self.logger.debug(f"Error enhancing opportunity: {e}")
         
         return opportunity
     
@@ -444,7 +420,7 @@ class MercyCorpsScraper(BaseScraper):
             response = self.get_page(self.tenders_url)
             return response is not None and response.status_code == 200
         except Exception as e:
-            self.logger.error(f"Mercy Corps connection test failed: {e}")
+            self.self.self.self.self.self.logger.error(f"Mercy Corps connection test failed: {e}")
             return False
     
     def get_opportunity_details(self, opportunity_url: str) -> Dict[str, Any]:
@@ -464,14 +440,14 @@ class MercyCorpsScraper(BaseScraper):
             }
             
             # Extract full description
-            desc_elem = soup.find(['div', 'section'], class_=re.compile(r'content|description|body'))
+            desc_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if desc_elem:
                 details['full_description'] = desc_elem.get_text(strip=True)
             
             return details
             
         except Exception as e:
-            self.logger.error(f"Error getting opportunity details: {e}")
+            self.self.self.self.self.self.logger.error(f"Error getting opportunity details: {e}")
             return {}
 
     def _convert_dict_to_opportunity_data(self, opp_dict: Dict[str, Any]) -> OpportunityData:

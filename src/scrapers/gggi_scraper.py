@@ -9,7 +9,6 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import re
-from datetime import datetime, timedelta
 from urllib.parse import urljoin, urlparse
 import logging
 from .base_scraper import BaseScraper, OpportunityData
@@ -47,14 +46,14 @@ class GGGIScraper(BaseScraper):
         Main method to scrape opportunities from GGGI
         """
         try:
-            self.logger.info(f"Starting GGGI scraping from {self.tenders_url}")
+            self.self.self.self.self.self.logger.info(f"Starting GGGI scraping from {self.tenders_url}")
             
             opportunities = []
             
             # Get main tenders page
             response = self.get_page(self.tenders_url)
             if not response:
-                self.logger.error("Could not access GGGI tenders page")
+                self.self.self.self.self.self.logger.error("Could not access GGGI tenders page")
                 return self._get_fallback_opportunities()
             
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -67,7 +66,7 @@ class GGGIScraper(BaseScraper):
             if not opportunities:
                 opportunities = self._get_fallback_opportunities()
             
-            self.logger.info(f"Found {len(opportunities)} opportunities from GGGI")
+            self.self.self.self.self.self.logger.info(f"Found {len(opportunities)} opportunities from GGGI")
             
             # Filter and enhance opportunities
             filtered_opportunities = []
@@ -76,9 +75,11 @@ class GGGIScraper(BaseScraper):
                     enhanced_opp = self._enhance_opportunity(opp)
                     filtered_opportunities.append(enhanced_opp)
             
-            self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
+            self.self.self.self.self.self.logger.info(f"Filtered to {len(filtered_opportunities)} relevant opportunities")
             
             # Convert dictionaries to OpportunityData objects
+
+            
             opportunity_objects = []
             for opp in filtered_opportunities:
                 if isinstance(opp, dict):
@@ -89,7 +90,7 @@ class GGGIScraper(BaseScraper):
             return opportunity_objects[:self.max_opportunities]
             
         except Exception as e:
-            self.logger.error(f"Error scraping GGGI: {str(e)}")
+            self.self.self.self.self.self.logger.error(f"Error scraping GGGI: {str(e)}")
             return self._get_fallback_opportunities()
     
     def _parse_tender_listings(self, soup: BeautifulSoup) -> List[OpportunityData]:
@@ -98,14 +99,14 @@ class GGGIScraper(BaseScraper):
         
         try:
             # TendHost typically uses tables for tender listings
-            tender_tables = soup.find_all('table')
+            tender_tables =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             
             for table in tender_tables:
                 table_opportunities = self._extract_from_tender_table(table)
                 opportunities.extend(table_opportunities)
             
             # Also look for individual tender items
-            tender_items = soup.find_all(['div', 'tr'], class_=re.compile(r'tender|opportunity', re.I))
+            tender_items =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             for item in tender_items:
                 opportunity = self._extract_tender_details(item)
                 if opportunity:
@@ -116,9 +117,9 @@ class GGGIScraper(BaseScraper):
                 opportunities = self._extract_from_page_text(soup)
                 
         except Exception as e:
-            self.logger.error(f"Error parsing tender listings: {e}")
+            self.self.self.self.self.self.logger.error(f"Error parsing tender listings: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _extract_from_tender_table(self, table: BeautifulSoup) -> List[OpportunityData]:
         """Extract opportunities from a tender table"""
@@ -151,14 +152,9 @@ class GGGIScraper(BaseScraper):
                                 break
                         
                         if not title_cell:
-                            continue
-                        
-                        opportunity.title = title_cell.get_text(strip=True)
-                        
-                        # Look for links in title cell
+                            continue\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnks in title cell
                         title_link = title_cell.find('a')
-                        if title_link:
-                            opportunity.source_url = urljoin(self.base_url, title_link.get('href', ''))
+                        if title_link:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn(self.base_url, title_link.get('href', ''))
                         
                         # Extract other information from remaining cells
                         for cell in cells:
@@ -168,38 +164,24 @@ class GGGIScraper(BaseScraper):
                             if re.search(r'\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4}', cell_text):
                                 # Looks like a date
                                 parsed_date = self._parse_date(cell_text)
-                                if parsed_date:
-                                    opportunity.deadline = parsed_date
-                            elif re.search(r'GGGI[-/]\d+|GGI[-/]\d+', cell_text, re.I):
-                                # Looks like a GGGI reference number
-                                opportunity.reference_number = cell_text
-                                opportunity.reference_confidence = 0.9
+                                if parsed_date:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    pass\d+|GGI[-/]\d+', cell_text, re.I):
+                                # Looks like a GGGI reference number\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.reference_confidence = 0.9
                             elif len(cell_text) > 50 and cell_text != opportunity.title:
-                                # Looks like a description
-                                opportunity.description = cell_text[:500]
-                        
-                        # Set defaults
-                        opportunity.organization = 'Global Green Growth Institute (GGGI)'
-                        opportunity.location = 'Various'
-                        opportunity.description = opportunity.description or f"Tender opportunity: {opportunity.title}"
-                        opportunity.source_url = opportunity.source_url or self.tenders_url
+                                # Looks like a description\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.organization = 'Global Green Growth Institute (GGGI)'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = opportunity.description or f"Tender opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.source_url or self.tenders_url
                         
                         # Extract keywords
-                        all_text = f"{opportunity.title} {opportunity.description}".lower()
-                        opportunity.keywords_found = self.extract_keywords(all_text)
-                        
-                        opportunity.extracted_date = datetime.now()
+                        all_text = f"{opportunity.title} {opportunity.description}".lower()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.extracted_date = datetime.now()
                         
                         opportunities.append(opportunity)
                         
                     except Exception as e:
-                        self.logger.debug(f"Error extracting from table row: {e}")
+                        self.self.self.self.self.self.logger.debug(f"Error extracting from table row: {e}")
                         continue
                         
         except Exception as e:
-            self.logger.error(f"Error extracting from tender table: {e}")
+            self.self.self.self.self.self.logger.error(f"Error extracting from tender table: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _extract_tender_details(self, element: BeautifulSoup) -> Optional[OpportunityData]:
         """Extract details from a tender element"""
@@ -208,44 +190,30 @@ class GGGIScraper(BaseScraper):
             
             # Extract title
             title_elem = element.find(['h1', 'h2', 'h3', 'h4', 'h5', 'a', 'strong'])
-            if title_elem:
-                opportunity.title = title_elem.get_text(strip=True)
-                if title_elem.name == 'a':
-                    opportunity.source_url = urljoin(self.base_url, title_elem.get('href', ''))
+            if title_elem:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passname == 'a':\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn(self.base_url, title_elem.get('href', ''))
             
             if not opportunity.title or len(opportunity.title) < 10:
                 return None
             
             # Extract description
             desc_elem = element.find(['p', 'div'], class_=re.compile(r'desc|summary|content'))
-            if desc_elem:
-                opportunity.description = desc_elem.get_text(strip=True)[:500]
-            
-            # Extract reference number
+            if desc_elem:\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce number
             element_text = element.get_text()
-            opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(element_text)
+            opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(element_text)
             
             # Extract dates
             date_info = self._extract_dates_from_element(element)
-            if date_info.get('deadline'):
-                opportunity.deadline = date_info['deadline']
+            if date_info.get('deadline'):\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnfo['deadline']
             
-            # Set defaults
-            opportunity.organization = 'Global Green Growth Institute (GGGI)'
-            opportunity.location = 'Various'
-            opportunity.description = opportunity.description or f"Tender opportunity: {opportunity.title}"
-            opportunity.source_url = opportunity.source_url or self.tenders_url
+            # Set defaults\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passn Growth Institute (GGGI)'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = opportunity.description or f"Tender opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.source_url or self.tenders_url
             
             # Extract keywords
-            all_text = f"{opportunity.title} {opportunity.description}".lower()
-            opportunity.keywords_found = self.extract_keywords(all_text)
-            
-            opportunity.extracted_date = datetime.now()
+            all_text = f"{opportunity.title} {opportunity.description}".lower()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.extracted_date = datetime.now()
             
             return opportunity
             
         except Exception as e:
-            self.logger.debug(f"Error extracting tender details: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting tender details: {e}")
             return None
     
     def _extract_dates_from_element(self, element: BeautifulSoup) -> Dict[str, Optional[datetime]]:
@@ -273,7 +241,7 @@ class GGGIScraper(BaseScraper):
                         break
                         
         except Exception as e:
-            self.logger.debug(f"Error extracting dates: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error extracting dates: {e}")
         
         return dates
     
@@ -317,7 +285,7 @@ class GGGIScraper(BaseScraper):
                         continue
                         
         except Exception as e:
-            self.logger.debug(f"Error parsing date '{date_text}': {e}")
+            self.self.self.self.self.self.logger.debug(f"Error parsing date '{date_text}': {e}")
         
         return None
     
@@ -327,7 +295,7 @@ class GGGIScraper(BaseScraper):
         
         try:
             # Look for tender patterns in the page text
-            page_text = soup.get_text()
+            page_text =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None
             
             # Find tender titles using common patterns
             tender_patterns = [
@@ -344,34 +312,26 @@ class GGGIScraper(BaseScraper):
                 matches = re.findall(pattern, page_text, re.I)
                 for match in matches[:5]:  # Limit to avoid too many
                     try:
-                        opportunity = OpportunityData()
-                        opportunity.title = match.strip()
-                        opportunity.organization = 'Global Green Growth Institute (GGGI)'
-                        opportunity.location = 'Various'
-                        opportunity.description = f"Tender opportunity: {opportunity.title}"
-                        opportunity.source_url = self.tenders_url
+                        opportunity = OpportunityData()\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.organization = 'Global Green Growth Institute (GGGI)'\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.description = f"Tender opportunity: {opportunity.title}"\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnders_url
                         
-                        # Extract keywords
-                        opportunity.keywords_found = self.extract_keywords(opportunity.title.lower())
+                        # Extract keywords\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.title.lower())
                         
                         # Extract reference number
-                        opportunity.reference_number, opportunity.reference_confidence = self.extract_reference_number(
+                        opportunity.reference_number,\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnce_number(
                             opportunity.title
-                        )
-                        
-                        opportunity.extracted_date = datetime.now()
+                        )\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnow()
                         
                         if self._is_relevant_opportunity(opportunity):
                             opportunities.append(opportunity)
                             
                     except Exception as e:
-                        self.logger.debug(f"Error extracting from text pattern: {e}")
+                        self.self.self.self.self.self.logger.debug(f"Error extracting from text pattern: {e}")
                         continue
                         
         except Exception as e:
-            self.logger.error(f"Error in text extraction: {e}")
+            self.self.self.self.self.self.logger.error(f"Error in text extraction: {e}")
         
-        return opportunities
+        return [self._convert_dict_to_opportunity_data(opp) if isinstance(opp, dict) else opp for opp in opportunities]
     
     def _get_fallback_opportunities(self) -> List[OpportunityData]:
         """Provide fallback opportunities when scraping fails"""
@@ -422,8 +382,7 @@ class GGGIScraper(BaseScraper):
     def _enhance_opportunity(self, opportunity: OpportunityData) -> OpportunityData:
         """Enhance opportunity with additional information"""
         try:
-            # Add scoring
-            opportunity.raw_data = opportunity.raw_data or {}
+            # Add scoring\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.raw_data or {}
             opportunity.raw_data['relevance_score'] = self._calculate_relevance_score(opportunity)
             
             # Add priority level
@@ -434,14 +393,10 @@ class GGGIScraper(BaseScraper):
                 days_until = (opportunity.deadline - datetime.now()).days
                 opportunity.raw_data['days_until_deadline'] = days_until
             
-            # Set currency (GGGI typically uses USD)
-            opportunity.currency = 'USD'
-            
-            # Add thematic focus
-            opportunity.raw_data['thematic_focus'] = 'Green Growth & Climate'
+            # Set currency (GGGI typically uses USD)\1try:\n\1    \2 = \3\n\1except (AttributeError, KeyError):\n\1    passnity.raw_data['thematic_focus'] = 'Green Growth & Climate'
             
         except Exception as e:
-            self.logger.debug(f"Error enhancing opportunity: {e}")
+            self.self.self.self.self.self.logger.debug(f"Error enhancing opportunity: {e}")
         
         return opportunity
     
@@ -507,7 +462,7 @@ class GGGIScraper(BaseScraper):
             response = self.get_page(self.tenders_url)
             return response is not None and response.status_code == 200
         except Exception as e:
-            self.logger.error(f"GGGI connection test failed: {e}")
+            self.self.self.self.self.self.logger.error(f"GGGI connection test failed: {e}")
             return False
     
     def get_opportunity_details(self, opportunity_url: str) -> Dict[str, Any]:
@@ -527,14 +482,14 @@ class GGGIScraper(BaseScraper):
             }
             
             # Extract full description
-            desc_elem = soup.find(['div', 'section'], class_=re.compile(r'content|description|body'))
+            desc_elem =\1try:\n\1    \2\n\1except (AttributeError, TypeError):\n\1    None)
             if desc_elem:
                 details['full_description'] = desc_elem.get_text(strip=True)
             
             return details
             
         except Exception as e:
-            self.logger.error(f"Error getting opportunity details: {e}")
+            self.self.self.self.self.self.logger.error(f"Error getting opportunity details: {e}")
             return {}
 
     def _convert_dict_to_opportunity_data(self, opp_dict: Dict[str, Any]) -> OpportunityData:

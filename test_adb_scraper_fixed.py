@@ -58,20 +58,20 @@ def test_adb_scraper():
         if opportunities:
             print("\n📋 ADB Opportunities Found:")
             for i, opp in enumerate(opportunities, 1):
-                print(f"\n  {i}. {getattr(opp, 'title', 'No title')}")
-                print(f"     Organization: {getattr(opp, 'organization', 'N/A')}")
-                print(f"     Location: {getattr(opp, 'location', 'N/A')}")
-                print(f"     Deadline: {getattr(opp, 'deadline', 'N/A')}")
-                print(f"     Budget: {getattr(opp, 'budget', 'N/A')}")
-                print(f"     Reference: {getattr(opp, 'reference_number', 'N/A')} (confidence: {getattr(opp, 'reference_confidence', 0):.2f})")
-                print(f"     Priority: {getattr(opp, 'raw_data', {}).get('priority', 'N/A')}")
-                print(f"     Score: {getattr(opp, 'raw_data', {}).get('relevance_score', 0):.2f}")
-
-                keywords = getattr(opp, 'keywords_found', [])
+                print(f"\n  {i}. {opp.get('title', 'No title')}")
+                print(f"     Organization: {opp.get('organization', 'N/A')}")
+                print(f"     Location: {opp.get('location', 'N/A')}")
+                print(f"     Deadline: {opp.get('deadline_text', 'N/A')}")
+                print(f"     Budget: {opp.get('budget_text', 'N/A')}")
+                print(f"     Reference: {opp.get('reference_number', 'N/A')} (confidence: {opp.get('reference_confidence', 0):.2f})")
+                print(f"     Priority: {opp.get('priority', 'N/A')}")
+                print(f"     Score: {opp.get('relevance_score', 0):.2f}")
+                
+                keywords = opp.get('keywords_found', [])
                 if keywords:
                     print(f"     Keywords: {', '.join(keywords)}")
-
-                description = getattr(opp, 'description', '')
+                
+                description = opp.get('description', '')
                 if description and len(description) > 100:
                     print(f"     Description: {description[:100]}...")
                 elif description:
@@ -85,11 +85,11 @@ def test_adb_scraper():
         if opportunities:
             print(f"✅ Status: WORKING")
             print(f"📈 Opportunities found: {len(opportunities)}")
-            print(f"🎯 Relevant opportunities: {len([o for o in opportunities if getattr(o, 'raw_data', {}).get('relevance_score', 0) > 0.3])}")
-            print(f"⭐ High priority opportunities: {len([o for o in opportunities if getattr(o, 'raw_data', {}).get('priority') in ['Critical', 'High']])}")
-
+            print(f"🎯 Relevant opportunities: {len([o for o in opportunities if o.get('relevance_score', 0) > 0.3])}")
+            print(f"⭐ High priority opportunities: {len([o for o in opportunities if o.get('priority') in ['Critical', 'High']])}")
+            
             # Check for reference numbers
-            with_refs = len([o for o in opportunities if getattr(o, 'reference_number', None)])
+            with_refs = len([o for o in opportunities if o.get('reference_number')])
             print(f"🔢 Opportunities with reference numbers: {with_refs}/{len(opportunities)}")
             
         else:

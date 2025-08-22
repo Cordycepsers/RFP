@@ -11,6 +11,7 @@ openpyxl>=3.1.0
 xlsxwriter>=3.1.0
 
 # Email functionality
+
 email-validator>=2.0.0
 
 # Date and time handling
@@ -47,12 +48,5 @@ pathlib
 tenacity>=8.2.0
 
 # Web driver management
-<<<<<<< HEAD
 webdriver-manager>=4.0.0
-=======
-webdriver-manager
->>>>>>> 9009e9c (Initial commit: full configuration and codebase)
-
-# Templating
-Jinja2>=3.1.2
 
