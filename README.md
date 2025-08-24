@@ -662,3 +662,48 @@ class WorldBankScraper(BaseScraper):
                 'raw_data': {'source': 'fallback', 'confidence': 0.5}
             }
         ]
+
+## Browser fallback and environment variables
+
+The scrapers now support optional headless browser fallbacks and environment-based configuration to improve reliability and reduce anti-bot triggers.
+
+- Devex
+  - DEVEX_SESSION_COOKIE: Optional. If you have a valid Devex session cookie value, set it to bypass login and reduce anti-bot friction.
+  - DEVEX_USERNAME and DEVEX_PASSWORD: Optional. Used for a best-effort login flow when a cookie is not provided.
+  - DEVEX_USE_BROWSER: Set to 1 to enable a headless Chrome fallback when HTTP fetching is blocked.
+  - Cookie cache: When the browser fallback is used, cookies are cached under .cache/devex_cookies.json to persist sessions across runs.
+
+- DevelopmentAid
+  - DEVELOPMENTAID_USE_BROWSER: Set to 1 to enable a headless Chrome fallback to render dynamic content when HTTP fetching returns incomplete HTML.
+
+- UNGM
+  - Pagination is now handled via pageIndex and pageSize query parameters. No environment variables are required.
+
+- World Bank
+  - The scraper now uses the public JSON procurement API (search.worldbank.org) and no longer needs HTML rendering or special environment variables.
+
+- Network timeout
+  - You can control network timeouts via the config under network.timeout_seconds (default 30). This is used by all scrapers for HTTP requests.
+
+Prerequisites for browser fallbacks
+- Google Chrome should be installed on the machine running the scrapers.
+- webdriver-manager is used to download and manage the correct ChromeDriver automatically.
+
+Example .env entries
+
+```bash path=null start=null
+# Devex optional cookie-based auth
+DEVEX_SESSION_COOKIE={{DEVEX_SESSION_COOKIE}}
+
+# Devex optional login fallback
+DEVEX_USERNAME={{DEVEX_USERNAME}}
+DEVEX_PASSWORD={{DEVEX_PASSWORD}}
+
+# Enable headless browser fallbacks if needed
+DEVEX_USE_BROWSER=1
+DEVELOPMENTAID_USE_BROWSER=1
+```
+
+Security tips
+- Do not commit .env files to source control. Ensure your .gitignore includes .env and any secrets.
+- Prefer using a secrets manager in production. For local development, a .env file is acceptable but should remain untracked.
