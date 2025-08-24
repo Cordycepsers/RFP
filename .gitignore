@@ -1,9 +1,16 @@
-# Virtual environment
+# Virtual environments
 venv/
+.venv/
+
+# Environment files (secrets)
+.env
+proposaland.env
 
 # Logs and outputs
 logs/
 output/
+*.xlsx
+*.json
 
 # Runtime artifacts
 proposaland.pid
