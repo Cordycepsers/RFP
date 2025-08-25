@@ -67,48 +67,28 @@ class UNGMScraper(BaseScraper):
         try:
             self.logger.info(f"Starting UNGM scraping from {self.search_url}")
             
-            # Get initial page to understand pagination
-            soup = self.get_page(self.search_url)
-            if not soup:
-                return opportunities
-            
-            # Extract total number of opportunities
-            total_text = None
-            for label in soup.find_all('label'):
-                label_text = label.get_text()
-                if 'of' in label_text:
-                    total_text = label
+            # Scrape opportunities from multiple pages using query params
+            seen_urls = set()
+            for page in range(self.max_pages):
+                page_url = self._build_page_url(page)
+                self.logger.info(f"Scraping UNGM page {page + 1}/{self.max_pages}: {page_url}")
+                soup = self.get_page(page_url)
+                if not soup:
                     break
-            total_opportunities = 0
-            if total_text:
-                # Extract number from text like "Displaying results 1 to 15 of 1746"
-                match = re.search(r'of\s+(\d+)', total_text.get_text())
-                if match:
-                    total_opportunities = int(match.group(1))
-                    
-            self.logger.info(f"Found {total_opportunities} total opportunities on UNGM")
-            
-            # Calculate number of pages to scrape
-            max_opportunities = self.max_pages * self.results_per_page
-            opportunities_to_scrape = min(total_opportunities, max_opportunities)
-            pages_to_scrape = min(self.max_pages, (opportunities_to_scrape + self.results_per_page - 1) // self.results_per_page)
-            
-            # Scrape opportunities from multiple pages
-            for page in range(pages_to_scrape):
-                self.logger.info(f"Scraping UNGM page {page + 1}/{pages_to_scrape}")
-                
-                if page == 0:
-                    # Use the initial response for first page
-                    page_opportunities = self._parse_opportunities_page(soup)
-                else:
-                    # Get subsequent pages (would need to implement pagination logic)
-                    # For now, we'll work with the first page
+                page_opportunities = self._parse_opportunities_page(soup)
+                # De-duplicate by URL
+                new_items = []
+                for opp in page_opportunities:
+                    url = opp.get('url') if isinstance(opp, dict) else getattr(opp, 'source_url', '')
+                    if url and url not in seen_urls:
+                        seen_urls.add(url)
+                        new_items.append(opp)
+                if not new_items:
+                    # No new items, stop pagination
                     break
-                    
-                opportunities.extend(page_opportunities)
-                
+                opportunities.extend(new_items)
                 # Rate limiting
-                if page < pages_to_scrape - 1:
+                if page < self.max_pages - 1:
                     time.sleep(self.request_delay)
                     
         except Exception as e:
@@ -124,30 +104,25 @@ class UNGMScraper(BaseScraper):
         opportunities = []
         
         try:
-            # Find all opportunity rows in the table
-            # UNGM uses a specific structure for opportunity listings
-            opportunity_rows = soup.find_all('div', class_=lambda x: x and 'opportunity' in x.lower()) or \
-                             soup.find_all('tr')[1:]  # Skip header row
-            
-            # If no specific opportunity divs found, look for table rows with opportunity data
+            # Prefer a specific container if present
+            container = soup.select_one('div.notice-list, div#search-results, section#content, main') or soup
+            # Within the container, prefer table rows or cards
+            opportunity_rows = container.select('table tr')[1:] if container.select('table tr') else []
             if not opportunity_rows:
-                # Look for the main content area with opportunities
-                content_area = soup.find('div', class_='content') or soup.find('main') or soup
-                
-                # Find all links that contain opportunity titles
-                opportunity_links = content_area.find_all('a', href=True)
-                opportunity_links = [link for link in opportunity_links if self._is_opportunity_link(link)]
-                
-                for link in opportunity_links:
-                    opportunity = self._parse_opportunity_from_link(link)
-                    if opportunity:
-                        opportunities.append(opportunity)
-            else:
-                # Parse structured opportunity rows
+                opportunity_rows = container.find_all('div', class_=lambda x: x and ('opportunity' in x.lower() or 'result' in x.lower()))
+            
+            if opportunity_rows:
                 for row in opportunity_rows:
-                    opportunity = self._parse_opportunity_row(row)
-                    if opportunity:
-                        opportunities.append(opportunity)
+                    opp = self._parse_opportunity_row(row)
+                    if opp:
+                        opportunities.append(opp)
+            else:
+                # Fallback: any anchor that looks like an opportunity
+                for link in container.find_all('a', href=True):
+                    if self._is_opportunity_link(link):
+                        opp = self._parse_opportunity_from_link(link)
+                        if opp:
+                            opportunities.append(opp)
                         
         except Exception as e:
             self.logger.error(f"Error parsing UNGM opportunities page: {str(e)}")
@@ -171,6 +146,10 @@ class UNGMScraper(BaseScraper):
         if any(pattern in href.lower() for pattern in skip_patterns):
             return False
             
+        # Must point to a Notice details page
+        if '/Public/Notice/' not in href:
+            return False
+        
         # Look for opportunity indicators
         opportunity_indicators = [
             'rfp', 'rfq', 'itb', 'eoi', 'tender', 'procurement',
@@ -178,7 +157,7 @@ class UNGMScraper(BaseScraper):
         ]
         
         text_lower = text.lower()
-        return any(indicator in text_lower for indicator in opportunity_indicators) and len(text) > 20
+        return any(indicator in text_lower for indicator in opportunity_indicators) and len(text) > 10
 
     def _parse_opportunity_from_link(self, link):
         """
@@ -388,6 +367,15 @@ class UNGMScraper(BaseScraper):
             self.logger.warning(f"Could not parse deadline '{deadline_str}': {str(e)}")
             
         return None
+
+    def _build_page_url(self, page_index: int) -> str:
+        try:
+            # UNGM often supports pageIndex and pageSize query parameters
+            base = self.search_url
+            sep = '&' if '?' in base else '?'
+            return f"{base}{sep}pageIndex={page_index+1}&pageSize={self.results_per_page}"
+        except Exception:
+            return self.search_url
 
     def _determine_opportunity_type(self, title):
         """

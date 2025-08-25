@@ -16,8 +16,8 @@
     "high_priority": [
       {
         "name": "Devex",
-        "url": "https://www.devex.com/",
-        "type": "devex",
+        "url": "https://www.devex.com/funding/r",
+        "type": "devex_advanced",
         "priority": 1.0
       },
       {
@@ -175,7 +175,7 @@
       "Malaysia", "Indonesia", "Philippines", "Singapore"
     ],
     "included_countries": ["Nepal"],
-    "excluded_regions": ["most of asia"]
+    "excluded_regions": ["most of asia except Nepal"]
   },
   "budget_filters": {
     "min_budget": 5000,

@@ -93,8 +93,10 @@ class ProposalandMonitor:
         
         # Initialize scrapers for each website
         type_to_class = {
-            'devex': ('scrapers.devex_scraper', 'DevexScraperFixed'),
-            'devex_fixed': ('scrapers.devex_scraper', 'DevexScraperFixed'),
+            'devex': ('advanced_scrapers.devex_advanced', 'DevexAdvancedScraper'),
+            'devex_advanced': ('advanced_scrapers.devex_advanced', 'DevexAdvancedScraper'),
+            'devex_playwright': ('scrapers.devex_playwright_scraper', 'DevexPlaywrightScraper'),
+            'devex_fixed': ('scrapers.devex_scraper_fixed', 'DevexScraper'),
             'undp': ('scrapers.undp_scraper', 'UNDPScraper'),
             'ungm': ('scrapers.ungm_scraper', 'UNGMScraper'),
             'developmentaid': ('scrapers.developmentaid_scraper', 'DevelopmentAidScraper'),
