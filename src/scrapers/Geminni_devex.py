@@ -36,6 +36,3 @@ Return:
 •  URL
 If nothing <=30 days, return the most recent you can find and note the date.
 """
-
-PROPOSALAND_SMTP_USER="maja@whattookyousolong.org"
-PROPOSALAND_SMTP_PASS="hcvyggzqxqdqmdnr"
