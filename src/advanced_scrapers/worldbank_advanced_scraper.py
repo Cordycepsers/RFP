@@ -86,5 +86,5 @@ class WorldBankAdvancedScraper(BaseAdvancedScraper):
             logger.error(f"Timeout error during World Bank scraping: {te}")
         except Exception as e:
             logger.error(f"Unexpected error during World Bank scraping: {e}")
-            raise
+            raise RuntimeError("Unexpected error during World Bank scraping operation") from e
         return opportunities
