@@ -423,7 +423,7 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(description='Proposaland Daily Scheduler')
-    parser.add_argument('--config', default=os.getenv('CONFIG_PATH', 'config/production.json'), 
+    parser.add_argument('--config', default=None, 
                        help='Path to configuration file (default: env CONFIG_PATH or config/production.json)')
     parser.add_argument('--run-once', action='store_true', 
                        help='Run monitoring once and exit (for testing)')
