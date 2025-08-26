@@ -6,6 +6,7 @@ Scrapes opportunities from https://www.developmentaid.org/tenders/search
 import requests
 import time
 import json
+import os
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional, Any
 from bs4 import BeautifulSoup
@@ -35,6 +36,7 @@ class DevelopmentAidScraper(BaseScraper):
         self.results_per_page = 20  # Development Aid shows ~20 results per page
         self.max_opportunities = scraper_config.get('max_opportunities', 100)
         self.request_delay = scraper_config.get('request_delay', 2.0)
+        self.use_headless = bool(int(os.environ.get('DEVELOPMENTAID_USE_BROWSER', str(scraper_config.get('use_headless', 0)))))
         
         # Reference number patterns for Development Aid
         self.reference_patterns = [
@@ -72,6 +74,9 @@ class DevelopmentAidScraper(BaseScraper):
                 page_url = self._build_page_url(search_params, page)
                 
                 soup = self.get_page(page_url)
+                # If blocked or dynamic, try headless render optionally
+                if not soup and self.use_headless:
+                    soup = self._browser_get_soup(page_url)
                 if not soup:
                     break
                 
@@ -258,6 +263,34 @@ class DevelopmentAidScraper(BaseScraper):
             
         except Exception as e:
             self.logger.warning(f"Error parsing opportunity card: {str(e)}")
+            return None
+
+    # ---------------- Selenium helpers ----------------
+    def _browser_get_soup(self, url: str):
+        try:
+            from selenium import webdriver
+            from selenium.webdriver.chrome.options import Options
+            from selenium.webdriver.chrome.service import Service
+            from webdriver_manager.chrome import ChromeDriverManager
+            options = Options()
+            options.add_argument("--headless=new")
+            options.add_argument("--disable-gpu")
+            options.add_argument("--no-sandbox")
+            options.add_argument("--window-size=1920,1080")
+            options.add_argument(f"--user-agent={self.session.headers.get('User-Agent')}")
+            service = Service(ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=service, options=options)
+            driver.set_page_load_timeout(self.timeout if hasattr(self, 'timeout') else 30)
+            driver.get(url)
+            html = driver.page_source
+            driver.quit()
+            return BeautifulSoup(html, 'html.parser') if html else None
+        except Exception as e:
+            self.logger.warning(f"Selenium fallback failed for DevelopmentAid: {e}")
+            try:
+                driver.quit()
+            except Exception:
+                pass
             return None
     
     def _extract_organization_from_title(self, title: str) -> str:

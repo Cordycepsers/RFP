@@ -71,6 +71,7 @@ class BaseScraper(ABC):
         self.exclusion_keywords = config.get('keywords', {}).get('exclusions', [])
         self.max_retries = 3
         self.retry_delay = 2
+        self.timeout = int(config.get('network', {}).get('timeout_seconds', 30))
         self.reference_extractor = ReferenceNumberExtractor()
         
     def get_page(self, url: str, timeout: int = 30) -> Optional[BeautifulSoup]:

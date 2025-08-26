@@ -44,8 +44,10 @@ def _load_env_file(dotenv_path: str = ".env") -> None:
 class ProposalandMonitor:
     """Main monitoring system for opportunity discovery."""
     
-    def __init__(self, config_path: str = "config/proposaland_config.json"):
-        self.config_path = config_path
+    def __init__(self, config_path: str = "config/production.json"):
+        # Allow overriding via environment variable CONFIG_PATH
+        env_config_path = os.getenv("CONFIG_PATH")
+        self.config_path = env_config_path if env_config_path else config_path
         self.config = self._load_config()
         self.scrapers = {}
         self.opportunities = []
@@ -93,8 +95,10 @@ class ProposalandMonitor:
         
         # Initialize scrapers for each website
         type_to_class = {
-            'devex': ('scrapers.devex_scraper', 'DevexScraperFixed'),
-            'devex_fixed': ('scrapers.devex_scraper', 'DevexScraperFixed'),
+            'devex': ('advanced_scrapers.devex_advanced', 'DevexAdvancedScraper'),
+            'devex_advanced': ('advanced_scrapers.devex_advanced', 'DevexAdvancedScraper'),
+            'devex_playwright': ('scrapers.devex_playwright_scraper', 'DevexPlaywrightScraper'),
+            'devex_fixed': ('scrapers.devex_scraper_fixed', 'DevexScraper'),
             'undp': ('scrapers.undp_scraper', 'UNDPScraper'),
             'ungm': ('scrapers.ungm_scraper', 'UNGMScraper'),
             'developmentaid': ('scrapers.developmentaid_scraper', 'DevelopmentAidScraper'),
