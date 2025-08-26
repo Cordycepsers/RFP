@@ -83,7 +83,7 @@ class WorldBankScraper(BaseScraper):
                     break
                 except Exception as e:
                     self.logger.error(f"Unexpected error fetching/parsing World Bank JSON: {e}")
-                    raise
+                    raise e
 
                 items = self._extract_items_from_api(data)
                 if not items:
