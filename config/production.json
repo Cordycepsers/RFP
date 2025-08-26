@@ -1,0 +1,407 @@
+{
+  "system": {
+    "name": "Proposaland Opportunity Monitoring System",
+    "version": "1.0.0",
+    "environment": "production",
+    "timezone": "UTC",
+    "log_level": "INFO",
+    "max_concurrent_scrapers": 3,
+    "global_timeout": 60,
+    "retry_attempts": 3,
+    "retry_delay": 5
+  },
+  
+  "scheduling": {
+    "enabled": true,
+    "daily_run_time": "06:00",
+    "timezone": "UTC", 
+    "max_execution_time": 7200,
+    "overlap_prevention": true,
+    "failure_retry_interval": 3600
+  },
+  
+  "email": {
+    "enabled": true,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "use_tls": true,
+    "sender_email": "",
+    "sender_password": "",
+    "recipient_email": "",
+    "subject_prefix": "[Proposaland]",
+    "send_daily_summary": true,
+    "send_on_errors": true,
+    "send_on_high_priority": true,
+    "max_opportunities_per_email": 50
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "format": "json",
+    "file_enabled": true,
+    "file_path": "./logs/proposaland.log",
+    "rotation_enabled": true,
+    "max_file_size": "10MB",
+    "backup_count": 5,
+    "console_enabled": false
+  },
+  
+  "monitoring": {
+    "enabled": true,
+    "health_check_port": 8080,
+    "metrics_enabled": true,
+    "metrics_port": 9090,
+    "performance_tracking": true,
+    "error_reporting": true,
+    "success_metrics": true
+  },
+  
+  "feature_flags": {
+    "advanced_scrapers": true,
+    "ai_scoring": false,
+    "realtime_notifications": true,
+    "data_export": true,
+    "admin_dashboard": true,
+    "webhook_integration": false
+  },
+  
+  "keywords": {
+    "primary": [
+      "video", "photo", "film", "multimedia", "design", "visual",
+      "campaign", "podcasts", "virtual event", "media", "animation",
+      "animated video", "promotion", "communication", "audiovisual",
+      "graphics", "branding", "marketing", "creative", "content",
+      "digital", "social media", "photography", "videography",
+      "documentary", "storytelling", "pr", "public relations",
+      "web design", "ui/ux", "user experience", "interface design",
+      "motion graphics", "video editing", "post-production",
+      "broadcast", "streaming", "live event", "webinar"
+    ],
+    "secondary": [
+      "outreach", "engagement", "awareness", "advocacy",
+      "capacity building", "training materials", "educational content",
+      "knowledge management", "information systems", "portal development"
+    ],
+    "exclusions": [
+      "construction", "engineering", "medical equipment", "pharmaceuticals",
+      "heavy machinery", "infrastructure", "roads", "bridges", "water treatment",
+      "agriculture equipment", "vehicles", "security services", "catering",
+      "cleaning services", "maintenance", "repair", "local company only",
+      "government employees only", "citizens only"
+    ]
+  },
+  
+  "geographic_filters": {
+    "excluded_countries": [
+      "India", "Pakistan", "China", "Bangladesh", "Sri Lanka", "Myanmar",
+      "Thailand", "Vietnam", "Cambodia", "Laos", "Malaysia", "Indonesia",
+      "Philippines", "Singapore", "Brunei"
+    ],
+    "included_exceptions": [
+      "Nepal", "Bhutan"
+    ],
+    "excluded_phrases": [
+      "local company", "local firm", "national company", "domestic company",
+      "citizens only", "nationals only", "residents only"
+    ]
+  },
+  
+  "budget_filters": {
+    "enabled": true,
+    "min_budget": 5000,
+    "max_budget": 500000,
+    "currency_conversions": {
+      "EUR": 1.1,
+      "GBP": 1.25,
+      "CHF": 1.05,
+      "CAD": 0.75,
+      "AUD": 0.65
+    }
+  },
+  
+  "scoring": {
+    "keyword_weight": 0.4,
+    "budget_weight": 0.2,
+    "deadline_weight": 0.2,
+    "organization_weight": 0.1,
+    "reference_weight": 0.1,
+    "thresholds": {
+      "critical": 0.8,
+      "high": 0.6,
+      "medium": 0.4,
+      "low": 0.2
+    }
+  },
+  
+  "scrapers": {
+    "devex": {
+      "enabled": true,
+      "priority": 1,
+      "request_delay": 3,
+      "max_jobs": 100,
+      "max_news": 50,
+      "timeout": 45,
+      "max_retries": 3,
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    "undp": {
+      "enabled": true,
+      "priority": 1,
+      "request_delay": 2,
+      "max_pages": 10,
+      "timeout": 30,
+      "max_retries": 3
+    },
+    "ungm": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 4,
+      "max_opportunities": 100,
+      "timeout": 60,
+      "max_retries": 2
+    },
+    "globalfund": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 45,
+      "max_retries": 3
+    },
+    "worldbank": {
+      "enabled": true,
+      "priority": 1,
+      "request_delay": 2,
+      "max_pages": 8,
+      "timeout": 40,
+      "max_retries": 3
+    },
+    "adb": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 35,
+      "max_retries": 3
+    },
+    "iucn": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 2,
+      "max_pages": 3,
+      "timeout": 30,
+      "max_retries": 3
+    },
+    "developmentaid": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 10,
+      "timeout": 45,
+      "max_retries": 3
+    },
+    "reliefweb": {
+      "enabled": true,
+      "priority": 1,
+      "request_delay": 2,
+      "max_jobs": 50,
+      "timeout": 30,
+      "max_retries": 3
+    },
+    "savethechildren": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 35,
+      "max_retries": 3
+    },
+    "mercycorps": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 35,
+      "max_retries": 3
+    },
+    "irc": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 35,
+      "max_retries": 3
+    },
+    "plan_international": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 35,
+      "max_retries": 3
+    },
+    "drc": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 35,
+      "max_retries": 3
+    },
+    "afdb": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 40,
+      "max_retries": 3
+    },
+    "gggi": {
+      "enabled": true,
+      "priority": 3,
+      "request_delay": 4,
+      "max_pages": 3,
+      "timeout": 45,
+      "max_retries": 2
+    },
+    "acted": {
+      "enabled": true,
+      "priority": 2,
+      "request_delay": 3,
+      "max_pages": 5,
+      "timeout": 35,
+      "max_retries": 3
+    },
+    "birdlife": {
+      "enabled": true,
+      "priority": 3,
+      "request_delay": 3,
+      "max_jobs": 20,
+      "timeout": 30,
+      "max_retries": 3
+    }
+  },
+  
+  "output": {
+    "excel": {
+      "enabled": true,
+      "filename_template": "proposaland_opportunities_{date}.xlsx",
+      "include_reference_column": true,
+      "include_keywords_column": true,
+      "include_score_column": true,
+      "max_description_length": 500,
+      "sort_by": "relevance_score",
+      "sort_order": "desc"
+    },
+    "json": {
+      "enabled": true,
+      "filename_template": "proposaland_data_{date}.json",
+      "pretty_print": false,
+      "include_raw_data": false
+    },
+    "directory": "./output",
+    "backup_enabled": true,
+    "backup_retention_days": 30,
+    "archive_old_files": true
+  },
+  
+  "performance": {
+    "cache_enabled": true,
+    "cache_duration": 3600,
+    "parallel_processing": true,
+    "max_workers": 3,
+    "memory_limit": "1GB",
+    "connection_pooling": true,
+    "request_timeout": 30
+  },
+  
+  "data_quality": {
+    "duplicate_detection": true,
+    "duplicate_threshold": 0.85,
+    "data_validation": true,
+    "required_fields": ["title", "organization"],
+    "field_length_limits": {
+      "title": 200,
+      "description": 2000,
+      "organization": 100,
+      "location": 100
+    },
+    "reference_number_validation": true,
+    "deadline_validation": true
+  },
+  
+  "security": {
+    "user_agent_rotation": true,
+    "request_headers": {
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.5",
+      "Accept-Encoding": "gzip, deflate",
+      "Connection": "keep-alive",
+      "Upgrade-Insecure-Requests": "1"
+    },
+    "respect_robots_txt": true,
+    "rate_limiting": true,
+    "session_management": true
+  },
+  
+  "notifications": {
+    "critical_opportunities": {
+      "enabled": true,
+      "score_threshold": 0.8,
+      "immediate_notification": true
+    },
+    "daily_summary": {
+      "enabled": true,
+      "send_time": "07:00",
+      "include_statistics": true,
+      "include_top_opportunities": 10
+    },
+    "error_alerts": {
+      "enabled": true,
+      "error_threshold": 5,
+      "notification_interval": 3600
+    },
+    "system_health": {
+      "enabled": true,
+      "check_interval": 1800,
+      "disk_space_threshold": 85,
+      "memory_threshold": 80
+    }
+  },
+  
+  "reference_extraction": {
+    "enabled": true,
+    "confidence_threshold": 0.7,
+    "patterns": {
+      "rfp": "(?:RFP|Request for Proposal)[:\\s#-]*([A-Z0-9/-]+)",
+      "rfq": "(?:RFQ|Request for Quotation)[:\\s#-]*([A-Z0-9/-]+)",
+      "itb": "(?:ITB|Invitation to Bid)[:\\s#-]*([A-Z0-9/-]+)",
+      "eoi": "(?:EOI|Expression of Interest)[:\\s#-]*([A-Z0-9/-]+)",
+      "reference": "(?:Reference|Ref)[:\\s#-]*([A-Z0-9/-]+)",
+      "tender": "(?:Tender|TEN)[:\\s#-]*([A-Z0-9/-]+)",
+      "contract": "(?:Contract|CON)[:\\s#-]*([A-Z0-9/-]+)",
+      "procurement": "(?:Procurement|PROC)[:\\s#-]*([A-Z0-9/-]+)"
+    },
+    "fallback_generation": true,
+    "organization_prefixes": {
+      "UNDP": "UNDP",
+      "World Bank": "WB",
+      "UNICEF": "UNI",
+      "WHO": "WHO",
+      "USAID": "USA",
+      "EU": "EU",
+      "DFID": "DFID",
+      "GIZ": "GIZ"
+    }
+  },
+  
+  "maintenance": {
+    "auto_cleanup": true,
+    "cleanup_interval": 86400,
+    "temp_file_retention": 24,
+    "log_cleanup": true,
+    "database_optimization": true,
+    "health_checks": true,
+    "backup_verification": true
+  }
+}

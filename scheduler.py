@@ -27,13 +27,15 @@ from src.notifications.email_notifier import EmailNotifier
 class ProposalandScheduler:
     """Daily scheduler for automated opportunity monitoring."""
     
-    def __init__(self, config_path: str = "config/proposaland_config.json"):
-        self.config_path = config_path
+    def __init__(self, config_path: str = "config/production.json"):
+        # Allow overriding via environment variable CONFIG_PATH
+        env_config_path = os.getenv("CONFIG_PATH")
+        self.config_path = env_config_path if env_config_path else config_path
         self.config = self._load_config()
         self.setup_logging()
         
         # Initialize components
-        self.monitor = ProposalandMonitor(config_path)
+        self.monitor = ProposalandMonitor(self.config_path)
         self.excel_generator = ExcelGenerator(self.config)
         self.json_generator = JSONGenerator(self.config)
         self.email_notifier = EmailNotifier(self.config)
@@ -421,8 +423,8 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(description='Proposaland Daily Scheduler')
-    parser.add_argument('--config', default='config/proposaland_config.json', 
-                       help='Path to configuration file')
+    parser.add_argument('--config', default=None, 
+                       help='Path to configuration file (default: env CONFIG_PATH or config/production.json)')
     parser.add_argument('--run-once', action='store_true', 
                        help='Run monitoring once and exit (for testing)')
     parser.add_argument('--test-email', action='store_true', 
