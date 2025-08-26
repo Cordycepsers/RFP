@@ -164,4 +164,4 @@ class WorldBankScraper(BaseScraper):
             return None
         except Exception as e:
             self.logger.error(f"Unexpected error mapping World Bank item: {e}")
-            raise
+            raise RuntimeError(f"Unexpected error mapping World Bank item: {e}. Data: {it}") from e
