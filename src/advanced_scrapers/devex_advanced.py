@@ -10,10 +10,6 @@ from datetime import datetime, timedelta
 from typing import List, Optional, Dict, Any
 from loguru import logger
 
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-
 from .base_advanced_scraper import BaseAdvancedScraper
 from scrapers.base_scraper import OpportunityData
 
