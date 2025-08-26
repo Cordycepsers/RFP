@@ -62,18 +62,17 @@ class GGGIMCPScraper:
             line = line.strip()
             
             # Look for tender titles (usually longer descriptive text)
-            if len(line) > 30 and not line.startswith('-') and not line.startswith('*'):
-                # Check if this looks like a tender title
-                if any(keyword in line.lower() for keyword in ['consultancy', 'provision', 'development', 'assessment']):
-                    if current_tender and current_tender.get('title'):
-                        tenders.append(current_tender)
-                    
-                    current_tender = {
-                        'title': line,
-                        'scraped_at': datetime.now().isoformat(),
-                        'source': 'GGGI'
-                    }
-                    in_tender_section = True
+            if len(line) > 30 and not line.startswith('-') and not line.startswith('*') and any(keyword in line.lower() for keyword in ['consultancy', 'provision', 'development', 'assessment']):
+                if current_tender and current_tender.get('title'):
+                    tenders.append(current_tender)
+
+                current_tender = {
+                    'title': line,
+                    'scraped_at': datetime.now().isoformat(),
+                    'source': 'GGGI'
+                }
+                in_tender_section = True
+
             
             # Look for deadline information
             if 'deadline for applications' in line.lower():
