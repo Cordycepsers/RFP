@@ -12,7 +12,7 @@ from google.oauth2 import service_account
 import time
 # CONFIGURATION
 LOCAL_FOLDER = './output/iucn_documents/'  # Upload IUCN documents folders
-DRIVE_FOLDER_NAME = 'IUCN_Tenders_by_Reference'  # Name for the folder in Shared Drive
+DRIVE_FOLDER_NAME = os.environ.get('DRIVE_FOLDER_NAME', 'IUCN_Tenders_by_Reference')  # Name for the folder in Shared Drive (can override via env var)
 DRIVE_ID = '0AHbM0SsjOuLRUk9PVA'  # Shared Drive ID
 SERVICE_ACCOUNT_FILE = 'google-credentials.json'  # Path to your service account credentials
 SCOPES = ['https://www.googleapis.com/auth/drive']
