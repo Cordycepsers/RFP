@@ -48,8 +48,8 @@ class IUCNAdvancedScraper:
 
     def create_tender_folder(self, tender_id, tender_title):
         """Create a local folder for the tender documents."""
-        # Create safe folder name
-        safe_title = "".join(c for c in tender_title if c.isalnum() or c in " -_")[:50].replace(" ", "_")
+        # Create safe folder name (only ASCII alphanumerics and underscores)
+        safe_title = re.sub(r'[^A-Za-z0-9_]', '_', tender_title)[:50]
         folder_name = f"{tender_id}_{safe_title}"
         folder_path = os.path.join(self.documents_dir, folder_name)
         os.makedirs(folder_path, exist_ok=True)
