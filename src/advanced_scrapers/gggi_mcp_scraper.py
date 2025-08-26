@@ -153,13 +153,12 @@ class GGGIMCPScraper:
         found_keywords = []
         total_matches = 0
         
-        import re
         for keyword in self.media_keywords:
-            # Use word boundaries to avoid false positives like "ui" in "Guinea"
-            pattern = r'\b' + re.escape(keyword.lower()) + r'\b'
-            if re.search(pattern, text_to_analyze):
+            # Use pre-compiled regex pattern for each keyword
+            pattern = self.media_keyword_patterns[keyword]
+            if pattern.search(text_to_analyze):
                 found_keywords.append(keyword)
-                total_matches += len(re.findall(pattern, text_to_analyze))
+                total_matches += len(pattern.findall(text_to_analyze))
         
         if not found_keywords:
             return False, 0.0, []
