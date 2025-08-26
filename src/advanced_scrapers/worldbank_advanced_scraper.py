@@ -7,12 +7,18 @@ import sys
 import os
 from datetime import datetime
 from loguru import logger
+from playwright.sync_api import Error as PlaywrightError, TimeoutError as PlaywrightTimeoutError
 from .base_advanced_scraper import BaseAdvancedScraper
 
 class WorldBankAdvancedScraper(BaseAdvancedScraper):
     """
     Scraper for World Bank procurement opportunities using Playwright MCP.
     """
+    
+    def scrape_opportunities(self):
+        """Main entry point for scraping opportunities."""
+        return self.scrape_with_playwright()
+    
     def _scrape_with_mcp(self):
         from playwright.sync_api import sync_playwright
         opportunities = []
@@ -64,10 +70,21 @@ class WorldBankAdvancedScraper(BaseAdvancedScraper):
                                 opportunities.append(details)
                                 page.go_back()
                                 page.wait_for_timeout(1000)
+                    except PlaywrightError as pe:
+                        logger.warning(f"Playwright error processing World Bank row: {pe}")
+                        continue
+                    except PlaywrightTimeoutError as te:
+                        logger.warning(f"Timeout error processing World Bank row: {te}")
+                        continue
                     except Exception as e:
-                        logger.warning(f"Error processing row: {e}")
+                        logger.warning(f"Unexpected error processing World Bank row: {e}")
                         continue
                 browser.close()
+        except PlaywrightError as pe:
+            logger.error(f"Playwright error during World Bank scraping: {pe}")
+        except PlaywrightTimeoutError as te:
+            logger.error(f"Timeout error during World Bank scraping: {te}")
         except Exception as e:
-            logger.error(f"World Bank Playwright scraping failed: {e}")
+            logger.error(f"Unexpected error during World Bank scraping: {e}")
+            raise RuntimeError("Unexpected error during World Bank scraping operation") from e
         return opportunities

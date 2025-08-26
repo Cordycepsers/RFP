@@ -11,6 +11,7 @@ import re
 import time
 
 import requests
+from requests.exceptions import RequestException, Timeout, ConnectionError, HTTPError
 
 from .base_scraper import OpportunityData, BaseScraper
 
@@ -65,9 +66,24 @@ class WorldBankScraper(BaseScraper):
                             break
                     if data is None:
                         break
-                except Exception as e:
-                    self.logger.error(f"Failed to fetch/parse World Bank JSON: {e}")
+                except Timeout as te:
+                    self.logger.error(f"Timeout error fetching World Bank data: {te}")
                     break
+                except ConnectionError as ce:
+                    self.logger.error(f"Connection error with World Bank API: {ce}")
+                    break
+                except HTTPError as he:
+                    self.logger.error(f"HTTP error from World Bank API: {he}")
+                    break
+                except RequestException as re:
+                    self.logger.error(f"Request error with World Bank API: {re}")
+                    break
+                except ValueError as ve:
+                    self.logger.error(f"JSON parsing error for World Bank data: {ve}")
+                    break
+                except Exception as e:
+                    self.logger.error(f"Unexpected error fetching/parsing World Bank JSON: {e}")
+                    raise e
 
                 items = self._extract_items_from_api(data)
                 if not items:
@@ -86,8 +102,13 @@ class WorldBankScraper(BaseScraper):
                 start += self.results_per_page
                 if page < self.max_pages - 1:
                     time.sleep(self.request_delay)
+        except RequestException as re:
+            self.logger.error(f"Network error while scraping World Bank: {re}")
+        except ValueError as ve:
+            self.logger.error(f"Data processing error while scraping World Bank: {ve}")
         except Exception as e:
-            self.logger.error(f"Error scraping World Bank: {e}")
+            self.logger.error(f"Unexpected error scraping World Bank: {e}")
+            raise
 
         self.logger.info(f"World Bank scraping completed. Found {len(opportunities)} relevant opportunities")
         return opportunities
@@ -104,8 +125,8 @@ class WorldBankScraper(BaseScraper):
                 # Fallback: if top-level is dict of items
                 if all(isinstance(v, dict) for v in data.values()):
                     return list(data.values())
-        except Exception:
-            pass
+        except (KeyError, TypeError, ValueError) as e:
+            self.logger.debug(f"Error extracting World Bank API items: {e}")
         return []
 
     def _map_api_item_to_opportunity(self, it: Dict[str, Any]) -> Optional[OpportunityData]:
@@ -126,18 +147,21 @@ class WorldBankScraper(BaseScraper):
             if pub:
                 try:
                     opp.extracted_date = datetime.fromisoformat(pub)  # if iso
-                except Exception:
+                except (ValueError, TypeError):
                     # Common WB formats
                     for fmt in ['%B %d, %Y', '%b %d, %Y', '%d-%b-%Y', '%Y-%m-%d']:
                         try:
                             opp.extracted_date = datetime.strptime(str(pub), fmt)
                             break
-                        except Exception:
+                        except (ValueError, TypeError):
                             continue
             # Keywords and budget
             opp.keywords_found = self.extract_keywords(f"{opp.title} {opp.description}")
             # No budget/deadline in API usually
             return opp
-        except Exception as e:
-            self.logger.warning(f"Failed to map World Bank item: {e}")
+        except (KeyError, TypeError, ValueError, AttributeError) as e:
+            self.logger.warning(f"Data mapping error for World Bank item: {e}")
             return None
+        except Exception as e:
+            self.logger.error(f"Unexpected error mapping World Bank item: {e}")
+            raise RuntimeError(f"Unexpected error mapping World Bank item: {e}. Data: {it}") from e

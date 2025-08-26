@@ -11,7 +11,7 @@ from typing import List, Optional, Dict, Any
 from loguru import logger
 
 from .base_advanced_scraper import BaseAdvancedScraper
-from ..scrapers.base_scraper import OpportunityData
+from scrapers.base_scraper import OpportunityData
 
 
 class DevexAdvancedScraper(BaseAdvancedScraper):
