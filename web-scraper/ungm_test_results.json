@@ -1,0 +1,56 @@
+{
+  "total_items_found": 15,
+  "sample_projects": [
+    {
+      "title": "Acuerdo a Largo Plazo para la provisi\u00f3n de servicios de Internet para la Oficina",
+      "organization": "UNDP",
+      "deadline": "03-Sep-2025 15:33 (GMT -4.00)",
+      "published": "28-Jul-2025",
+      "reference": "UNDP-GNQ-00123",
+      "type": "Invitation to bid",
+      "country": "Equatorial Guinea",
+      "clickTarget": "https://www.ungm.org/Public/Notice/273637"
+    },
+    {
+      "title": "Provision de Vestuario y Lnceria en el marco del plan de mejora urgente de lo",
+      "organization": "UNDP",
+      "deadline": "03-Sep-2025 15:41 (GMT -4.00)",
+      "published": "13-Aug-2025",
+      "reference": "UNDP-GNQ-00125",
+      "type": "Not set",
+      "country": "Equatorial Guinea",
+      "clickTarget": "https://www.ungm.org/Public/Notice/275384"
+    },
+    {
+      "title": "Conference Venue and Related Services for UNDP GPCG Event in Oslo",
+      "organization": "UNDP",
+      "deadline": "03-Sep-2025 16:00 (GMT -4.00)",
+      "published": "31-Jul-2025",
+      "reference": "UNDP-HQ-01791,2",
+      "type": "Not set",
+      "country": "Norway",
+      "clickTarget": "https://www.ungm.org/Public/Notice/274154"
+    },
+    {
+      "title": "CI-018-2025 Inf. diag. aplicar mod. dem. pagos biom. a muj. jefas hogar La Vega",
+      "organization": "UNDP",
+      "deadline": "03-Sep-2025 16:00 (GMT -4.00)",
+      "published": "12-Aug-2025",
+      "reference": "UNDP-DOM-00539,1",
+      "type": "Not set",
+      "country": "Dominican Republic",
+      "clickTarget": "https://www.ungm.org/Public/Notice/275285"
+    },
+    {
+      "title": "Monitoramento e montagem da Blue Zone da COP30 com foco no Segmento de L\u00edderes",
+      "organization": "UNDP",
+      "deadline": "03-Sep-2025 16:00 (GMT -4.00)",
+      "published": "20-Aug-2025",
+      "reference": "UNDP-BRA-00915",
+      "type": "Not set",
+      "country": "Brazil",
+      "clickTarget": "https://www.ungm.org/Public/Notice/276097"
+    }
+  ],
+  "test_timestamp": 12.671299541
+}

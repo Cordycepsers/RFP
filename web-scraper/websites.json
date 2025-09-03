@@ -20,6 +20,7 @@
       "selectors": {
         "listContainer": "[data-testid='funding-opportunity']",
         "listItems": {
+          "container": "[data-testid='funding-opportunity']",
           "title": ".opportunity-title h3",
           "funder": ".funder-info .organization-name",
           "country": ".location-info",
@@ -106,7 +107,7 @@
           {
             "step": 1,
             "action": "click_authentication_link",
-            "selector": "a:contains('this link'), a[href*='auth'], .auth-link",
+            "selector": "a[href*='auth'], .auth-link",
             "description": "Click 'this link' to authenticate for document access",
             "opensNewTab": true,
             "waitAfterClick": 3000
@@ -114,7 +115,7 @@
           {
             "step": 2,
             "action": "click_document_list",
-            "selector": "a:contains('Negotiation Document(s)'), .negotiation-docs, a[href*='negotiation']",
+            "selector": ".negotiation-docs, a[href*='negotiation'], a[href*='document']",
             "description": "Click 'Negotiation Document(s)' to open document list",
             "opensNewTab": true,
             "waitAfterClick": 2000
@@ -167,17 +168,39 @@
       "url": "https://www.ungm.org/Public/Notice",
       "priority": "high",
       "requiresLogin": false,
+      "extractionMethod": "search_form_then_extract",
+      "searchForm": {
+        "enabled": true,
+        "submitButton": "button:has-text('Search'), input[value*='Search']",
+        "waitAfterSubmit": 5000
+      },
       "selectors": {
-        "listContainer": ".opportunities-list, .tender-list, table tbody, .notice-list",
+        "listContainer": "#tblNotices .tableBody",
         "listItems": {
-          "container": ".opportunity-item, .tender-item, tr, .notice-item",
-          "title": ".opportunity-title, .tender-title, h3, h4, td:first-child a, .notice-title",
-          "organization": ".organization, .client, .funder, td:nth-child(2), .org",
-          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3), .close-date",
-          "published": ".published, .posted, .date, td:nth-child(4), .pub-date",
-          "reference": ".reference, .ref-no, .tender-ref, td:nth-child(5), .notice-ref",
-          "clickTarget": ".title a, .opportunity-title a, .view-details, td:first-child a"
+          "container": ".tableRow.dataRow.notice-table",
+          "title": ".resultTitle .ungm-title",
+          "organization": ".resultAgency span",
+          "deadline": ".deadline span",
+          "published": ".tableCell:nth-child(4) span",
+          "reference": ".resultInfo1[data-description='Reference'] span",
+          "type": ".tableCell:nth-child(6) span",
+          "country": ".tableCell:nth-child(8) span",
+          "clickTarget": "a[href*='/Public/Notice/']"
         }
+      },
+      "keywordFiltering": {
+        "enabled": true,
+        "keywords": [
+          "video", "photo", "film", "multimedia", "podcast", "animation",
+          "audiovisual", "media", "communication", "production", "graphic",
+          "design", "branding", "creative", "advertising", "marketing",
+          "documentary", "broadcasting", "digital", "content", "visualization",
+          "photography", "filming", "editing", "post-production", "cinematography",
+          "social media", "website", "web development", "mobile app", "software"
+        ],
+        "searchFields": ["title"],
+        "matchType": "any",
+        "caseSensitive": false
       }
     },
     {
@@ -374,16 +397,32 @@
       "priority": "high",
       "requiresLogin": false,
       "selectors": {
-        "listContainer": ".content-list, .job-list, .tender-list, table tbody",
+        "listContainer": "main, .content, body",
         "listItems": {
-          "container": ".content-item, .job-item, .tender-item, tr",
-          "title": ".content-title, .job-title, .tender-title, h3, h4, td:first-child a",
-          "organization": ".organization, .source, .client, .org, td:nth-child(2)",
-          "deadline": ".deadline, .closing-date, .expires, .due-date, td:nth-child(3)",
-          "published": ".published, .posted, .date, .post-date, td:nth-child(4)",
-          "reference": ".reference, .ref-no, .job-ref, td:nth-child(5)",
-          "clickTarget": ".title a, .content-title a, .view-details, td:first-child a"
+          "container": "article",
+          "title": ".rw-river-article__title a, .rw-river-article__title",
+          "organization": ".rw-entity-meta__tag-value--source",
+          "deadline": ".rw-entity-meta__tag-value--closing-date",
+          "published": ".rw-entity-meta__tag-value--date",
+          "reference": "",
+          "clickTarget": ".rw-river-article__title a"
         }
+      },
+      "keywordFiltering": {
+        "enabled": true,
+        "keywords": [
+          "video", "photo", "film", "multimedia", "podcast", "animation",
+          "audiovisual", "media", "communication", "production", "graphic",
+          "design", "branding", "creative", "advertising", "marketing",
+          "documentary", "broadcasting", "digital", "content", "visualization",
+          "photography", "filming", "editing", "post-production", "cinematography",
+          "campaign", "strategist", "developer", "web", "frontend", "backend"
+        ],
+        "searchFields": [
+          "title"
+        ],
+        "matchType": "any",
+        "caseSensitive": false
       }
     },
     {
