@@ -28,3 +28,21 @@ __pycache__/
 # OS files
 .DS_Store
 node_modules/
+
+
+# Media Procurement Platform specific
+chrome-extension/*.crx
+chrome-extension/*.pem
+service-account-key.json
+gcloud-key.json
+backend/node_modules/
+backend/.env
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+deployment/*.log
+*.backup
+*.bak
+*.tmp
+*.temp
+
