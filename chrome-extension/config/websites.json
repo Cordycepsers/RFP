@@ -1,0 +1,454 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-09-03",
+  "totalWebsites": 23,
+  "mediaKeywords": [
+    "video", "photo", "film", "multimedia", "podcast", "animation",
+    "audiovisual", "media", "communication", "production", "graphic",
+    "design", "branding", "creative", "advertising", "marketing",
+    "documentary", "broadcasting", "digital", "content", "visualization",
+    "photography", "filming", "editing", "post-production", "cinematography"
+  ],
+  "websites": [
+    {
+      "id": 1,
+      "name": "Devex Pro Funding",
+      "url": "https://www.devex.com/funding/r?filter%5Bstatuses%5D%5B%5D=forecast&filter%5Bstatuses%5D%5B%5D=open&sorting%5Border%5D=desc&sorting%5Bfield%5D=updated_at",
+      "priority": "high",
+      "requiresLogin": true,
+      "note": "Premium platform requiring subscription",
+      "selectors": {
+        "listContainer": ".funding-list, .opportunities-list, .tender-list, table tbody",
+        "listItems": {
+          "container": ".funding-item, .opportunity-item, .tender-item, tr",
+          "title": ".funding-title, .opportunity-title, .tender-title, h3, h4, td:first-child a",
+          "organization": ".organization, .client, .funder, .donor, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .due-date, td:nth-child(3)",
+          "published": ".published, .posted, .date, .issue-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .funding-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .funding-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "UNDP Procurement Notices",
+      "url": "https://procurement-notices.undp.org/",
+      "priority": "high",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".opportunities-list, .tender-list, table tbody, .procurement-list",
+        "listItems": {
+          "container": ".opportunity-item, .tender-item, tr, .procurement-item",
+          "title": ".opportunity-title, .tender-title, h3, h4, td:first-child a, .title",
+          "organization": ".organization, .client, .funder, td:nth-child(2), .org-name",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3), .due-date",
+          "published": ".published, .posted, .date, td:nth-child(4), .post-date",
+          "reference": ".reference, .ref-no, .tender-ref, td:nth-child(5), .ref",
+          "clickTarget": ".title a, .opportunity-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "UNGM UN Global Marketplace",
+      "url": "https://www.ungm.org/Public/Notice",
+      "priority": "high",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".opportunities-list, .tender-list, table tbody, .notice-list",
+        "listItems": {
+          "container": ".opportunity-item, .tender-item, tr, .notice-item",
+          "title": ".opportunity-title, .tender-title, h3, h4, td:first-child a, .notice-title",
+          "organization": ".organization, .client, .funder, td:nth-child(2), .org",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3), .close-date",
+          "published": ".published, .posted, .date, td:nth-child(4), .pub-date",
+          "reference": ".reference, .ref-no, .tender-ref, td:nth-child(5), .notice-ref",
+          "clickTarget": ".title a, .opportunity-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "name": "The Global Fund Business Opportunities",
+      "url": "https://www.theglobalfund.org/en/business-opportunities/",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".opportunities-list, .business-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".opportunity-item, .business-item, .content-item, tr",
+          "title": ".opportunity-title, .business-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .funder, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .business-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .opportunity-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "name": "IUCN Procurement - Running Tenders",
+      "url": "https://www.iucn.org/procurement/currently-running-tenders",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .procurement-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .procurement-item, .content-item, tr",
+          "title": ".tender-title, .procurement-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .department, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .tender-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "name": "DevelopmentAid.org - Media Tenders",
+      "url": "https://www.developmentaid.org/tenders/search?searchedText=video%20or%20photo%20or%20film%20or%20documentary%20or%20podcasts%20or%20animation%20or%20audiovisual&searchedFields=title",
+      "priority": "high",
+      "requiresLogin": false,
+      "note": "Pre-filtered for media keywords",
+      "selectors": {
+        "listContainer": ".search-results, .tender-list, .opportunities-list, table tbody",
+        "listItems": {
+          "container": ".search-result, .tender-item, .opportunity-item, tr",
+          "title": ".result-title, .tender-title, .opportunity-title, h3, h4, td:first-child a",
+          "organization": ".organization, .client, .funder, .org-name, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .due-date, td:nth-child(3)",
+          "published": ".published, .posted, .date, .post-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .tender-ref, .tender-id, td:nth-child(5)",
+          "clickTarget": ".title a, .result-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "name": "Norwegian Refugee Council - Procurement",
+      "url": "https://www.nrc.no/procurement/",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".procurement-list, .tender-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".procurement-item, .tender-item, .content-item, tr",
+          "title": ".procurement-title, .tender-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .country, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .proc-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .procurement-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "name": "BirdLife International - Calls for Tender",
+      "url": "https://www.birdlife.org/calls-for-tender/",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .calls-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .call-item, .content-item, tr",
+          "title": ".tender-title, .call-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .region, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .call-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "name": "Danish Refugee Council - Tenders",
+      "url": "https://pro.drc.ngo/resources/tenders/",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .resources-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .resource-item, .content-item, tr",
+          "title": ".tender-title, .resource-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .country, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .tender-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "name": "ReliefWeb - Jobs & Tenders",
+      "url": "https://reliefweb.int/jobs?type=264#content",
+      "priority": "high",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".content-list, .job-list, .tender-list, table tbody",
+        "listItems": {
+          "container": ".content-item, .job-item, .tender-item, tr",
+          "title": ".content-title, .job-title, .tender-title, h3, h4, td:first-child a",
+          "organization": ".organization, .source, .client, .org, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .due-date, td:nth-child(3)",
+          "published": ".published, .posted, .date, .post-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .job-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .content-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "name": "Heifer International - Procurement",
+      "url": "https://www.heifer.org/about-us/inside-heifer/procurement-and-contracting-services",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".procurement-list, .contracting-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".procurement-item, .contracting-item, .content-item, tr",
+          "title": ".procurement-title, .contracting-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .department, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .proc-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .procurement-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "name": "Save the Children - Tenders",
+      "url": "https://www.savethechildren.net/about-us/our-suppliers/tenders",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .supplier-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .supplier-item, .content-item, tr",
+          "title": ".tender-title, .supplier-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .country, .location, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .due, td:nth-child(3)",
+          "published": ".published, .posted, .date, .pub-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .tender-ref, .ref, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "name": "Mercy Corps - Tenders",
+      "url": "https://www.mercycorps.org/tenders",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .opportunities-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .opportunity-item, .content-item, tr",
+          "title": ".tender-title, .opportunity-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .location, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .due-date, td:nth-child(3)",
+          "published": ".published, .posted, .date, .post-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .tender-ref, .id, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "name": "International Rescue Committee - Procurement",
+      "url": "https://www.rescue.org/procurement-policies-and-bid-opportunities",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".procurement-list, .bid-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".procurement-item, .bid-item, .content-item, tr",
+          "title": ".procurement-title, .bid-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .location, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .due, td:nth-child(3)",
+          "published": ".published, .posted, .date, .issue-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .bid-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .procurement-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 15,
+      "name": "African Development Bank - Procurement",
+      "url": "https://www.afdb.org/en/about-us/corporate-procurement/procurement-notices/current-solicitations",
+      "priority": "high",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".solicitation-list, .procurement-list, .tender-list, table tbody",
+        "listItems": {
+          "container": ".solicitation-item, .procurement-item, .tender-item, tr",
+          "title": ".solicitation-title, .procurement-title, .tender-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .department, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .close, td:nth-child(3)",
+          "published": ".published, .posted, .date, .issue-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .sol-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .solicitation-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "name": "Industrial Development Corporation - Tenders",
+      "url": "https://www.idc.co.za/tenders/",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .procurement-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .procurement-item, .content-item, tr",
+          "title": ".tender-title, .procurement-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .department, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .tender-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 17,
+      "name": "Drugs for Neglected Diseases Initiative",
+      "url": "https://dndi.org/work-with-us/job-opportunities/",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".job-list, .opportunity-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".job-item, .opportunity-item, .content-item, tr",
+          "title": ".job-title, .opportunity-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .location, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .job-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .job-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "name": "GGGI Global Green Growth Institute",
+      "url": "https://in-tendhost.co.uk/gggi/aspx/Tenders/Current",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .current-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .current-item, .content-item, tr",
+          "title": ".tender-title, .current-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .institute, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .tender-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "name": "Inter-Parliamentary Union - Vacancies",
+      "url": "https://www.ipu.org/work-with-us/vacancies",
+      "priority": "low",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".vacancy-list, .job-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".vacancy-item, .job-item, .content-item, tr",
+          "title": ".vacancy-title, .job-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .union, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .vacancy-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .vacancy-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "name": "ACTED - Call for Tenders",
+      "url": "https://www.acted.org/en/call-for-tenders/",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .call-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .call-item, .content-item, tr",
+          "title": ".tender-title, .call-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .country, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .call-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "name": "Plan International - Calls for Tender",
+      "url": "https://plan-international.org/calls-tender/",
+      "priority": "medium",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".tender-list, .call-list, .content-list, table tbody",
+        "listItems": {
+          "container": ".tender-item, .call-item, .content-item, tr",
+          "title": ".tender-title, .call-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .country, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, td:nth-child(3)",
+          "published": ".published, .posted, .date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .call-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .tender-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 22,
+      "name": "World Bank - Projects & Operations Procurement",
+      "url": "https://projects.worldbank.org/en/projects-operations/procurement?srce=both",
+      "priority": "high",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".project-list, .procurement-list, .operations-list, table tbody",
+        "listItems": {
+          "container": ".project-item, .procurement-item, .operation-item, tr",
+          "title": ".project-title, .procurement-title, .operation-title, h3, h4, td:first-child a",
+          "organization": ".organization, .client, .country, .borrower, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .due, td:nth-child(3)",
+          "published": ".published, .posted, .date, .posted-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .project-id, td:nth-child(5)",
+          "clickTarget": ".title a, .project-title a, .view-details, td:first-child a"
+        }
+      }
+    },
+    {
+      "id": 23,
+      "name": "Asian Development Bank - Procurement",
+      "url": "https://www.adb.org/business/institutional-procurement/notices",
+      "priority": "high",
+      "requiresLogin": false,
+      "selectors": {
+        "listContainer": ".procurement-list, .notice-list, .business-list, table tbody",
+        "listItems": {
+          "container": ".procurement-item, .notice-item, .business-item, tr",
+          "title": ".procurement-title, .notice-title, .business-title, h3, h4, td:first-child",
+          "organization": ".organization, .client, .borrower, .country, td:nth-child(2)",
+          "deadline": ".deadline, .closing-date, .expires, .due-date, td:nth-child(3)",
+          "published": ".published, .posted, .date, .issue-date, td:nth-child(4)",
+          "reference": ".reference, .ref-no, .notice-ref, td:nth-child(5)",
+          "clickTarget": ".title a, .procurement-title a, .view-details, td:first-child a"
+        }
+      }
+    }
+  ]
+}
+
