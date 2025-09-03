@@ -1,8 +1,9 @@
 {
-  "manifest_version": 3,
-  "name": "Media Procurement Collector",
-  "version": "1.0.0",
-  "description": "Automated media procurement opportunity collection from international development organizations",
+
+ "manifest_version": 3,
+   "name": "Media Procurement Collector",
+   "version": "1.0.0",
+   "description": "Automated media procurement opportunity collection from international development organizations",
   
   "permissions": [
     "activeTab",
@@ -58,4 +59,3 @@
     }
   ]
 }
-
