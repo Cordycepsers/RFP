@@ -10,7 +10,10 @@ proposaland.env
 logs/
 output/
 *.xlsx
-*.json
+# Only ignore specific JSON files, not all JSON files
+config/*.json
+data/*.json
+output/*.json
 
 # Runtime artifacts
 proposaland.pid
