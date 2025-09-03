@@ -68,12 +68,14 @@ Required environment variables:
 
 ## 📊 Target Organizations
 
-The platform monitors 10 major organizations:
+The platform monitors 23 major organizations:
 
 - **UN Agencies**: UNDP, UNGM, ReliefWeb
-- **Development Banks**: World Bank, African Development Bank
-- **Major NGOs**: Save the Children, Mercy Corps, IRC
-- **Specialized Platforms**: DevelopmentAid.org (pre-filtered)
+- **Development Banks**: World Bank, African Development Bank, Asian Development Bank
+- **Major NGOs**: Save the Children, Mercy Corps, IRC, Norwegian Refugee Council
+- **International Organizations**: IUCN, BirdLife International, GGGI, ACTED, Plan International
+- **Specialized Platforms**: Devex Pro, DevelopmentAid.org (pre-filtered)
+- **Additional Organizations**: The Global Fund, Heifer International, Danish Refugee Council, Industrial Development Corporation, Drugs for Neglected Diseases Initiative, Inter-Parliamentary Union
 
 ## 🔧 Configuration
 
