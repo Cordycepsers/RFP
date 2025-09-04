@@ -425,7 +425,7 @@ class UbuntuExcelManager {
 
     async generateFullUbuntuReport() {
         try {
-            console.log('🚀 Starting Ubuntu Webscraper Excel Report Generation...\\n');
+            console.log('🚀 Starting Ubuntu Webscraper Excel Report Generation...\n');
             
             // Initialize
             const initialized = await this.init();
