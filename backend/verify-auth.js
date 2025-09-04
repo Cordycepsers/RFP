@@ -20,7 +20,12 @@ async function verifyGoogleAuth() {
                                path.join(__dirname, 'service-account.json');
     
     if (!fs.existsSync(serviceAccountPath)) {
-      throw new Error(`Service account file not found at: ${serviceAccountPath}`);
+      throw new Error(
+        `Service account file not found at: ${serviceAccountPath}\n` +
+        `Please ensure you have created a Google Cloud service account and downloaded its JSON credentials file.\n` +
+        `You can specify the path using the GOOGLE_APPLICATION_CREDENTIALS environment variable.\n` +
+        `For instructions, see: https://cloud.google.com/iam/docs/creating-managing-service-account-keys`
+      );
     }
     
     console.log(`📁 Using service account: ${serviceAccountPath}`);
