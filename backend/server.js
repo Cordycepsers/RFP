@@ -19,7 +19,7 @@ require('dotenv').config();
 class MediaProcurementServer {
   constructor() {
     this.app = express();
-this.port = process.env.PORT || 3000;
+this.port = process.env.PORT || 8080;
     
     // Google APIs
     this.auth = null;
