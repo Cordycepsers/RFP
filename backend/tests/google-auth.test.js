@@ -7,14 +7,22 @@ const { google } = require('googleapis');
 const path = require('path');
 const fs = require('fs');
 
-describe('Google Authentication', () => {
+const path = require('path');
+const fs = require('fs');
+
+const serviceAccountPath = process.env.GOOGLE_APPLICATION_CREDENTIALS ||
+                          path.join(__dirname, '..', 'service-account.json');
+
+const serviceAccountExists = fs.existsSync(serviceAccountPath);
+
+const describeOrSkip = serviceAccountExists ? describe : describe.skip;
+
+describeOrSkip('Google Authentication', () => {
   let auth;
-  
+
   beforeAll(async () => {
     // Check if service account file exists
-    const serviceAccountPath = process.env.GOOGLE_APPLICATION_CREDENTIALS || 
-                               path.join(__dirname, '..', 'service-account.json');
-    
+    // (No need to check again, already checked above)
     if (!fs.existsSync(serviceAccountPath)) {
       throw new Error(`Service account file not found at: ${serviceAccountPath}`);
     }
