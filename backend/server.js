@@ -19,7 +19,7 @@ require('dotenv').config();
 class MediaProcurementServer {
   constructor() {
     this.app = express();
-    this.port = process.env.PORT || 8080;
+this.port = process.env.PORT || 8080;
     
     // Google APIs
     this.auth = null;
@@ -51,17 +51,13 @@ class MediaProcurementServer {
 
   async setupGoogleAuth() {
     try {
-      // Service account authentication
+      // Service account authentication using JSON file
+      const path = require('path');
+      const serviceAccountPath = process.env.GOOGLE_APPLICATION_CREDENTIALS || 
+                                 path.join(__dirname, 'service-account.json');
+      
       this.auth = new google.auth.GoogleAuth({
-        credentials: {
-          type: 'service_account',
-          project_id: process.env.GOOGLE_PROJECT_ID,
-          private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-          client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-          client_id: process.env.GOOGLE_CLIENT_ID,
-          auth_uri: 'https://accounts.google.com/o/oauth2/auth',
-          token_uri: 'https://oauth2.googleapis.com/token'
-        },
+        keyFile: serviceAccountPath,
         scopes: [
           'https://www.googleapis.com/auth/drive',
           'https://www.googleapis.com/auth/spreadsheets'
