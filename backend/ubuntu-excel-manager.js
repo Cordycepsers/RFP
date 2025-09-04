@@ -232,7 +232,7 @@ class UbuntuExcelManager {
                 }
             });
 
-            const spreadsheetId = spreadsheet.data.spreadsheetId;
+            const {spreadsheetId} = spreadsheet.data;
             
             // Move to Ubuntu reports folder
             await this.drive.files.update({
