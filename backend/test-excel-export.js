@@ -210,7 +210,7 @@ class ExcelExportTester {
                 }
             });
 
-            const spreadsheetId = spreadsheet.data.spreadsheetId;
+            const {spreadsheetId} = spreadsheet.data;
             
             // Move to folder
             await this.drive.files.update({
